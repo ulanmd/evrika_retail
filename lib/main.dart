@@ -1,4 +1,3 @@
-import 'package:evrika_retail/screens/login_screen.dart';
 import 'package:evrika_retail/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -18,12 +17,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Evrika Retail',
       theme: evrikaTheme,
-      home: LoginScreen(),
+      home: MainScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/main':
-            return PageTransition(child:
-            MainScreen(),
+            return PageTransition(child: MainScreen(),
                 duration: const Duration(milliseconds: 250),
                 type: PageTransitionType.bottomToTop,);
             break;

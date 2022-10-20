@@ -9,6 +9,22 @@ class EvrikaColors {
   static const Color kSuccessColor = Color(0xff27AE60);
   static const Color kWarningColor = Color(0xFFF2994A);
   static const Color kLightGray = Color(0xffC4C4C4);
+  static const Color kInfoBlue = Color(0xffDDEEF2);
+  static const Color kLabelGrey = Color(0xff7F7F7F);
+
+  static const Color greyText = Color(0xff7F7F7F);
+  static const Color mainOrange = Color(0xffFF7A01);
+  static const Color boxShadowColor = Color(0xffF0F0F0);
+  static const Color completedTextColor = Color(0xff05AF53);
+  static const Color inProcessColor = Color(0xff0069FF);
+  static const Color cancelledColor = Color(0xffD60000);
+  static const Color borderGreyColor = Color(0xffc4c4c4);
+
+
+  static const Color kLightGreenLabel = Color(0xffE5F4DB);
+  static const Color kLightRedLabel = Color(0xffFFCACA);
+  static const Color kLightBlueLabel = Color(0xffDDEBFF);
+  static const Color lightBlueColor = Color(0xffDDEEF2);
 
   static const Color black = Colors.black;
   static final Color white = Color.fromRGBO(255, 255, 255, 1);

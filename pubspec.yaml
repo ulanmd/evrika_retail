@@ -37,6 +37,9 @@ dependencies:
   flutter_svg: ^1.1.5
   google_fonts: ^3.0.1
   page_transition: ^2.0.9
+  scrollable_clean_calendar: ^1.4.0
+  group_button: ^5.2.2
+  crea_radio_button: ^0.6.0
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +67,7 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/img/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

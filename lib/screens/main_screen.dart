@@ -1,6 +1,9 @@
 
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/profile_bottom_modal.dart';
+import 'package:evrika_retail/screens/link_screen.dart';
+import 'package:evrika_retail/screens/orders_screen.dart';
+import 'package:evrika_retail/screens/sales_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,10 +22,10 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   // ignore: prefer_final_fields
   List<Widget> _pages = <Widget>[
-    Center(child: Text('1'),),
-    Center(child: Text('2'),),
+    OrdersScreen(),
+    SalesScreen(),
     Center(child: Text('3'),),
-    Center(child: Text('4'),)
+    LinkScreen()
   ];
 
 
@@ -106,11 +109,14 @@ class _MainScreenState extends State<MainScreen> {
             icon: SvgPicture.asset('$kAssetIcons/ic_shop.svg', color: EvrikaColors.kLightGray,),
           ),
           BottomNavigationBarItem(
-            label: 'Клиент',
+            label: 'Ccылка',
             activeIcon: SvgPicture.asset(
-              '$kAssetIcons/sales_active.svg',
+              '$kAssetIcons/link.svg', width: 16,
             ),
-            icon: SvgPicture.asset('$kAssetIcons/sales.svg'),
+            icon: SvgPicture.asset(
+              '$kAssetIcons/link.svg', width: 16,
+              color: EvrikaColors.kLightGray,
+            ),
           ),
         ],
       ),
