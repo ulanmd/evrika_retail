@@ -22,15 +22,15 @@ class SalesScreen extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontSize: 20),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           BottomDatePickerWidget(),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: EvrikaColors.kInfoBlue,
                 borderRadius: BorderRadius.all(Radius.circular(5))),
             padding: EdgeInsets.all(15),

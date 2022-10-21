@@ -29,7 +29,7 @@ class BottomDatePickerWidget extends StatelessWidget {
         child: Row(
           children: [
             SvgPicture.asset('$kAssetIcons/calendar.svg'),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Text(

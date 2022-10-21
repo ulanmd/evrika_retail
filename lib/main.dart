@@ -1,4 +1,5 @@
 import 'package:evrika_retail/screens/main_screen.dart';
+import 'package:evrika_retail/screens/online_orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -24,6 +25,11 @@ class MyApp extends StatelessWidget {
             return PageTransition(child: MainScreen(),
                 duration: const Duration(milliseconds: 250),
                 type: PageTransitionType.bottomToTop,);
+            break;
+          case '/online_order':
+            return PageTransition(child: OnlineOrderScreen(),
+              duration: const Duration(milliseconds: 250),
+              type: PageTransitionType.bottomToTop,);
             break;
           default:
             return null;

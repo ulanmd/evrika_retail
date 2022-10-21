@@ -142,11 +142,11 @@ class ProposalItemWidget extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('$kAssetIcons/sw.png'),
-                        SizedBox(
+                        SvgPicture.asset('$kAssetIcons/sw.svg'),
+                        const SizedBox(
                           width: 10,
                         ),
-                        Text(
+                        const Text(
                           '2дня : 13час : 51мин : 32сек',
                           style: TextStyle(
                             fontSize: 13,

@@ -1,3 +1,5 @@
+import 'package:evrika_retail/screens/completed_order_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:scrollable_clean_calendar/controllers/clean_calendar_controller.dart';
 
 const kAssetIcons = 'assets/icons';
@@ -15,3 +17,7 @@ final kCalendarController =  CleanCalendarController(
   // initialDateSelected: DateTime(2022, 3, 15),
   // endDateSelected: DateTime(2022, 3, 20),
 );
+
+
+final PageTransition saleDetail = PageTransition(
+    type: PageTransitionType.bottomToTop, child: CompletedOrderScreen());

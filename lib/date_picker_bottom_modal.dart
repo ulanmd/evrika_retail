@@ -42,7 +42,7 @@ class DatePickerBottomModal extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text(
+                    child: const Text(
                       'Очистить',
                       style: TextStyle(
                           color: Colors.red, fontSize: 18),
@@ -52,7 +52,7 @@ class DatePickerBottomModal extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text(
+                    child: const Text(
                       'Отмена',
                       style: TextStyle(
                           color: EvrikaColors.kPrimaryColor, fontSize: 18),

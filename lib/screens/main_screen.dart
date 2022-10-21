@@ -2,6 +2,7 @@
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/profile_bottom_modal.dart';
 import 'package:evrika_retail/screens/link_screen.dart';
+import 'package:evrika_retail/screens/online_orders_screen.dart';
 import 'package:evrika_retail/screens/orders_screen.dart';
 import 'package:evrika_retail/screens/sales_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> _pages = <Widget>[
     OrdersScreen(),
     SalesScreen(),
-    Center(child: Text('3'),),
+    OnlineOrderScreen(),
     LinkScreen()
   ];
 
