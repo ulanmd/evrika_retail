@@ -1,7 +1,9 @@
 import 'package:crea_radio_button/crea_radio_button.dart';
 import 'package:evrika_retail/bottom_date_picker.dart';
+import 'package:evrika_retail/screens/add_items_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../consts.dart';
 import '../evrika_colors.dart';
@@ -56,7 +58,10 @@ class OrdersScreen extends StatelessWidget {
           child: FloatingActionButton(
               backgroundColor: EvrikaColors.kPrimaryColor,
               onPressed: () {
-                print('pressed');
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.bottomToTop, child: const AddItemsScreen()));
               },
               child: SvgPicture.asset('$kAssetIcons/add.svg')),
         ),

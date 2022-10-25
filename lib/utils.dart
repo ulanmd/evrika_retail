@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 
+import 'consts.dart';
 import 'date_picker_bottom_modal.dart';
+import 'evrika_colors.dart';
 
 void showBottomDatePicker(context) {
   showModalBottomSheet(
@@ -10,3 +14,16 @@ void showBottomDatePicker(context) {
           borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       builder: (context) => const DatePickerBottomModal());
 }
+
+AppBar appBarWithBackBtn(context, title) => AppBar(
+  systemOverlayStyle: SystemUiOverlayStyle.dark,
+  centerTitle: true,
+  backgroundColor: Colors.transparent,
+  elevation: 0,
+  leading: IconButton(
+    icon: SvgPicture.asset('$kAssetIcons/back.svg'),
+    onPressed: () => Navigator.of(context).pop(),
+  ),
+  title: Text(title, style: TextStyle(color: EvrikaColors.darkColor),
+  ),
+);
