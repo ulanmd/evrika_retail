@@ -1,6 +1,8 @@
 import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/screens/in_process_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../evrika_colors.dart';
 import 'grey_label_widget.dart';
@@ -23,7 +25,10 @@ class ProposalItemWidget extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          print('cliked');
+          Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.bottomToTop, child: InProcessOrderScreen()));
         },
         child: Stack(
           clipBehavior: Clip.none,
