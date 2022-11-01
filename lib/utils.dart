@@ -1,3 +1,4 @@
+import 'package:evrika_retail/edit_order_bottom_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,10 +16,24 @@ void showBottomDatePicker(context) {
       builder: (context) => const DatePickerBottomModal());
 }
 
+
+void showEditOrder(context) {
+  showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+      builder: (context) => Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: const EditOrderBottomModal(),
+      ));
+}
+
 AppBar appBarWithBackBtn(context, title) => AppBar(
   systemOverlayStyle: SystemUiOverlayStyle.dark,
   centerTitle: true,
   backgroundColor: Colors.transparent,
+
   elevation: 0,
   leading: IconButton(
     icon: SvgPicture.asset('$kAssetIcons/back.svg'),

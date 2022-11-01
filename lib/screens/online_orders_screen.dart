@@ -1,4 +1,4 @@
-import 'package:evrika_retail/grey_label_widget.dart';
+import 'package:evrika_retail/widgets/grey_label_widget.dart';
 import 'package:flutter/material.dart';
 
 class OnlineOrderScreen extends StatelessWidget {

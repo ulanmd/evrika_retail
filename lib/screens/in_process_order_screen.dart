@@ -1,12 +1,13 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:evrika_retail/add_item_btn_group.dart';
 import 'package:evrika_retail/extend_time_widget.dart';
+import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:flutter/material.dart';
 
 import '../about_order_row.dart';
 import '../evrika_colors.dart';
-import '../grey_label.dart';
+import '../widgets/grey_label.dart';
 import '../item_block_widget.dart';
 
 class InProcessOrderScreen extends StatelessWidget {
@@ -15,6 +16,7 @@ class InProcessOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //resizeToAvoidBottomInset: true,
       appBar: appBarWithBackBtn(context, 'Заявка #123'),
       body: SingleChildScrollView(
         child: Padding(
@@ -134,11 +136,7 @@ class InProcessOrderScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Итоговая сумма:', style: TextStyle(fontSize: 13),),
-                        Text(
-                          '100 000₸',
-                          style:
-                          TextStyle(fontSize: 14, color: EvrikaColors.mainOrange),
-                        ),
+                        PriceLabel(price: '100 000')
                       ],
                     ),
                   ],

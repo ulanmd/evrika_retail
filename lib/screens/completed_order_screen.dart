@@ -2,7 +2,8 @@ import 'package:dotted_line/dotted_line.dart';
 import 'package:evrika_retail/about_order_row.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/evrika_colors.dart';
-import 'package:evrika_retail/grey_label_widget.dart';
+import 'package:evrika_retail/widgets/grey_label_widget.dart';
+import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -142,11 +143,7 @@ class CompletedOrderScreen extends StatelessWidget {
                         'Итоговая сумма:',
                         style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        '100 000₸',
-                        style: TextStyle(
-                            fontSize: 14, color: EvrikaColors.mainOrange, fontWeight: FontWeight.bold),
-                      ),
+                      PriceLabel(price: '100 000')
                     ],
                   ),
                 ],

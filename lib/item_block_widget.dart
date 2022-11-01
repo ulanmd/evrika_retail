@@ -1,12 +1,14 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:evrika_retail/screens/discount_info_row.dart';
+import 'package:evrika_retail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
 
 import 'evrika_colors.dart';
-import 'grey_label.dart';
+import 'widgets/grey_label.dart';
 
 class ItemBlockWidget extends StatelessWidget {
   const ItemBlockWidget({Key? key, this.isOnProcess = false}) : super(key: key);
@@ -153,24 +155,22 @@ class ItemBlockWidget extends StatelessWidget {
                         child: SvgPicture.asset('$kAssetIcons/delete.svg')),
                       SizedBox(width: 20,),
                       InkWell(
-                          onTap: (){},
+                          onTap: (){
+                            showEditOrder(context);
+                          },
                           child: SvgPicture.asset('$kAssetIcons/edit.svg')),
                   ],
                 ) : Container(),
                 Spacer(),
                 Text('2 шт', style: TextStyle(fontWeight: FontWeight.bold),),
                 SizedBox(
-                  width: 10,
+                  width: 5,
                 ),
                 Text('x'),
                 SizedBox(
-                  width: 10,
+                  width: 5,
                 ),
-                Text(
-                  '100 000₸',
-                  style:
-                      TextStyle(fontSize: 14, color: EvrikaColors.mainOrange, fontWeight: FontWeight.bold),
-                ),
+                PriceLabel(price: '100 000')
               ],
             ),
           )

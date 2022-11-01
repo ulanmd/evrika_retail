@@ -1,4 +1,4 @@
-import 'package:evrika_retail/grey_label.dart';
+import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:evrika_retail/screens/completed_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';

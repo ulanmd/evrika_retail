@@ -5,8 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../evrika_colors.dart';
-import 'grey_label_widget.dart';
-import 'label_stack_widget.dart';
+import 'widgets/grey_label_widget.dart';
+import 'widgets/label_stack_widget.dart';
 
 class ProposalItemWidget extends StatelessWidget {
   const ProposalItemWidget(

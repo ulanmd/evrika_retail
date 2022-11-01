@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'evrika_colors.dart';
+import '../evrika_colors.dart';
 
 class GreyLabel extends StatelessWidget {
   const GreyLabel({Key? key, required this.text}) : super(key: key);

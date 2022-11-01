@@ -14,7 +14,7 @@ class ExtendTimeWidget extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: EvrikaColors.boxShadowColor),
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 26),
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

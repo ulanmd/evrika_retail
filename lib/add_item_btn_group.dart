@@ -19,7 +19,6 @@ class AddItemBtnGroup extends StatelessWidget {
                   border: Border.all(color: EvrikaColors.kPrimaryColor),
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(5),
                       bottomLeft: Radius.circular(5)),
-                  color: Colors.white,
                 ),
               child: Icon(Icons.search, color: EvrikaColors.kPrimaryColor,)
             ),
@@ -35,7 +34,6 @@ class AddItemBtnGroup extends StatelessWidget {
                     top: BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
                     bottom: BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
                   ),
-                  color: Colors.white,
                 ),
                 child: Icon(Icons.qr_code_outlined, color: EvrikaColors.kPrimaryColor,)
             ),
@@ -50,7 +48,6 @@ class AddItemBtnGroup extends StatelessWidget {
                   border: Border.all(color: EvrikaColors.kPrimaryColor),
                   borderRadius: BorderRadius.only(topRight: Radius.circular(5),
                       bottomRight: Radius.circular(5)),
-                  color: Colors.white,
                 ),
                 child: Icon(Icons.category_outlined, color: EvrikaColors.kPrimaryColor,)
             ),

@@ -26,6 +26,7 @@ class EvrikaColors {
   static const Color kLightRedLabel = Color(0xffFFCACA);
   static const Color kLightBlueLabel = Color(0xffDDEBFF);
   static const Color lightBlueColor = Color(0xffDDEEF2);
+  static const Color otherRedColor = Color(0xffff0000);
 
   static const Color black = Colors.black;
   static final Color white = Color.fromRGBO(255, 255, 255, 1);
