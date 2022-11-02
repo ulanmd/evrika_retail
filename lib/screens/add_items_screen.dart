@@ -15,18 +15,47 @@ class AddItemsScreen extends StatelessWidget {
       appBar: appBarWithBackBtn(context, 'Выбор товаров'),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-        AddItemBtnGroup(),
-            SizedBox(height: 80,),
-            SvgPicture.asset('$kAssetIcons/nothing_was_added.svg'),
-            SizedBox(height: 30,),
-            const Text('Нет добавленных товаров', style: TextStyle(
-              color: EvrikaColors.kPrimaryColor,
-              fontSize: 20
-            ),)
-          ],
-        ),
+        child:
+            Column(
+              children: [
+                AddItemBtnGroup(),
+                SizedBox(
+                  height: 80,
+                ),
+                SvgPicture.asset('$kAssetIcons/nothing_was_added.svg'),
+                SizedBox(
+                  height: 30,
+                ),
+                const Text(
+                  'Нет добавленных товаров',
+                  style: TextStyle(color: EvrikaColors.kPrimaryColor, fontSize: 20),
+                ),
+              ],
+            ),
+        //     Column(
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: [
+        //     AddItemBtnGroup(),
+        //     SizedBox(
+        //       height: 30,
+        //     ),
+        //     Text(
+        //       'Добавленные товары',
+        //       style: TextStyle(color: EvrikaColors.darkColor, fontSize: 20),
+        //     ),
+        //     SizedBox(
+        //       height: 30,
+        //     ),
+        //     AddedItemWidget(),
+        //     SizedBox(
+        //       height: 30,
+        //     ),
+        //     ElevatedButton(
+        //       onPressed: () {},
+        //       child: Text('Создать заявку'),
+        //     )
+        //   ],
+        // ),
       ),
     );
   }

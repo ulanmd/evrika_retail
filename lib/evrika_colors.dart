@@ -11,6 +11,7 @@ class EvrikaColors {
   static const Color kLightGray = Color(0xffC4C4C4);
   static const Color kInfoBlue = Color(0xffDDEEF2);
   static const Color kLabelGrey = Color(0xff7F7F7F);
+  static const Color kSearchBarBgGrey = Color(0xffF8F8F8);
 
   static const Color greyText = Color(0xff7F7F7F);
   static const Color mainOrange = Color(0xffFF7A01);

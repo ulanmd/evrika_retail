@@ -16,7 +16,6 @@ void showBottomDatePicker(context) {
       builder: (context) => const DatePickerBottomModal());
 }
 
-
 void showEditOrder(context) {
   showModalBottomSheet(
       context: context,
@@ -28,6 +27,8 @@ void showEditOrder(context) {
         child: const EditOrderBottomModal(),
       ));
 }
+
+
 
 AppBar appBarWithBackBtn(context, title) => AppBar(
   systemOverlayStyle: SystemUiOverlayStyle.dark,

@@ -1,4 +1,7 @@
+import 'package:evrika_retail/screens/category_search_screen.dart';
+import 'package:evrika_retail/screens/input_search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'evrika_colors.dart';
 
@@ -13,14 +16,27 @@ class AddItemBtnGroup extends StatelessWidget {
         Expanded(
           flex: 1,
           child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  child: InputSearchScreen(),
+                ),
+              );
+            },
             child: Container(
               padding: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(color: EvrikaColors.kPrimaryColor),
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(5),
-                      bottomLeft: Radius.circular(5)),
-                ),
-              child: Icon(Icons.search, color: EvrikaColors.kPrimaryColor,)
+              decoration: BoxDecoration(
+                border: Border.all(color: EvrikaColors.kPrimaryColor),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5),
+                    bottomLeft: Radius.circular(5)),
+              ),
+              child: Icon(
+                Icons.search,
+                color: EvrikaColors.kPrimaryColor,
+              ),
             ),
           ),
         ),
@@ -31,25 +47,43 @@ class AddItemBtnGroup extends StatelessWidget {
                 padding: EdgeInsets.all(5),
                 decoration: const BoxDecoration(
                   border: Border(
-                    top: BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
-                    bottom: BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
+                    top:
+                        BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
+                    bottom:
+                        BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
                   ),
                 ),
-                child: Icon(Icons.qr_code_outlined, color: EvrikaColors.kPrimaryColor,)
-            ),
+                child: Icon(
+                  Icons.qr_code_outlined,
+                  color: EvrikaColors.kPrimaryColor,
+                )),
           ),
         ),
         Expanded(
           flex: 1,
           child: InkWell(
-            child: Container(
-                padding: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(color: EvrikaColors.kPrimaryColor),
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(5),
-                      bottomRight: Radius.circular(5)),
+            onTap: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  child: CategorySearchScreen(),
                 ),
-                child: Icon(Icons.category_outlined, color: EvrikaColors.kPrimaryColor,)
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                border: Border.all(color: EvrikaColors.kPrimaryColor),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(5),
+                  bottomRight: Radius.circular(5),
+                ),
+              ),
+              child: Icon(
+                Icons.category_outlined,
+                color: EvrikaColors.kPrimaryColor,
+              ),
             ),
           ),
         ),

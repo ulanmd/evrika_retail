@@ -1,5 +1,6 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/widgets/item_title_label.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:evrika_retail/screens/discount_info_row.dart';
 import 'package:evrika_retail/utils.dart';
@@ -42,11 +43,7 @@ class ItemBlockWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'iPhone 13 Pro Max Blue 256GB',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-                    ),
+                    ItemTitleLabel(title: 'iPhone 13 Pro Max Blue 256GB'),
                     SizedBox(
                       height: 8,
                     ),

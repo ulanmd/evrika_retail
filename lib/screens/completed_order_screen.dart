@@ -78,18 +78,19 @@ class CompletedOrderScreen extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
-            AboutOrderRowWidget(
-              title: 'Статус брокера:',
-              widget: Text(
-                'Одобрено',
-                style: TextStyle(
-                    color: EvrikaColors.kSuccessColor,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
+            /// NOTE: Broker Status
+            // const SizedBox(
+            //   height: 15,
+            // ),
+            // AboutOrderRowWidget(
+            //   title: 'Статус брокера:',
+            //   widget: Text(
+            //     'Одобрено',
+            //     style: TextStyle(
+            //         color: EvrikaColors.kSuccessColor,
+            //         fontWeight: FontWeight.bold),
+            //   ),
+            // ),
             const SizedBox(
               height: 20,
             ),
