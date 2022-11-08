@@ -18,11 +18,7 @@ class EditOrderBottomModal extends StatelessWidget {
       //height: MediaQuery.of(context).size.height * 0.85,
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(
-              top: 20,
-              bottom: 20,
-              left: 20,
-              right: 20),
+          padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -89,7 +85,13 @@ class EditOrderBottomModal extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              ElevatedButton(onPressed: () {}, child: Text('Сохранить'))
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'Сохранить',
+                  style: TextStyle(fontSize: 17),
+                ),
+              )
             ],
           ),
         ),

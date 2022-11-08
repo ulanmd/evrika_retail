@@ -63,7 +63,10 @@ class OrdersScreen extends StatelessWidget {
                     PageTransition(
                         type: PageTransitionType.bottomToTop, child: const AddItemsScreen()));
               },
-              child: SvgPicture.asset('$kAssetIcons/add.svg')),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SvgPicture.asset('$kAssetIcons/add.svg'),
+              )),
         ),
       ]),
     );

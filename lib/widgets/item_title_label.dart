@@ -9,7 +9,9 @@ class ItemTitleLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+      style: TextStyle(fontSize: 15,
+         // fontWeight: FontWeight.w600
+      ),
     );
   }
 }

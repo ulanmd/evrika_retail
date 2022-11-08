@@ -10,7 +10,7 @@ class PriceLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text('$price ₸', style: const TextStyle(
         fontSize: 15,
-        fontWeight: FontWeight.bold,
+       // fontWeight: FontWeight.bold,
         color: EvrikaColors.mainOrange
     ),);
   }
