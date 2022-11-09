@@ -1,7 +1,10 @@
 import 'package:evrika_retail/screens/category_search_screen.dart';
 import 'package:evrika_retail/screens/input_search_screen.dart';
+import 'package:evrika_retail/screens/qr_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+
 
 import 'evrika_colors.dart';
 
@@ -43,6 +46,15 @@ class AddItemBtnGroup extends StatelessWidget {
         Expanded(
           flex: 1,
           child: InkWell(
+            onTap: (){
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  child: QRViewExample(),
+                ),
+              );
+            },
             child: Container(
                 padding: EdgeInsets.all(5),
                 decoration: const BoxDecoration(

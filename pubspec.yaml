@@ -44,6 +44,7 @@ dependencies:
   just_the_tooltip: ^0.0.12
   dropdown_button2: ^1.8.9
   webview_flutter: ^3.0.4
+  qr_code_scanner: ^1.0.1
 
 dev_dependencies:
   flutter_test:
