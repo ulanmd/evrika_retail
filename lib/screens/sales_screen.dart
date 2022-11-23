@@ -1,5 +1,5 @@
 import 'package:evrika_retail/consts.dart';
-import 'package:evrika_retail/evrika_colors.dart';
+import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/sale_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,7 +25,7 @@ class SalesScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          BottomDatePickerWidget(),
+          BottomDatePickerWidget(isRange: true, text: 'Дата',),
           const SizedBox(
             height: 30,
           ),

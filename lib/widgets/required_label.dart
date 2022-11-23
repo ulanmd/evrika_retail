@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../evrika_colors.dart';
+import '../config/evrika_colors.dart';
 import 'grey_label.dart';
 
 class RequiredLabel extends StatelessWidget {

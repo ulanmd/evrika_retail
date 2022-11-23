@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'consts.dart';
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class QuantityCounter extends StatefulWidget {
   const QuantityCounter({Key? key}) : super(key: key);

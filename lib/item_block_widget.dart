@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
 
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 import 'widgets/grey_label.dart';
 
 class ItemBlockWidget extends StatelessWidget {
@@ -62,7 +62,7 @@ class ItemBlockWidget extends StatelessWidget {
                         ),
                         Spacer(),
                         isOnProcess
-                            ?     JustTheTooltip(
+                            ? JustTheTooltip(
                           controller: tooltipController,
                           child: InkWell(
                             onTap: (){
@@ -76,7 +76,7 @@ class ItemBlockWidget extends StatelessWidget {
                                 borderRadius: BorderRadius.all(Radius.circular(5)),
                                 color: EvrikaColors.salesBgGreyColor,
                               ),
-                              child: Center(child: Text('Скидки ⓘ', style: TextStyle(color: EvrikaColors.salesTextGreyColor),)),
+                              child: Center(child: Text('Скидки ⓘ', style: TextStyle(color: EvrikaColors.salesTextGrayColor),)),
                             ),
                           ),
                           content: Padding(
@@ -138,7 +138,7 @@ class ItemBlockWidget extends StatelessWidget {
             height: 15,
           ),
           DottedLine(
-            dashColor: EvrikaColors.borderGreyColor,
+            dashColor: EvrikaColors.kLightGray,
             lineThickness: 2,
           ),
           Padding(

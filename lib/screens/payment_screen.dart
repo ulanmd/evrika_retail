@@ -1,4 +1,4 @@
-import 'package:evrika_retail/evrika_colors.dart';
+import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/screens/successfully_created_screen.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';

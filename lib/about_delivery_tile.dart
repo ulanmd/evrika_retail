@@ -1,5 +1,6 @@
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/screens/ymap_screen.dart';
+import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:evrika_retail/widgets/required_label.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'bottom_date_picker.dart';
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class AboutDeliveryTile extends StatelessWidget {
   const AboutDeliveryTile({Key? key}) : super(key: key);
@@ -59,124 +60,84 @@ class AboutDeliveryTile extends StatelessWidget {
                 toDelivery
                     ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+
                         children: [
                           SizedBox(
                             height: 10,
                           ),
-                          RequiredLabel(text: 'Адрес доставки'),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, child: YMapScreen()));
-                            },
-                            child: Container(
-                              height: 47,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  color: EvrikaColors.boxShadowColor,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      padding: EdgeInsets.all(15),
-                                      child: GreyLabel(
-                                          text: 'Выберите адрес на карте'),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 47,
-                                    padding: EdgeInsets.all(12),
-                                    height: double.infinity,
-                                    decoration: BoxDecoration(
-                                        color: EvrikaColors.lightBlueColor,
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                        )),
-                                    child: SvgPicture.asset(
-                                      '$kAssetIcons/location.svg',
-                                      width: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    GreyLabel(text: 'Дом:'),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Container(
-                                      height: 47,
-                                      child: TextField(),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    GreyLabel(text: 'Квартира:'),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Container(height: 47, child: TextField()),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+                          RequiredLabel(text: 'Выберите адрес доставки'),
                           SizedBox(
                             height: 10,
                           ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    GreyLabel(text: 'Подъезд:'),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Container(height: 47, child: TextField()),
-                                  ],
-                                ),
+                          Container(
+                            width: double.infinity,
+                            child: RadioListTile(
+                              contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                              title: Row(
+                                children: [
+                                  Expanded(child: Text("ЖК «Шахристан», 55, подъезд 1, этаж 1", style: TextStyle(fontSize: 15, color: EvrikaColors.darkColor),)),
+                                  SizedBox(width: 10,),
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                          onTap: (){
+
+                                          },
+                                          child: SvgPicture.asset('$kAssetIcons/delete.svg')),
+                                      SizedBox(width: 20,),
+                                      InkWell(
+                                          onTap: (){
+                                            showEditAddress(context);
+                                          },
+                                          child: SvgPicture.asset('$kAssetIcons/edit.svg')),
+                                    ],
+                                  )
+                                ],
                               ),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    GreyLabel(text: 'Этаж:'),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Container(height: 47, child: TextField()),
-                                  ],
-                                ),
-                              ),
-                            ],
+                              value: "male",
+                              groupValue: gender,
+                              onChanged: (value) {},
+                            ),
                           ),
+                          // InkWell(
+                          //   onTap: () {
+                          //     Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, child: YMapScreen()));
+                          //   },
+                          //   child: Container(
+                          //     height: 47,
+                          //     width: double.infinity,
+                          //     decoration: BoxDecoration(
+                          //         color: EvrikaColors.boxShadowColor,
+                          //         borderRadius:
+                          //             BorderRadius.all(Radius.circular(5))),
+                          //     child: Row(
+                          //       children: [
+                          //         Expanded(
+                          //           child: Container(
+                          //             padding: EdgeInsets.all(15),
+                          //             child: GreyLabel(
+                          //                 text: 'Выберите адрес на карте'),
+                          //           ),
+                          //         ),
+                          //         Container(
+                          //           width: 47,
+                          //           padding: EdgeInsets.all(12),
+                          //           height: double.infinity,
+                          //           decoration: BoxDecoration(
+                          //               color: EvrikaColors.lightBlueColor,
+                          //               borderRadius: BorderRadius.only(
+                          //                 topRight: Radius.circular(5),
+                          //                 bottomRight: Radius.circular(5),
+                          //               )),
+                          //           child: SvgPicture.asset(
+                          //             '$kAssetIcons/location.svg',
+                          //             width: 14,
+                          //           ),
+                          //         ),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // )
                           SizedBox(
                             height: 20,
                           ),
@@ -184,7 +145,7 @@ class AboutDeliveryTile extends StatelessWidget {
                           SizedBox(
                             height: 5,
                           ),
-                          BottomDatePickerWidget(),
+                          BottomDatePickerWidget(isRange: false, text: 'Выберите дату доставки',),
                           SizedBox(
                             height: 20,
                           ),
@@ -214,7 +175,7 @@ class AboutDeliveryTile extends StatelessWidget {
                               Container(
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: EvrikaColors.borderGreyColor,
+                                        color: EvrikaColors.kLightGray,
                                         width: 1),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
@@ -231,7 +192,7 @@ class AboutDeliveryTile extends StatelessWidget {
                               Container(
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: EvrikaColors.borderGreyColor,
+                                        color: EvrikaColors.kLightGray,
                                         width: 1),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),

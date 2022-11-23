@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../consts.dart';
-import '../evrika_colors.dart';
+import '../config/evrika_colors.dart';
 import '../proposal_item_widget.dart';
 
 class OrdersScreen extends StatelessWidget {
@@ -16,20 +16,23 @@ class OrdersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 20),
-      child: Stack(children: [
+      child: Stack(clipBehavior: Clip.none, children: [
         Column(
           children: [
-            BottomDatePickerWidget(),
+            BottomDatePickerWidget(
+              isRange: true,
+              text: 'Дата',
+            ),
             SizedBox(
               height: 12,
             ),
             Center(
               child: RadioButtonGroup(
-                  buttonHeight: 35,
+                  buttonHeight: 30,
                   buttonWidth: MediaQuery.of(context).size.width / 3.52,
                   unselectEnabled: false,
                   circular: true,
-                  mainColor: EvrikaColors.kLightGray,
+                  mainColor: EvrikaColors.salesTextGrayColor,
                   selectedColor: EvrikaColors.kPrimaryColor,
                   preSelectedIdx: 0,
                   spaceBetween: 3,
@@ -44,7 +47,7 @@ class OrdersScreen extends StatelessWidget {
                   }),
             ),
             SizedBox(
-              height: 30,
+              height: 20,
             ),
             const ProposalItemWidget(
                 type: 'inProcess',
@@ -53,15 +56,17 @@ class OrdersScreen extends StatelessWidget {
           ],
         ),
         Positioned(
-          bottom: 0,
-          right: 0,
+          bottom: -10,
+          right: -10,
           child: FloatingActionButton(
+              elevation: 4,
               backgroundColor: EvrikaColors.kPrimaryColor,
               onPressed: () {
                 Navigator.push(
                     context,
                     PageTransition(
-                        type: PageTransitionType.bottomToTop, child: const AddItemsScreen()));
+                        type: PageTransitionType.bottomToTop,
+                        child: const AddItemsScreen()));
               },
               child: Padding(
                 padding: const EdgeInsets.all(16.0),

@@ -8,7 +8,7 @@ import 'package:page_transition/page_transition.dart';
 
 import 'bottom_date_picker.dart';
 import 'consts.dart';
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class AboutInstallationTile extends StatelessWidget {
   const AboutInstallationTile({Key? key}) : super(key: key);
@@ -184,7 +184,7 @@ class AboutInstallationTile extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
-                    BottomDatePickerWidget(),
+                    BottomDatePickerWidget(isRange: false, text: 'Выберите дату доставки',),
                     SizedBox(
                       height: 20,
                     ),
@@ -214,7 +214,7 @@ class AboutInstallationTile extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: EvrikaColors.borderGreyColor,
+                                  color: EvrikaColors.kLightGray,
                                   width: 1),
                               borderRadius:
                               BorderRadius.all(Radius.circular(5))),
@@ -231,7 +231,7 @@ class AboutInstallationTile extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                               border: Border.all(
-                                  color: EvrikaColors.borderGreyColor,
+                                  color: EvrikaColors.kLightGray,
                                   width: 1),
                               borderRadius:
                               BorderRadius.all(Radius.circular(5))),

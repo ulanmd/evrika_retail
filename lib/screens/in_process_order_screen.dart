@@ -6,7 +6,7 @@ import 'package:evrika_retail/utils.dart';
 import 'package:flutter/material.dart';
 
 import '../about_order_row.dart';
-import '../evrika_colors.dart';
+import '../config/evrika_colors.dart';
 import '../show_broker_info.dart';
 import '../widgets/grey_label.dart';
 import '../item_block_widget.dart';
@@ -134,7 +134,7 @@ class InProcessOrderScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 16,),
                     DottedLine(
-                      dashColor: EvrikaColors.borderGreyColor,
+                      dashColor: EvrikaColors.kLightGray,
                       lineThickness: 2,
                     ),
                     SizedBox(height: 16,),

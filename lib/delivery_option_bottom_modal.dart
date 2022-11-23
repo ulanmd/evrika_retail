@@ -8,7 +8,7 @@ import 'package:page_transition/page_transition.dart';
 
 import 'bottom_date_picker.dart';
 import 'consts.dart';
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class DeliveryOptionsBottomModal extends StatelessWidget {
   const DeliveryOptionsBottomModal({Key? key}) : super(key: key);
@@ -41,7 +41,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                     },
                     child: SvgPicture.asset(
                       '$kAssetIcons/close.svg',
-                      color: EvrikaColors.greyText,
+                      color: EvrikaColors.kLabelGrey,
                     ),
                   )
                 ],
@@ -261,7 +261,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  BottomDatePickerWidget(),
+                  BottomDatePickerWidget(isRange: false, text: 'Дата',),
                   SizedBox(
                     height: 20,
                   ),
@@ -289,7 +289,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                             border: Border.all(
-                                color: EvrikaColors.borderGreyColor, width: 1),
+                                color: EvrikaColors.kLightGray, width: 1),
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         child: RadioListTile(
                           title: Text("17:00-21:00"),
@@ -304,7 +304,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                             border: Border.all(
-                                color: EvrikaColors.borderGreyColor, width: 1),
+                                color: EvrikaColors.kLightGray, width: 1),
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         child: RadioListTile(
                           title: Text("21:00-23:00"),

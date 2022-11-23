@@ -3,7 +3,7 @@ import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_dropdown.dart';
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class AboutItemTile extends StatelessWidget {
   const AboutItemTile({Key? key}) : super(key: key);

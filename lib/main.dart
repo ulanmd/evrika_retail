@@ -3,7 +3,7 @@ import 'package:evrika_retail/screens/online_orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'evrika_theme.dart';
+import 'config/evrika_theme.dart';
 
 void main() {
   runApp(const MyApp());

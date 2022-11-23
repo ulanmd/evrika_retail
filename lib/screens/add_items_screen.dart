@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../added_item_widget.dart';
-import '../evrika_colors.dart';
+import '../config/evrika_colors.dart';
 import '../utils.dart';
 import 'creating_order_screen.dart';
 

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../custom_dropdown.dart';
-import '../evrika_colors.dart';
+import '../config/evrika_colors.dart';
 import '../quantity_counter.dart';
 import '../widgets/grey_label.dart';
 
@@ -141,7 +141,7 @@ class _CreatingOrderScreenState extends State<CreatingOrderScreen> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: EvrikaColors.borderGreyColor,
+                                        color: EvrikaColors.kLightGray,
                                         width: 1),
                                     borderRadius: BorderRadius.circular(5),
                                   ),
@@ -208,7 +208,7 @@ class _CreatingOrderScreenState extends State<CreatingOrderScreen> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: EvrikaColors.borderGreyColor,
+                                        color: EvrikaColors.kLightGray,
                                         width: 1),
                                     borderRadius: BorderRadius.circular(5),
                                   ),

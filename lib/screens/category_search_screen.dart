@@ -1,4 +1,4 @@
-import 'package:evrika_retail/evrika_colors.dart';
+import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/item_title_label.dart';
 import 'package:flutter/material.dart';

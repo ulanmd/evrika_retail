@@ -13,15 +13,13 @@ class EvrikaColors {
   static const Color kLabelGrey = Color(0xff7F7F7F);
   static const Color kSearchBarBgGrey = Color(0xffF8F8F8);
 
-  static const Color greyText = Color(0xff7F7F7F);
   static const Color mainOrange = Color(0xffFF7A01);
   static const Color boxShadowColor = Color(0xffF0F0F0);
   static const Color completedTextColor = Color(0xff05AF53);
   static const Color inProcessColor = Color(0xff0069FF);
   static const Color cancelledColor = Color(0xffD60000);
-  static const Color borderGreyColor = Color(0xffc4c4c4);
   static const Color salesBgGreyColor = Color.fromRGBO(0, 21, 41, 0.1);
-  static const Color salesTextGreyColor = Color(0xff898C8F);
+  static const Color salesTextGrayColor = Color(0xff898C8F);
 
   static const Color kLightGreenLabel = Color(0xffE5F4DB);
   static const Color kLightRedLabel = Color(0xffFFCACA);

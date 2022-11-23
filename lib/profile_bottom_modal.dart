@@ -2,7 +2,7 @@ import 'package:evrika_retail/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class ProfileBottomModal extends StatelessWidget {
   const ProfileBottomModal({Key? key}) : super(key: key);

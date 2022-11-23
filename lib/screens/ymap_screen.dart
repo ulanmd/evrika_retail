@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../evrika_colors.dart';
+import '../config/evrika_colors.dart';
 
 class YMapScreen extends StatefulWidget {
   const YMapScreen({Key? key}) : super(key: key);
@@ -49,7 +49,7 @@ final _key = UniqueKey();
             },
           ),
           false
-              ? Center(
+              ? Center( 
             child: CircularProgressIndicator(),
           )
               : Stack(),

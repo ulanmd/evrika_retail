@@ -1,9 +1,12 @@
+import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/screens/category_search_screen.dart';
 import 'package:evrika_retail/screens/input_search_screen.dart';
+import 'package:evrika_retail/screens/qr_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class AddItemBtnGroup extends StatelessWidget {
   const AddItemBtnGroup({Key? key}) : super(key: key);
@@ -33,9 +36,10 @@ class AddItemBtnGroup extends StatelessWidget {
                     topLeft: Radius.circular(5),
                     bottomLeft: Radius.circular(5)),
               ),
-              child: Icon(
-                Icons.search,
+              child: SvgPicture.asset(
+                '$kAssetIcons/search_btn.svg',
                 color: EvrikaColors.kPrimaryColor,
+                height: 18,
               ),
             ),
           ),
@@ -43,20 +47,29 @@ class AddItemBtnGroup extends StatelessWidget {
         Expanded(
           flex: 1,
           child: InkWell(
-            child: Container(
-                padding: EdgeInsets.all(5),
-                decoration: const BoxDecoration(
-                  border: Border(
-                    top:
-                        BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
-                    bottom:
-                        BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
-                  ),
+            onTap: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  child: QrScreen(),
                 ),
-                child: Icon(
-                  Icons.qr_code_outlined,
-                  color: EvrikaColors.kPrimaryColor,
-                )),
+              );
+            },
+            child: Container(
+              padding: EdgeInsets.all(5),
+              decoration: const BoxDecoration(
+                border: Border(
+                  top: BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
+                  bottom:
+                      BorderSide(color: EvrikaColors.kPrimaryColor, width: 1),
+                ),
+              ),
+              child: SvgPicture.asset(
+                '$kAssetIcons/qr_btn.svg',
+                height: 18,
+              ),
+            ),
           ),
         ),
         Expanded(
@@ -80,9 +93,9 @@ class AddItemBtnGroup extends StatelessWidget {
                   bottomRight: Radius.circular(5),
                 ),
               ),
-              child: Icon(
-                Icons.category_outlined,
-                color: EvrikaColors.kPrimaryColor,
+              child: SvgPicture.asset(
+                '$kAssetIcons/categories.svg',
+                height: 18,
               ),
             ),
           ),

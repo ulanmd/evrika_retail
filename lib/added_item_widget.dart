@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'consts.dart';
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class AddedItemWidget extends StatelessWidget {
   const AddedItemWidget({Key? key}) : super(key: key);

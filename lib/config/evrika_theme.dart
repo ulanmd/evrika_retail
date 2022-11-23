@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +16,7 @@ AppBarTheme _appBarTheme = AppBarTheme(
 
 ElevatedButtonThemeData _elevatedButtonThemeData = ElevatedButtonThemeData(
   style: ButtonStyle(
+    elevation: MaterialStateProperty.all(0),
     minimumSize: MaterialStateProperty.all(
       Size(double.infinity, 50),
     ),
@@ -35,7 +35,7 @@ OutlinedButtonThemeData _outlinedButtonThemeData = OutlinedButtonThemeData(
   style: ButtonStyle(
     side: MaterialStateProperty.all(
       BorderSide(
-        color: EvrikaColors.kPrimaryColor,
+        color: EvrikaColors.mainOrange,
       ),
     ),
     shape: MaterialStateProperty.all(
@@ -44,7 +44,8 @@ OutlinedButtonThemeData _outlinedButtonThemeData = OutlinedButtonThemeData(
       ),
     ),
     textStyle: MaterialStateProperty.all(
-      TextStyle(fontSize: 18, fontFamily: 'Nunito'),
+      TextStyle(
+          fontSize: 18, fontFamily: 'Nunito', color: EvrikaColors.mainOrange),
     ),
   ),
 );

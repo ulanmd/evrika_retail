@@ -1,7 +1,7 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:evrika_retail/about_order_row.dart';
 import 'package:evrika_retail/consts.dart';
-import 'package:evrika_retail/evrika_colors.dart';
+import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/widgets/grey_label_widget.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';
@@ -131,7 +131,7 @@ class CompletedOrderScreen extends StatelessWidget {
                     height: 16,
                   ),
                   const DottedLine(
-                    dashColor: EvrikaColors.borderGreyColor,
+                    dashColor: EvrikaColors.kLightGray,
                     lineThickness: 2,
                   ),
                   const SizedBox(

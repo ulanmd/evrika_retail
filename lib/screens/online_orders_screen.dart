@@ -26,11 +26,14 @@ class OnlineOrderScreen extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/online_order');
-              },
-              child: Text('Найти заказ'))
+          SizedBox(
+            height: 47,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/online_order');
+                },
+                child: Text('Найти заказ')),
+          )
         ],
       ),
     );

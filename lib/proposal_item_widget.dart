@@ -1,10 +1,11 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/screens/in_process_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../evrika_colors.dart';
+import 'config/evrika_colors.dart';
 import 'widgets/grey_label_widget.dart';
 import 'widgets/label_stack_widget.dart';
 
@@ -46,12 +47,11 @@ class ProposalItemWidget extends StatelessWidget {
                       SvgPicture.asset(
                         '$kAssetIcons/order_icon.svg',
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
                           'Заявка №123',
-                          style: TextStyle(
-                              fontSize: 15, color: EvrikaColors.darkColor),
+                          style: EvrikaTextStyles.darkS15W500,
                         ),
                       )
                     ],

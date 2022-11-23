@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'consts.dart';
-import 'evrika_colors.dart';
+import 'config/evrika_colors.dart';
 
 class AboutOrderOptions extends StatelessWidget {
   const AboutOrderOptions({Key? key}) : super(key: key);
@@ -38,7 +38,7 @@ class AboutOrderOptions extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 '$kAssetIcons/location.svg',
-                color: EvrikaColors.greyText,
+                color: EvrikaColors.kLabelGrey,
                 width: 10,
               ),
               SizedBox(
