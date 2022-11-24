@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/widgets/grey_label_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class OnlineOrderScreen extends StatelessWidget {
             decoration: InputDecoration(
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                hintText: 'Введите номер заказа...'),
+                hintText: 'Введите номер заказа...', hintStyle: EvrikaTextStyles.lightGrayS15W400),
           ),
           SizedBox(
             height: 30,
@@ -32,7 +33,7 @@ class OnlineOrderScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/online_order');
                 },
-                child: Text('Найти заказ')),
+                child: Text('Найти заказ', style: EvrikaTextStyles.whiteS17W600,)),
           )
         ],
       ),

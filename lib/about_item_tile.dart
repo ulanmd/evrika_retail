@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/quantity_counter.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,9 @@ class AboutItemTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: ExpansionTile(
-        title: Text('Информация о товаре', style: TextStyle(fontSize: 17),),
+        title: Text('Информация о товаре', style: EvrikaTextStyles.darkS17W400,),
         trailing: InkWell(
-          child: Text('Показать', style: TextStyle(color: EvrikaColors.kPrimaryColor),),
+          child: Text('Показать', style: EvrikaTextStyles.primaryS15W400,),
         ),
         children: [
           Padding(
@@ -27,7 +28,7 @@ class AboutItemTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GreyLabel(text: 'Cклад:'),
+                GreyLabel(text: 'Cклад:', fontSize: 12,),
                 SizedBox(
                   height: 10,
                 ),
@@ -44,7 +45,7 @@ class AboutItemTile extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GreyLabel(text: 'Качество:'),
+                          GreyLabel(text: 'Качество:', fontSize: 12,),
                           SizedBox(
                             height: 10,
                           ),
@@ -58,7 +59,7 @@ class AboutItemTile extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GreyLabel(text: 'Количество:'),
+                          GreyLabel(text: 'Количество:', fontSize: 12,),
                           SizedBox(
                             height: 10,
                           ),

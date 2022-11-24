@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:evrika_retail/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
+
+import 'config/evrika_text_styles.dart';
 import 'consts.dart';
 import 'config/evrika_colors.dart';
 
@@ -46,7 +45,7 @@ class _BottomDatePickerWidgetState extends State<BottomDatePickerWidget> {
             Text(
               widget.text,
             //  '21.11.2022 - 23.11.2022',
-              style: TextStyle(fontSize: 15, color: EvrikaColors.kLabelGrey),
+              style: EvrikaTextStyles.lightGrayS15W400,
             ),
           ],
         ),

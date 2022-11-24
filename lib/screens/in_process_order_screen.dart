@@ -1,5 +1,6 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:evrika_retail/add_item_btn_group.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/extend_time_widget.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:evrika_retail/utils.dart';
@@ -32,7 +33,8 @@ class InProcessOrderScreen extends StatelessWidget {
                 title: 'Статус заявки:',
                 widget: Container(
                   width: 100,
-                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
                   decoration: BoxDecoration(
                       color: EvrikaColors.kLightGreenLabel,
                       borderRadius: BorderRadius.circular(5)),
@@ -40,7 +42,7 @@ class InProcessOrderScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Text(
                         'Закрыта',
-                        style: TextStyle(color: EvrikaColors.kSuccessColor, fontWeight: FontWeight.bold),
+                        style: EvrikaTextStyles.completedS10W500,
                       )),
                 ),
               ),
@@ -49,7 +51,10 @@ class InProcessOrderScreen extends StatelessWidget {
               ),
               AboutOrderRowWidget(
                 title: 'ФИО клиента:',
-                widget: Text('Erjigit Mysalov', style: TextStyle(fontWeight: FontWeight.bold),),
+                widget: Text(
+                  'Erjigit Mysalov',
+                  style: EvrikaTextStyles.darkS14W500,
+                ),
               ),
               SizedBox(
                 height: 15,
@@ -58,7 +63,7 @@ class InProcessOrderScreen extends StatelessWidget {
                 title: 'Номер телефона:',
                 widget: Text(
                   '+7 7779098756',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: EvrikaTextStyles.darkS14W500,
                 ),
               ),
               SizedBox(
@@ -66,10 +71,7 @@ class InProcessOrderScreen extends StatelessWidget {
               ),
               AboutOrderRowWidget(
                 title: 'Количество товаров:',
-                widget: Text(
-                  '2',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                widget: Text('2', style: EvrikaTextStyles.darkS14W500),
               ),
               const SizedBox(
                 height: 15,
@@ -77,34 +79,33 @@ class InProcessOrderScreen extends StatelessWidget {
               AboutOrderRowWidget(
                 title: 'Статус брокера:',
                 widget: InkWell(
-                  onTap: (){
+                  onTap: () {
                     showBrokerInfoModal(context);
                   },
                   child: Text(
                     'Одобрено ⓘ',
-                    style: TextStyle(
-                        color: EvrikaColors.kSuccessColor,
-                        fontWeight: FontWeight.bold),
+                    style: EvrikaTextStyles.completedS14W500,
                   ),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              ItemBlockWidget(isOnProcess: true,),
-              SizedBox(
-                height: 20,
+              ItemBlockWidget(
+                isOnProcess: true,
               ),
               const SizedBox(
                 height: 15,
               ),
               AddItemBtnGroup(),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 14, horizontal: 10),
                 decoration: BoxDecoration(
-                  border: Border.all(
-                      color: EvrikaColors.boxShadowColor, width: 2),
+                  border:
+                      Border.all(color: EvrikaColors.boxShadowColor, width: 2),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -112,37 +113,55 @@ class InProcessOrderScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GreyLabel(text: 'ФИО клиента:'),
-                        Text('Ержігіт Мысалов')
-                      ],
-                    ),
-                    SizedBox(height: 16,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GreyLabel(text: 'Cкидка:'),
-                        Text('Отсутствует'),
-                      ],
-                    ),
-                    SizedBox(height: 16,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GreyLabel(text: 'Бонусы:'),
+                        GreyLabel(
+                          text: 'Бонусы:',
+                          fontSize: 12,
+                        ),
                         Text('Отсутствует')
                       ],
                     ),
-                    SizedBox(height: 16,),
+                    SizedBox(
+                      height: 14,
+                    ),
                     DottedLine(
                       dashColor: EvrikaColors.kLightGray,
                       lineThickness: 2,
                     ),
-                    SizedBox(height: 16,),
+                    SizedBox(
+                      height: 14,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Итоговая сумма:', style: TextStyle(fontSize: 13),),
-                        PriceLabel(price: '100 000')
+                        Text('Итого без скидок:', style: EvrikaTextStyles.darkS13W400,),
+                        PriceLabel(price: '1 000 000', fontSize: 13, is500: true,)
+                      ],
+                    ),
+                    SizedBox(
+                      height: 14,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Cкидки:', style: EvrikaTextStyles.darkS13W400,),
+                        PriceLabel(price: '21300', fontSize: 13, is500: true,)
+                       // Text('Отсутствует'),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 14,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Итоговая с учетом скидок:',
+                          style: EvrikaTextStyles.darkS15W600,
+                        ),
+                        PriceLabel(
+                          price: '100 000',
+                          fontSize: 15,
+                        )
                       ],
                     ),
                   ],

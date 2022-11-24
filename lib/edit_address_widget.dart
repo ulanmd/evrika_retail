@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/screens/ymap_screen.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:evrika_retail/widgets/required_label.dart';
@@ -15,7 +16,7 @@ class EditAddressWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-      constraints: BoxConstraints(maxHeight: 430),
+      constraints: BoxConstraints(maxHeight: 420),
       child: Column(
         children: [
           Row(
@@ -62,7 +63,7 @@ class EditAddressWidget extends StatelessWidget {
                           child: Container(
                             padding: EdgeInsets.all(15),
                             child: GreyLabel(
-                                text: 'Выберите адрес на карте'),
+                                text: 'Выберите адрес на карте', fontSize: 12,),
                           ),
                         ),
                         Container(
@@ -93,7 +94,7 @@ class EditAddressWidget extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GreyLabel(text: 'Дом:'),
+                          GreyLabel(text: 'Дом:', fontSize: 12,),
                           SizedBox(
                             height: 5,
                           ),
@@ -111,7 +112,7 @@ class EditAddressWidget extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GreyLabel(text: 'Квартира:'),
+                          GreyLabel(text: 'Квартира:', fontSize: 12,),
                           SizedBox(
                             height: 5,
                           ),
@@ -130,7 +131,7 @@ class EditAddressWidget extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GreyLabel(text: 'Подъезд:'),
+                          GreyLabel(text: 'Подъезд:', fontSize: 12,),
                           SizedBox(
                             height: 5,
                           ),
@@ -145,7 +146,7 @@ class EditAddressWidget extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GreyLabel(text: 'Этаж:'),
+                          GreyLabel(text: 'Этаж:', fontSize: 12,),
                           SizedBox(
                             height: 5,
                           ),
@@ -156,11 +157,14 @@ class EditAddressWidget extends StatelessWidget {
                   ],
                 ),
                 Spacer(),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Добавить',
-                    style: TextStyle(fontSize: 17),
+                SizedBox(
+                  height: 40,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Добавить',
+                      style: EvrikaTextStyles.whiteS15W500,
+                    ),
                   ),
                 )
               ],

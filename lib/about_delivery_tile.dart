@@ -1,12 +1,11 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
-import 'package:evrika_retail/screens/ymap_screen.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:evrika_retail/widgets/required_label.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:page_transition/page_transition.dart';
 
 import 'bottom_date_picker.dart';
 import 'config/evrika_colors.dart';
@@ -26,12 +25,12 @@ class AboutDeliveryTile extends StatelessWidget {
       child: ExpansionTile(
         title: Text(
           'Информация о доставке',
-          style: TextStyle(fontSize: 17),
+          style: EvrikaTextStyles.darkS17W400
         ),
         trailing: InkWell(
           child: Text(
             'Показать',
-            style: TextStyle(color: EvrikaColors.kPrimaryColor),
+            style: EvrikaTextStyles.primaryS15W400,
           ),
         ),
         children: [
@@ -43,8 +42,7 @@ class AboutDeliveryTile extends StatelessWidget {
                   children: [
                     Text(
                       'Доставка',
-                      style: TextStyle(
-                          fontSize: 15, color: EvrikaColors.darkColor),
+                      style: EvrikaTextStyles.darkS15W400,
                     ),
                     Spacer(),
                     Transform.scale(
@@ -60,7 +58,6 @@ class AboutDeliveryTile extends StatelessWidget {
                 toDelivery
                     ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-
                         children: [
                           SizedBox(
                             height: 10,
@@ -75,7 +72,8 @@ class AboutDeliveryTile extends StatelessWidget {
                               contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
                               title: Row(
                                 children: [
-                                  Expanded(child: Text("ЖК «Шахристан», 55, подъезд 1, этаж 1", style: TextStyle(fontSize: 15, color: EvrikaColors.darkColor),)),
+                                  Expanded(child: Text("ЖК «Шахристан», 55, подъезд 1, этаж 1",
+                                    style: EvrikaTextStyles.darkS15W400,)),
                                   SizedBox(width: 10,),
                                   Row(
                                     children: [
@@ -97,6 +95,30 @@ class AboutDeliveryTile extends StatelessWidget {
                               value: "male",
                               groupValue: gender,
                               onChanged: (value) {},
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              side: BorderSide(
+                                color: EvrikaColors.kPrimaryColor,
+                              ),
+                            ),
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset('$kAssetIcons/plus.svg'),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  'Добавить новый адрес',
+                                  style: EvrikaTextStyles.primaryS15W400,
+                                )
+                              ],
                             ),
                           ),
                           // InkWell(
@@ -163,7 +185,7 @@ class AboutDeliveryTile extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: RadioListTile(
-                                  title: Text("11:00-17:00"),
+                                  title: Text("11:00-17:00", style: EvrikaTextStyles.darkS15W400,),
                                   value: "male",
                                   groupValue: gender,
                                   onChanged: (value) {},
@@ -180,7 +202,7 @@ class AboutDeliveryTile extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: RadioListTile(
-                                  title: Text("17:00-21:00"),
+                                  title: Text("17:00-21:00", style: EvrikaTextStyles.darkS15W400),
                                   value: "female",
                                   groupValue: gender,
                                   onChanged: (value) {},
@@ -197,7 +219,7 @@ class AboutDeliveryTile extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(5))),
                                 child: RadioListTile(
-                                  title: Text("21:00-23:00"),
+                                  title: Text("21:00-23:00", style: EvrikaTextStyles.darkS15W400),
                                   value: "other",
                                   groupValue: gender,
                                   onChanged: (value) {},
@@ -208,7 +230,7 @@ class AboutDeliveryTile extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          GreyLabel(text: 'Дополнительно'),
+                          GreyLabel(text: 'Дополнительно', fontSize: 12,),
                           SizedBox(
                             height: 5,
                           ),

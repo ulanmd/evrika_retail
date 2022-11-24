@@ -1,6 +1,6 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:flutter/material.dart';
 
-import '../config/evrika_colors.dart';
 
 class GreyLabel extends StatelessWidget {
   const GreyLabel({Key? key, required this.text}) : super(key: key);
@@ -13,7 +13,7 @@ class GreyLabel extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         text,
-        style: const TextStyle(fontSize: 12, color: EvrikaColors.kLabelGrey),
+        style: EvrikaTextStyles.labelGrayS12W400,
       ),
     );
   }

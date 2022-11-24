@@ -1,18 +1,18 @@
 import 'package:evrika_retail/config/evrika_colors.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/screens/successfully_created_screen.dart';
-import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PaymentScreen extends StatefulWidget {
-  const PaymentScreen({Key? key}) : super(key: key);
+class PaymentWidget extends StatefulWidget {
+  const PaymentWidget({Key? key}) : super(key: key);
 
   @override
-  State<PaymentScreen> createState() => _PaymentScreenState();
+  State<PaymentWidget> createState() => _PaymentWidgetState();
 }
 
-class _PaymentScreenState extends State<PaymentScreen> {
+class _PaymentWidgetState extends State<PaymentWidget> {
   @override
   Widget build(BuildContext context) {
     bool toDelivery = false;
@@ -24,9 +24,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         else
           return false;
       },
-      child: Scaffold(
-        appBar: appBarWithBackBtn(context, 'Выбор способа оплаты'),
-        body: Padding(
+      child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,15 +40,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GreyLabel(text: 'Клиент:'),
+                          GreyLabel(text: 'Клиент:', fontSize: 12,),
                           SizedBox(
                             height: 6,
                           ),
                           Text(
                             'Марина Редина',
-                            style: TextStyle(
-                                color: EvrikaColors.darkColor, fontSize: 15),
-                          )
+                            style: EvrikaTextStyles.darkS15W400,
+                          ),
                         ],
                       ),
                     ),
@@ -58,14 +55,13 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GreyLabel(text: 'Бонусы:'),
+                          GreyLabel(text: 'Бонусы:', fontSize: 12,),
                           SizedBox(
                             height: 6,
                           ),
                           Text(
                             '5000 ₸',
-                            style: TextStyle(
-                                color: EvrikaColors.kPrimaryColor, fontSize: 15),
+                            style: EvrikaTextStyles.primaryS15W400
                           ),
                         ],
                       ),
@@ -81,7 +77,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 children: [
                   Text(
                     'Партнер',
-                    style: TextStyle(color: EvrikaColors.darkColor, fontSize: 17),
+                    style: EvrikaTextStyles.darkS17W400
                   ),
                   Transform.scale(
                     scale: 0.8,
@@ -96,7 +92,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               SizedBox(
                 height: 32,
               ),
-              GreyLabel(text: 'Cпособ оплаты'),
+              GreyLabel(text: 'Cпособ оплаты', fontSize: 12,),
               SizedBox(
                 height: 10,
               ),
@@ -151,7 +147,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               SizedBox(
                 height: 30,
               ),
-              GreyLabel(text: 'ИИН клиента'),
+              GreyLabel(text: 'ИИН клиента', fontSize: 12,),
               SizedBox(
                 height: 10,
               ),
@@ -162,7 +158,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               SizedBox(
                 height: 30,
               ),
-              GreyLabel(text: 'Первоначальный взнос'),
+              GreyLabel(text: 'Первоначальный взнос', fontSize: 12,),
               SizedBox(
                 height: 10,
               ),
@@ -182,11 +178,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
                               const SuccessfullyCreatedScreen()),
                     );
                   },
-                  child: Text('Создать заяку'))
+                  child: Text('Создать заяку', style: EvrikaTextStyles.whiteS17W600,))
             ],
           ),
         ),
-      ),
+
     );
   }
 }

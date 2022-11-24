@@ -1,5 +1,5 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
-import 'package:evrika_retail/screens/discount_info_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -33,10 +33,7 @@ class ExtendTimeWidget extends StatelessWidget {
               ),
               Text(
                 '2д : 13ч : 51м : 32с',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: EvrikaColors.darkColor,
-                ),
+                style: EvrikaTextStyles.darkS15W500,
               )
             ],
           ),
@@ -159,10 +156,7 @@ Future _showDevelopingDialog(context) {
                       alignment: Alignment.center,
                       child: Text(
                         'Выберите время:',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: EvrikaColors.darkColor,
-                            fontWeight: FontWeight.bold),
+                        style: EvrikaTextStyles.darkS15W500,
                       ),
                     ),
                     SizedBox(height: 20),
@@ -280,9 +274,9 @@ Future _showDevelopingDialog(context) {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 11, horizontal: 8),
-                            child: const Text(
+                            child:  Text(
                               "Продлить резерв",
-                              style: TextStyle(height: 1, fontSize: 15),
+                              style: EvrikaTextStyles.whiteS15W500,
                             ),
                           ),
                         ),
@@ -365,10 +359,7 @@ Future _showDeReserveDialog(context) {
                       alignment: Alignment.center,
                       child: Text(
                         'Снятие с резерва',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: EvrikaColors.darkColor,
-                            fontWeight: FontWeight.bold),
+                        style: EvrikaTextStyles.darkS15W500,
                       ),
                     ),
                     SizedBox(height: 20),
@@ -402,12 +393,13 @@ Future _showDeReserveDialog(context) {
                               child: SizedBox(
                                   height: 40,
                                   child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(padding: EdgeInsets.zero),
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
                                     child: Text(
                                       'Снять с резерва',
-                                      style: TextStyle(fontSize: 14),
+                                      style: EvrikaTextStyles.whiteS15W500
                                     ),
                                   ))),
                           SizedBox(

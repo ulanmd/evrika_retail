@@ -1,6 +1,7 @@
 import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/screens/in_process_order_screen.dart';
+import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
@@ -29,17 +30,18 @@ class ProposalItemWidget extends StatelessWidget {
           Navigator.push(
               context,
               PageTransition(
-                  type: PageTransitionType.bottomToTop, child: InProcessOrderScreen()));
+                  type: PageTransitionType.bottomToTop,
+                  child: InProcessOrderScreen()));
         },
         child: Stack(
           clipBehavior: Clip.none,
           children: [
             Container(
               padding: const EdgeInsets.all(15),
-         //     margin: const EdgeInsets.symmetric(vertical: 15),
+              //     margin: const EdgeInsets.symmetric(vertical: 15),
               decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(15))),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
               child: Column(
                 children: [
                   Row(
@@ -47,7 +49,7 @@ class ProposalItemWidget extends StatelessWidget {
                       SvgPicture.asset(
                         '$kAssetIcons/order_icon.svg',
                       ),
-                       Padding(
+                      Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
                           'Заявка №123',
@@ -69,8 +71,7 @@ class ProposalItemWidget extends StatelessWidget {
                             GreyLabel(text: 'ФИО клиента'),
                             Text(
                               'Ержігіт Я.Ю',
-                              style: TextStyle(
-                                  fontSize: 12, color: EvrikaColors.darkColor),
+                              style: EvrikaTextStyles.darkS12W500,
                             ),
                           ],
                         ),
@@ -83,8 +84,7 @@ class ProposalItemWidget extends StatelessWidget {
                             GreyLabel(text: 'Номер клиента'),
                             Text(
                               '87718902343',
-                              style: TextStyle(
-                                  fontSize: 12, color: EvrikaColors.darkColor),
+                              style: EvrikaTextStyles.darkS12W500,
                             ),
                           ],
                         ),
@@ -101,15 +101,10 @@ class ProposalItemWidget extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Количество товаров',
-                              style: TextStyle(
-                                  fontSize: 10, color: EvrikaColors.kLightGray),
-                            ),
+                            GreyLabel(text: 'Количество товаров'),
                             Text(
                               '10',
-                              style: TextStyle(
-                                  fontSize: 12, color: EvrikaColors.darkColor),
+                              style: EvrikaTextStyles.darkS12W500,
                             ),
                           ],
                         ),
@@ -119,16 +114,8 @@ class ProposalItemWidget extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
-                            Text(
-                              'Итоговая сумма:',
-                              style: TextStyle(
-                                  fontSize: 10, color: EvrikaColors.kLightGray),
-                            ),
-                            Text(
-                              '5 000 000 ₸',
-                              style: TextStyle(
-                                  fontSize: 12, color: EvrikaColors.mainOrange),
-                            ),
+                            GreyLabel(text: 'Итоговая сумма:'),
+                            PriceLabel(price: '5 000 000', fontSize: 12)
                           ],
                         ),
                       ),
@@ -151,12 +138,9 @@ class ProposalItemWidget extends StatelessWidget {
                         const SizedBox(
                           width: 10,
                         ),
-                        const Text(
+                         Text(
                           '2дня : 13час : 51мин : 32сек',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: EvrikaColors.darkColor,
-                          ),
+                          style: EvrikaTextStyles.darkS13W500
                         )
                       ],
                     ),

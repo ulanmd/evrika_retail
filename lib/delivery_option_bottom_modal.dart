@@ -1,10 +1,10 @@
-import 'package:evrika_retail/screens/ymap_screen.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
+import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:evrika_retail/widgets/required_label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:page_transition/page_transition.dart';
 
 import 'bottom_date_picker.dart';
 import 'consts.dart';
@@ -20,6 +20,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
     return Container(
       constraints:
           BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.85),
+      color: Colors.white,
       //height: MediaQuery.of(context).size.height * 0.85,
       child: SingleChildScrollView(
         child: Padding(
@@ -31,8 +32,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                 children: [
                   Text(
                     'Заполнение данных о доставке',
-                    style:
-                        TextStyle(color: EvrikaColors.darkColor, fontSize: 17),
+                    style: EvrikaTextStyles.darkS20W500,
                   ),
                   Spacer(),
                   InkWell(
@@ -65,11 +65,10 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                       children: [
                         Text(
                           'iPhone 13 Pro Max',
-                          style: TextStyle(
-                              color: EvrikaColors.darkColor, fontSize: 15),
+                          style: EvrikaTextStyles.darkS15W500,
                         ),
                         Spacer(),
-                        PriceLabel(price: '300')
+                        PriceLabel(price: '300', fontSize: 15,)
                       ],
                     ),
                   )
@@ -84,7 +83,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   InkWell(
                     child: Row(
                       children: [
-                        Text('Продублировать данные'),
+                        Text('Продублировать данные', style: EvrikaTextStyles.labelGrayS15W400,),
                         SizedBox(
                           width: 5,
                         ),
@@ -125,7 +124,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      GreyLabel(text: 'Контакт №2:'),
+                      GreyLabel(text: 'Контакт №2:', fontSize: 12,),
                       SizedBox(
                         height: 5,
                       ),
@@ -138,121 +137,64 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  RequiredLabel(text: 'Адрес доставки'),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          PageTransition(
-                              type: PageTransitionType.bottomToTop,
-                              child: YMapScreen()));
-                    },
-                    child: Container(
-                      height: 47,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: EvrikaColors.boxShadowColor,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              padding: EdgeInsets.all(15),
-                              child: GreyLabel(text: 'Выберите адрес на карте'),
-                            ),
-                          ),
-                          Container(
-                            width: 47,
-                            padding: EdgeInsets.all(12),
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                                color: EvrikaColors.lightBlueColor,
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(5),
-                                  bottomRight: Radius.circular(5),
-                                )),
-                            child: SvgPicture.asset(
-                              '$kAssetIcons/location.svg',
-                              width: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            GreyLabel(text: 'Дом:'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Container(
-                              height: 47,
-                              child: TextField(),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 30,
-                      ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            GreyLabel(text: 'Квартира:'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Container(height: 47, child: TextField()),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                  RequiredLabel(text: 'Выберите адрес доставки'),
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            GreyLabel(text: 'Подъезд:'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Container(height: 47, child: TextField()),
-                          ],
+                  Container(
+                    width: double.infinity,
+                    child: RadioListTile(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                      title: Row(
+                        children: [
+                          Expanded(child: Text("ЖК «Шахристан», 55, подъезд 1, этаж 1",
+                            style: EvrikaTextStyles.darkS15W400,)),
+                          SizedBox(width: 10,),
+                          Row(
+                            children: [
+                              InkWell(
+                                  onTap: (){
+
+                                  },
+                                  child: SvgPicture.asset('$kAssetIcons/delete.svg')),
+                              SizedBox(width: 20,),
+                              InkWell(
+                                  onTap: (){
+                                    showEditAddress(context);
+                                  },
+                                  child: SvgPicture.asset('$kAssetIcons/edit.svg')),
+                            ],
+                          )
+                        ],
+                      ),
+                      value: "male",
+                      groupValue: gender,
+                      onChanged: (value) {},
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(
+                        color: EvrikaColors.kPrimaryColor,
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset('$kAssetIcons/plus.svg'),
+                        SizedBox(
+                          width: 8,
                         ),
-                      ),
-                      SizedBox(
-                        width: 30,
-                      ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            GreyLabel(text: 'Этаж:'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Container(height: 47, child: TextField()),
-                          ],
-                        ),
-                      ),
-                    ],
+                        Text(
+                          'Добавить новый адрес',
+                          style: EvrikaTextStyles.primaryS15W400,
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 20,
@@ -318,7 +260,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  GreyLabel(text: 'Дополнительно'),
+                  GreyLabel(text: 'Коментарий', fontSize: 12,),
                   SizedBox(
                     height: 5,
                   ),

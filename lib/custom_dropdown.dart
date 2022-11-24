@@ -1,6 +1,5 @@
-import 'dart:math';
-
 // import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -47,7 +46,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
             isExpanded: true,
             hint: Text(
               'Выберите',
-              style: TextStyle(color: Color.fromRGBO(0, 21, 41, 1)),
+              style: EvrikaTextStyles.darkS15W400,
             ),
             value: selectedValue,
             onChanged: (value) {
@@ -67,7 +66,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
                         child: Text(
                           item,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: Color.fromRGBO(0, 21, 41, 1)),
+                          style: EvrikaTextStyles.darkS15W400,
                         ),
                       ),
                     ],

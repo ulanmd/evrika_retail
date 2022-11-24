@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/widgets/grey_label_widget.dart';
@@ -44,69 +45,91 @@ Future showBrokerInfoModal(context) {
                 ),
                 margin: EdgeInsets.only(bottom: 20.0),
                 color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 15, right: 15),
+                          child: SvgPicture.asset(
+                            '$kAssetIcons/close.svg',
+                            color: EvrikaColors.kLabelGrey,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 30, right: 30, bottom: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            'Информация о брокере:',
-                            style: TextStyle(fontSize: 15),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Информация о брокере:',
+                              style: EvrikaTextStyles.darkS15W500,
+                            ),
+                          ),
+                          SizedBox(height: 30),
+                          Row(
+                            children: [
+                              Expanded(
+                                  flex: 1,
+                                  child: GreyLabel(text: 'Статус брокера:')),
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'Одобрено',
+                                  style: TextStyle(
+                                      color: EvrikaColors.kSuccessColor,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
                           ),
                           SizedBox(
-                            width: 60,
+                            height: 15,
                           ),
-                          InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: SvgPicture.asset(
-                                '$kAssetIcons/close.svg',
-                                color: EvrikaColors.kLabelGrey,
-                              ))
-                        ],
-                      ),
-                      SizedBox(height: 30),
-                      Row(
-                        children: [
-                          Expanded(flex: 1, child: GreyLabel(text:'Статус брокера:')),
-                          Expanded(
-                            flex: 1,
-                            child: Text(
-                              'Одобрено',
-                              style: TextStyle(
-                                  color: EvrikaColors.kSuccessColor,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                          Row(
+                            children: [
+                              Expanded(
+                                  flex: 1, child: GreyLabel(text: 'Банк:')),
+                              Expanded(flex: 1, child: Text('Halyk Bank'))
+                            ],
                           ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                  flex: 1, child: GreyLabel(text: 'Период:')),
+                              Expanded(flex: 1, child: Text('12 мес'))
+                            ],
+                          ),
+                          SizedBox(height: 20),
                         ],
                       ),
-                      SizedBox(height: 15,),
-                      Row(
-                        children: [
-                          Expanded(flex: 1, child: GreyLabel(text: 'Банк:')),
-                          Expanded(flex: 1, child: Text('Halyk Bank'))
-                        ],
-                      ),
-                      SizedBox(height: 15,),
-                      Row(
-                        children: [
-                          Expanded(flex: 1, child: GreyLabel(text: 'Период:')),
-                          Expanded(flex: 1, child: Text('12 мес'))
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      Center(
+                    ),
+                    Divider(
+                      height: 3,
+                      color: EvrikaColors.boxShadowColor,
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      child: SizedBox(
+                        height: 40,
+                        width: double.infinity,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            minimumSize: MaterialStateProperty.all(
-                              Size(147, 31),
-                            ),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5),
@@ -123,14 +146,14 @@ Future showBrokerInfoModal(context) {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 12, horizontal: 8),
                             child: const Text(
-                              "Ок, понятно",
+                              "Закрыть",
                               style: TextStyle(height: 1, fontSize: 13),
                             ),
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],

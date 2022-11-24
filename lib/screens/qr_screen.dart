@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
@@ -57,20 +58,38 @@ class QrScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Найдено:'),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Row(
                       children: [
-                        Placeholder(fallbackWidth: 50, fallbackHeight: 50,),
-                        SizedBox(width: 10,),
+                        Placeholder(
+                          fallbackWidth: 50,
+                          fallbackHeight: 50,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('iPhone 14 Pro Max 1Tb', style: TextStyle(fontSize: 15),),
-                            PriceLabel(price: '1 000 000')
+                            Text(
+                              'iPhone 14 Pro Max 1Tb',
+                              style: EvrikaTextStyles.darkS15W600,
+                            ),
+                            PriceLabel(
+                              price: '1 000 000',
+                              fontSize: 15,
+                            )
                           ],
                         ),
                         Spacer(),
-                        TextButton(onPressed: (){Navigator.pop(context);}, child: Text('Добавить'))
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: SvgPicture.asset('$kAssetIcons/plus.svg'),
+                        )
                       ],
                     ),
                   ],

@@ -1,4 +1,5 @@
 
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/profile_bottom_modal.dart';
 import 'package:evrika_retail/screens/link_screen.dart';
@@ -61,9 +62,9 @@ class _MainScreenState extends State<MainScreen> {
                 child: CircleAvatar(
                   radius: 20,
                   backgroundColor: EvrikaColors.lightBlue,
-                  child: const Text(
+                  child: Text(
                     'MД',
-                    style: TextStyle(color: EvrikaColors.darkColor),
+                    style: EvrikaTextStyles.darkS15W500,
                   ),
                 ),
               )
@@ -81,8 +82,8 @@ class _MainScreenState extends State<MainScreen> {
             _currentIndex = value;
           });
         },
-        unselectedLabelStyle: const TextStyle(fontSize: 10,),
-        selectedLabelStyle: const TextStyle(fontSize: 12,),
+        unselectedLabelStyle: EvrikaTextStyles.lightGrayS12W400,
+        selectedLabelStyle: EvrikaTextStyles.darkS12W500,
         selectedItemColor: EvrikaColors.darkColor,
         type: BottomNavigationBarType.fixed,
         items: [

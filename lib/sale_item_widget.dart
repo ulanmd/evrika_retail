@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:evrika_retail/screens/completed_order_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,8 +34,8 @@ class SaleItemWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(flex: 1, child: GreyLabel(text: 'Номер заявки:')),
-                Expanded(flex: 2, child: Text('Zayavka 123'))
+                Expanded(flex: 1, child: GreyLabel(text: 'Номер заявки:', fontSize: 12,)),
+                Expanded(flex: 2, child: Text('Zayavka 123', style: EvrikaTextStyles.darkS13W500,))
               ],
             ),
             SizedBox(
@@ -42,8 +43,8 @@ class SaleItemWidget extends StatelessWidget {
             ),
             Row(
               children: [
-                Expanded(flex: 1, child: GreyLabel(text: 'Бонусы:')),
-                Expanded(flex: 2, child: Text('300 ₸'))
+                Expanded(flex: 1, child: GreyLabel(text: 'Бонусы:', fontSize: 12,)),
+                Expanded(flex: 2, child: Text('300 ₸', style: EvrikaTextStyles.darkS13W500,))
               ],
             )
           ],

@@ -12,7 +12,7 @@ class RequiredLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        GreyLabel(text: '$text:'),
+        GreyLabel(text: '$text:', fontSize: 12,),
         Text(
           '*',
           style: TextStyle(color: EvrikaColors.otherRedColor),

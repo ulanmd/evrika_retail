@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/utils.dart';
@@ -46,7 +47,7 @@ class InputSearchScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Text('iPhone 13 Pro Max'),
+                  Text('iPhone 13 Pro Max', style: EvrikaTextStyles.darkS15W600,),
                   Spacer(),
                   SvgPicture.asset('$kAssetIcons/plus.svg')
                 ],

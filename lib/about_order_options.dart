@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/delivery_option_bottom_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,7 +21,7 @@ class AboutOrderOptions extends StatelessWidget {
               Text(
                 'Информация о доставке',
                 style:
-                    TextStyle(color: EvrikaColors.kPrimaryColor, fontSize: 13),
+                    EvrikaTextStyles.primaryS13W500,
               ),
               Spacer(),
               InkWell(
@@ -48,6 +49,7 @@ class AboutOrderOptions extends StatelessWidget {
                 child: Text(
                   'Шымкент қаласы, Байтұрсынов көшесі, 18, 3 қабат',
                   maxLines: 2,
+                  style: EvrikaTextStyles.darkS12W400,
                 ),
               )
             ],
@@ -68,7 +70,7 @@ class AboutOrderOptions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text('+7 777 202 45 54')
+                    Text('+7 777 202 45 54', style: EvrikaTextStyles.darkS12W400,)
                   ],
                 ),
               ),
@@ -83,7 +85,7 @@ class AboutOrderOptions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text('+7 777 202 45 54')
+                    Text('+7 777 202 45 54', style: EvrikaTextStyles.darkS12W400,)
                   ],
                 ),
               )
@@ -102,7 +104,7 @@ class AboutOrderOptions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Expanded(child: Text('from scrum business center'))
+                    Expanded(child: Text('from scrum business center', style: EvrikaTextStyles.darkS12W400,))
                   ],
                 ),
               ),
@@ -113,7 +115,7 @@ class AboutOrderOptions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text('17:00 - 21:00')
+                    Text('17:00 - 21:00', style: EvrikaTextStyles.darkS12W400,)
                   ],
                 ),
               )

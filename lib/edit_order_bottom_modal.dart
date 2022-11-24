@@ -1,6 +1,7 @@
 import 'package:evrika_retail/about_delivery_tile.dart';
 import 'package:evrika_retail/about_installation_tile.dart';
 import 'package:evrika_retail/about_item_tile.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
@@ -14,8 +15,7 @@ class EditOrderBottomModal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-      constraints:
-          BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.85),
+      constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.85),
       //height: MediaQuery.of(context).size.height * 0.85,
       child: Column(
         children: [
@@ -23,11 +23,11 @@ class EditOrderBottomModal extends StatelessWidget {
             children: [
               Text(
                 'Редактирование данных',
-                style: TextStyle(color: EvrikaColors.darkColor, fontSize: 20),
+                style: EvrikaTextStyles.darkS17W400,
               ),
               Spacer(),
-              TextButton(
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: SvgPicture.asset(
@@ -61,11 +61,10 @@ class EditOrderBottomModal extends StatelessWidget {
                           children: [
                             Text(
                               'iPhone 13 Pro Max',
-                              style: TextStyle(
-                                  color: EvrikaColors.darkColor, fontSize: 15),
+                              style: EvrikaTextStyles.darkS15W500,
                             ),
                             Spacer(),
-                            PriceLabel(price: '300')
+                            PriceLabel(price: '300', fontSize: 15,)
                           ],
                         ),
                       )

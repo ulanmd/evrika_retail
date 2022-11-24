@@ -1,4 +1,5 @@
 import 'package:dotted_line/dotted_line.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/widgets/item_title_label.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
@@ -76,7 +77,9 @@ class ItemBlockWidget extends StatelessWidget {
                                 borderRadius: BorderRadius.all(Radius.circular(5)),
                                 color: EvrikaColors.salesBgGreyColor,
                               ),
-                              child: Center(child: Text('Скидки ⓘ', style: TextStyle(color: EvrikaColors.salesTextGrayColor),)),
+                              child: Center(child: Text('Скидки ⓘ', style: TextStyle(
+                                  fontSize: 12,
+                                  color: EvrikaColors.salesTextGrayColor),)),
                             ),
                           ),
                           content: Padding(
@@ -113,8 +116,8 @@ class ItemBlockWidget extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            GreyLabel(text: 'Склад:'),
-                            Text('На Севере')
+                            GreyLabel(text: 'Склад:', fontSize: 10,),
+                            Text('На Севере', style: EvrikaTextStyles.darkS12W400,)
                           ],
                         ),
                         SizedBox(
@@ -123,8 +126,8 @@ class ItemBlockWidget extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            GreyLabel(text: 'Качество:'),
-                            Text('Новое')
+                            GreyLabel(text: 'Качество:', fontSize: 10,),
+                            Text('Новое', style: EvrikaTextStyles.darkS12W400)
                           ],
                         ),
                       ],
@@ -159,7 +162,7 @@ class ItemBlockWidget extends StatelessWidget {
                   ],
                 ) : Container(),
                 Spacer(),
-                Text('2 шт', style: TextStyle(fontWeight: FontWeight.bold),),
+                Text('2 шт', style: EvrikaTextStyles.darkS13W500,),
                 SizedBox(
                   width: 5,
                 ),
@@ -167,7 +170,7 @@ class ItemBlockWidget extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                PriceLabel(price: '100 000')
+                PriceLabel(price: '100 000', fontSize: 14,)
               ],
             ),
           )

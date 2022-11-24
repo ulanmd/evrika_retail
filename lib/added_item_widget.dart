@@ -1,4 +1,4 @@
-import 'package:evrika_retail/widgets/item_title_label.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -32,7 +32,7 @@ class AddedItemWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ItemTitleLabel(title: 'iPhone 13 Pro Max Blue 256GB'),
+                Text('iPhone 13 Pro Max Blue 256GB', style: EvrikaTextStyles.darkS15W500,),
                 SizedBox(
                   height: 11,
                 ),
@@ -40,7 +40,7 @@ class AddedItemWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    PriceLabel(price: '100 000'),
+                    PriceLabel(price: '100 000', fontSize: 15,),
                     SvgPicture.asset(
                       '$kAssetIcons/delete.svg',
                       width: 17,

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -70,7 +71,7 @@ class _QuantityCounterState extends State<QuantityCounter> {
                 padding: EdgeInsets.all(2),
                 child: TextField(
                   controller: _controller,
-                  style: TextStyle(fontSize: 16),
+                  style: EvrikaTextStyles.darkS15W500,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[

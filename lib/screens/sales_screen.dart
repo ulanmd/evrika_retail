@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/sale_item_widget.dart';
@@ -15,12 +16,9 @@ class SalesScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             'Ваши наработки',
-            style: TextStyle(
-                color: EvrikaColors.darkColor,
-                fontWeight: FontWeight.w500,
-                fontSize: 20),
+            style: EvrikaTextStyles.darkS20W500,
           ),
           const SizedBox(
             height: 20,
@@ -43,17 +41,16 @@ class SalesScreen extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                const Text(
+                 Text(
                   'За сегодня:',
-                  style: TextStyle(fontSize: 15, color: EvrikaColors.darkColor),
+                  style: EvrikaTextStyles.darkS13W400,
                 ),
                 const SizedBox(
                   width: 8,
                 ),
                 Text(
                   '600 ₸',
-                  style: TextStyle(
-                      fontSize: 15, color: EvrikaColors.kPrimaryColor),
+                  style: EvrikaTextStyles.primaryS13W500,
                 ),
               ],
             ),

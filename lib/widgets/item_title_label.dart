@@ -1,3 +1,4 @@
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ItemTitleLabel extends StatelessWidget {
@@ -9,9 +10,7 @@ class ItemTitleLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(fontSize: 15,
-         // fontWeight: FontWeight.w600
-      ),
+      style: EvrikaTextStyles.darkS14W400
     );
   }
 }

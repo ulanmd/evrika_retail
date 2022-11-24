@@ -1,11 +1,9 @@
 import 'package:evrika_retail/add_item_btn_group.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../added_item_widget.dart';
-import '../config/evrika_colors.dart';
 import '../utils.dart';
 import 'creating_order_screen.dart';
 
@@ -44,7 +42,7 @@ class AddItemsScreen extends StatelessWidget {
             ),
             Text(
               'Добавленные товары',
-              style: TextStyle(color: EvrikaColors.darkColor, fontSize: 20),
+              style: EvrikaTextStyles.darkS20W500,
             ),
             SizedBox(
               height: 30,
@@ -53,19 +51,22 @@ class AddItemsScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  PageTransition(
-                    type: PageTransitionType.bottomToTop,
-                    child: CreatingOrderScreen(),
-                  ),
-                );
-              },
-              child: Text(
-                'Создать заявку',
-                style: TextStyle(fontSize: 17),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.bottomToTop,
+                      child: CreatingOrderScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Создать заявку',
+                  style: TextStyle(fontSize: 17),
+                ),
               ),
             )
           ],

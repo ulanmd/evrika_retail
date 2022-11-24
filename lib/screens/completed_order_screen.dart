@@ -1,13 +1,13 @@
-import 'package:dotted_line/dotted_line.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:evrika_retail/about_order_row.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/config/evrika_colors.dart';
-import 'package:evrika_retail/widgets/grey_label_widget.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../config/evrika_text_styles.dart';
 import '../item_block_widget.dart';
 
 class CompletedOrderScreen extends StatelessWidget {
@@ -47,7 +47,7 @@ class CompletedOrderScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       'Закрыта',
-                      style: TextStyle(color: EvrikaColors.kSuccessColor, fontWeight: FontWeight.bold),
+                      style: EvrikaTextStyles.completedS10W500,
                     )),
               ),
             ),
@@ -56,7 +56,7 @@ class CompletedOrderScreen extends StatelessWidget {
             ),
             AboutOrderRowWidget(
               title: 'ФИО клиента:',
-              widget: Text('Erjigit Mysalov', style: TextStyle(fontWeight: FontWeight.bold),),
+              widget: Text('Erjigit Mysalov', style: EvrikaTextStyles.darkS14W500),
             ),
             SizedBox(
               height: 15,
@@ -65,7 +65,7 @@ class CompletedOrderScreen extends StatelessWidget {
               title: 'Номер телефона:',
               widget: Text(
                 '+7 7779098756',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: EvrikaTextStyles.darkS14W500,
               ),
             ),
             SizedBox(
@@ -75,79 +75,44 @@ class CompletedOrderScreen extends StatelessWidget {
               title: 'Количество товаров:',
               widget: Text(
                 '2',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: EvrikaTextStyles.darkS14W500,
               ),
             ),
             /// NOTE: Broker Status
-            // const SizedBox(
-            //   height: 15,
-            // ),
-            // AboutOrderRowWidget(
-            //   title: 'Статус брокера:',
-            //   widget: Text(
-            //     'Одобрено',
-            //     style: TextStyle(
-            //         color: EvrikaColors.kSuccessColor,
-            //         fontWeight: FontWeight.bold),
-            //   ),
-            // ),
+            const SizedBox(
+              height: 15,
+            ),
+            AboutOrderRowWidget(
+              title: 'Статус брокера:',
+              widget: Text(
+                'Одобрено',
+                style: EvrikaTextStyles.completedS14W500,
+              ),
+            ),
             const SizedBox(
               height: 20,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
-              decoration: BoxDecoration(
-                border:
-                    Border.all(color: EvrikaColors.boxShadowColor, width: 2),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GreyLabel(text: 'ФИО клиента:'),
-                      Text('Ержігіт Мысалов')
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      GreyLabel(text: 'Cкидка:'),
-                      Text('Отсутствует'),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [GreyLabel(text: 'Бонусы:'), Text('Отсутствует')],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const DottedLine(
-                    dashColor: EvrikaColors.kLightGray,
-                    lineThickness: 2,
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Итоговая сумма:',
-                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                      ),
-                      PriceLabel(price: '100 000')
-                    ],
-                  ),
-                ],
+            DottedBorder(
+              dashPattern: [4,],
+              color: EvrikaColors.kLightGray,
+              borderType: BorderType.RRect,
+              radius: Radius.circular(10),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Итоговая сумма:',
+                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                    ),
+                    PriceLabel(price: '100 000', fontSize: 15,)
+                  ],
+                ),
               ),
             ),
             const SizedBox(
