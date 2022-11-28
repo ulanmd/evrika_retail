@@ -18,9 +18,13 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
     bool toDelivery = true;
     String gender = "male";
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        color: Colors.white,
+      ),
       constraints:
           BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.85),
-      color: Colors.white,
+
       //height: MediaQuery.of(context).size.height * 0.85,
       child: SingleChildScrollView(
         child: Padding(
@@ -36,7 +40,7 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   ),
                   Spacer(),
                   InkWell(
-                     onTap: () {
+                    onTap: () {
                       Navigator.pop(context);
                     },
                     child: SvgPicture.asset(
@@ -68,7 +72,10 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                           style: EvrikaTextStyles.darkS15W500,
                         ),
                         Spacer(),
-                        PriceLabel(price: '300', fontSize: 15,)
+                        PriceLabel(
+                          price: '300',
+                          fontSize: 15,
+                        )
                       ],
                     ),
                   )
@@ -83,7 +90,10 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   InkWell(
                     child: Row(
                       children: [
-                        Text('Продублировать данные', style: EvrikaTextStyles.labelGrayS15W400,),
+                        Text(
+                          'Продублировать данные',
+                          style: EvrikaTextStyles.labelGrayS15W400,
+                        ),
                         SizedBox(
                           width: 5,
                         ),
@@ -124,7 +134,10 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      GreyLabel(text: 'Контакт №2:', fontSize: 12,),
+                      GreyLabel(
+                        text: 'Контакт №2:',
+                        fontSize: 12,
+                      ),
                       SizedBox(
                         height: 5,
                       ),
@@ -147,22 +160,29 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                       contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
                       title: Row(
                         children: [
-                          Expanded(child: Text("ЖК «Шахристан», 55, подъезд 1, этаж 1",
-                            style: EvrikaTextStyles.darkS15W400,)),
-                          SizedBox(width: 10,),
+                          Expanded(
+                              child: Text(
+                            "ЖК «Шахристан», 55, подъезд 1, этаж 1",
+                            style: EvrikaTextStyles.darkS15W400,
+                          )),
+                          SizedBox(
+                            width: 10,
+                          ),
                           Row(
                             children: [
                               InkWell(
-                                  onTap: (){
-
-                                  },
-                                  child: SvgPicture.asset('$kAssetIcons/delete.svg')),
-                              SizedBox(width: 20,),
+                                  onTap: () {},
+                                  child: SvgPicture.asset(
+                                      '$kAssetIcons/delete.svg')),
+                              SizedBox(
+                                width: 20,
+                              ),
                               InkWell(
-                                  onTap: (){
+                                  onTap: () {
                                     showEditAddress(context);
                                   },
-                                  child: SvgPicture.asset('$kAssetIcons/edit.svg')),
+                                  child: SvgPicture.asset(
+                                      '$kAssetIcons/edit.svg')),
                             ],
                           )
                         ],
@@ -203,7 +223,10 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  BottomDatePickerWidget(isRange: false, text: 'Дата',),
+                  BottomDatePickerWidget(
+                    isRange: false,
+                    text: 'Дата',
+                  ),
                   SizedBox(
                     height: 20,
                   ),
@@ -260,7 +283,10 @@ class DeliveryOptionsBottomModal extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  GreyLabel(text: 'Коментарий', fontSize: 12,),
+                  GreyLabel(
+                    text: 'Коментарий',
+                    fontSize: 12,
+                  ),
                   SizedBox(
                     height: 5,
                   ),

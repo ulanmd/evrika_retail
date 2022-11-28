@@ -15,7 +15,9 @@ class EditOrderBottomModal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-      constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.85),
+      // constraints: BoxConstraints.loose(Size(
+      //     MediaQuery.of(context).size.width,
+      //     MediaQuery.of(context).size.height * 0.85)),
       //height: MediaQuery.of(context).size.height * 0.85,
       child: Column(
         children: [
