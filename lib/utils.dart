@@ -25,10 +25,7 @@ void showEditOrder(context) {
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
-      builder: (context) => Padding(
-            padding: MediaQuery.of(context).viewInsets,
-            child: const EditOrderBottomModal(),
-          ));
+      builder: (context) => const EditOrderBottomModal());
 }
 
 void showEditAddress(context) {

@@ -14,88 +14,90 @@ class EditOrderBottomModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints:
+      BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.85),
       padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-      // constraints: BoxConstraints.loose(Size(
-      //     MediaQuery.of(context).size.width,
-      //     MediaQuery.of(context).size.height * 0.85)),
-      //height: MediaQuery.of(context).size.height * 0.85,
-      child: Column(
+      child: ListView(
+        shrinkWrap: true,
         children: [
-          Row(
-            children: [
-              Text(
-                'Редактирование данных',
-                style: EvrikaTextStyles.darkS17W400,
-              ),
-              Spacer(),
-              InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: SvgPicture.asset(
-                  '$kAssetIcons/close.svg',
-                  color: EvrikaColors.kLabelGrey,
-                ),
-              )
-            ],
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    children: [
-                      Placeholder(
-                        fallbackWidth: 50,
-                        fallbackHeight: 50,
-                      ),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      SizedBox(
-                        height: 50,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'iPhone 13 Pro Max',
-                              style: EvrikaTextStyles.darkS15W500,
-                            ),
-                            Spacer(),
-                            PriceLabel(price: '300', fontSize: 15,)
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  AboutItemTile(),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  AboutDeliveryTile(),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  AboutInstallationTile(),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Сохранить',
-                      style: TextStyle(fontSize: 17),
+          Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Редактирование данных',
+                      style: EvrikaTextStyles.darkS17W400,
                     ),
-                  )
-                ],
-              ),
+                    Spacer(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: SvgPicture.asset(
+                        '$kAssetIcons/close.svg',
+                        color: EvrikaColors.kLabelGrey,
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      children: [
+                        Placeholder(
+                          fallbackWidth: 50,
+                          fallbackHeight: 50,
+                        ),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        SizedBox(
+                          height: 50,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'iPhone 13 Pro Max',
+                                style: EvrikaTextStyles.darkS15W500,
+                              ),
+                              Spacer(),
+                              PriceLabel(price: '300', fontSize: 15,)
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    AboutItemTile(),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    AboutDeliveryTile(),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    AboutInstallationTile(),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Сохранить',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                    )
+                  ],
+                ),
+              ],
             ),
           ),
         ],

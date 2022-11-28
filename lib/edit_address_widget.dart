@@ -42,7 +42,7 @@ class EditAddressWidget extends StatelessWidget {
           ),
           Expanded(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+           //   mainAxisSize: MainAxisSize.min,
               children: [
                 RequiredLabel(text: 'Адрес доставки'),
                 SizedBox(height: 10,),

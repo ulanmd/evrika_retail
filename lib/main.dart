@@ -1,3 +1,4 @@
+import 'package:evrika_retail/screens/login_screen.dart';
 import 'package:evrika_retail/screens/main_screen.dart';
 import 'package:evrika_retail/screens/online_orders_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Evrika Retail',
       theme: evrikaTheme,
-      home: MainScreen(),
+      home: LoginScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/main':

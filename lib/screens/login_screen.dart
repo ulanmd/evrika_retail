@@ -1,12 +1,15 @@
 import 'dart:ui';
 
 import 'package:evrika_retail/screens/main_screen.dart';
+import 'package:evrika_retail/screens/qr_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../config/evrika_colors.dart';
+import 'login_qr_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -61,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: height * 0.08,
                   ),
-                  SvgPicture.asset('assets/icons/login3.svg'),
+                  SvgPicture.asset('assets/icons/illustration.svg'),
                   const SizedBox(
                     height: 60,
                   ),
@@ -79,7 +82,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.all(15),
                             primary: EvrikaColors.kPrimaryColor),
                         onPressed: () {
-                          Navigator.popAndPushNamed(context, '/main');
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.rightToLeft,
+                              child: LoginQrScreen(),
+                            ),
+                          );
                         },
                         child: const Text('Открыть сканнер')),
                   )
