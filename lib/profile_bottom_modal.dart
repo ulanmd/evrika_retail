@@ -1,6 +1,11 @@
 import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/state/auth.dart';
+import 'package:evrika_retail/toast.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'config/evrika_colors.dart';
 
@@ -9,6 +14,7 @@ class ProfileBottomModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final auth = context.watch<Auth>();
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.35,
       child: SingleChildScrollView(
@@ -44,9 +50,13 @@ class ProfileBottomModal extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Маржан Досыбаева - UI/UX designer',
-                          style: TextStyle(fontSize: 18),
+                        Observer(
+                          builder: (_) {
+                            return Text(
+                              '${auth.name} - UI/UX designer',
+                              style: TextStyle(fontSize: 18),
+                            );
+                          }
                         ),
                         SizedBox(
                           height: 15,
@@ -79,7 +89,11 @@ class ProfileBottomModal extends StatelessWidget {
                           primary: EvrikaColors.kErrorColor,
                           onSurface: EvrikaColors.kErrorColor,
                         ),
-                        onPressed: () {},
+                        onPressed: () async{
+                          auth.logout();
+                          Toast.success(context, 'Вы вышли из аккаунта');
+                          Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+                        },
                         child: Text('Выйти')))
               ],
             ),

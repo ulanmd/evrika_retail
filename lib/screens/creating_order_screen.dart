@@ -8,7 +8,6 @@ import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../custom_dropdown.dart';
 import '../config/evrika_colors.dart';
 import '../quantity_counter.dart';
 import '../widgets/grey_label.dart';
@@ -25,7 +24,6 @@ class _CreatingOrderScreenState extends State<CreatingOrderScreen> {
   bool check2 = false;
   int index = 0;
 
-  int _selectedValue = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +142,32 @@ class _CreatingOrderScreenState extends State<CreatingOrderScreen> {
                                     SizedBox(
                                       height: 10,
                                     ),
-                                    CustomDropdown(),
+                                    InkWell(
+                                      onTap: (){
+                                        showBottomOptions(context, 'Выберите склад',
+                                            ['Север', 'Жанегельдина', 'Аэропорт']
+                                        );
+                                      },
+                                      child: Container(
+                                        height: 47,
+                                        padding: EdgeInsets.all(15),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          border: Border.all(width: 1, color: EvrikaColors.kLightColor),
+                                          borderRadius: BorderRadius.circular(5),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: [
+                                            Text('Выберите склад', style: EvrikaTextStyles.darkS15W400,),
+                                            Spacer(),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:5),
+                                              child: SvgPicture.asset('$kAssetIcons/extend.svg'),
+                                            ),
+                                          ],),
+                                      ),
+                                    ),
                                     SizedBox(
                                       height: 10,
                                     ),
@@ -167,9 +190,35 @@ class _CreatingOrderScreenState extends State<CreatingOrderScreen> {
                                               SizedBox(
                                                 height: 10,
                                               ),
-                                              CustomDropdown(
-                                                isHalfScreen: true,
-                                              ),
+                                              InkWell(
+                                                onTap: (){
+                                                  showBottomOptions(context, 'Выберите качество',
+                                                  ['Новое', 'Витрина', 'Б/У']
+                                                  );
+                                                },
+                                                child: Container(
+                                                  height: 47,
+                                                  padding: EdgeInsets.all(15),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    border: Border.all(width: 1, color: EvrikaColors.kLightColor),
+                                                    borderRadius: BorderRadius.circular(5),
+                                                  ),
+                                                 child: Row(
+                                                   mainAxisAlignment: MainAxisAlignment.start,
+                                                   children: [
+                                                   Text('Новое', style: EvrikaTextStyles.darkS15W400,),
+                                                   Spacer(),
+                                                   Padding(
+                                                     padding: const EdgeInsets.only(top:5),
+                                                     child: SvgPicture.asset('$kAssetIcons/extend.svg'),
+                                                   ),
+                                                 ],),
+                                                ),
+                                              )
+                                              // CustomDropdown(
+                                              //   isHalfScreen: true,
+                                              // ),
                                             ],
                                           ),
                                         ),

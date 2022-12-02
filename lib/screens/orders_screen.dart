@@ -1,4 +1,3 @@
-import 'package:crea_radio_button/crea_radio_button.dart';
 import 'package:evrika_retail/bottom_date_picker.dart';
 import 'package:evrika_retail/screens/add_items_screen.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:page_transition/page_transition.dart';
 import '../consts.dart';
 import '../config/evrika_colors.dart';
 import '../proposal_item_widget.dart';
+import '../utils.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({Key? key}) : super(key: key);
@@ -19,32 +19,37 @@ class OrdersScreen extends StatelessWidget {
       child: Stack(clipBehavior: Clip.none, children: [
         Column(
           children: [
-            BottomDatePickerWidget(
-              isRange: true,
-              text: 'Дата',
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Center(
-              child: RadioButtonGroup(
-                  buttonHeight: 30,
-                  buttonWidth: MediaQuery.of(context).size.width / 3.52,
-                  unselectEnabled: false,
-                  circular: true,
-                  mainColor: EvrikaColors.salesTextGrayColor,
-                  selectedColor: EvrikaColors.kPrimaryColor,
-                  preSelectedIdx: 0,
-                  spaceBetween: 3,
-                  textStyle: const TextStyle(fontSize: 14, color: Colors.white),
-                  options: [
-                    RadioOption("25.0", "Все"),
-                    RadioOption("22", "В процессе"),
-                    RadioOption("50.0", "Закрыто"),
-                  ],
-                  callback: (RadioOption val) {
-                    print(val.value);
-                  }),
+            Row(
+              children: [
+                Expanded(
+                  child: BottomDatePickerWidget(
+                    isRange: true,
+                    text: '31.01.2022 — 28.02.2022',
+                  ),
+                ),
+                SizedBox(width: 10,),
+                GestureDetector(
+                  onTap: (){
+                    showBottomStatusFilter(context);
+                  },
+                  child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: EvrikaColors.kLightGray,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      padding: EdgeInsets.all(18),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset('$kAssetIcons/filter.svg'),
+                          // SizedBox(width: 5,),
+                          // Text('Статус', style: EvrikaTextStyles.lightGrayS15W400,)
+                        ],
+                      )),
+                )
+              ],
             ),
             SizedBox(
               height: 20,

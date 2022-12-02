@@ -1,7 +1,5 @@
-import 'dart:ui';
 
-import 'package:evrika_retail/screens/main_screen.dart';
-import 'package:evrika_retail/screens/qr_screen.dart';
+import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -68,9 +66,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 60,
                   ),
-                  const Text(
+                   Text(
                     'Чтобы продолжить просканируйте QR код',
-                    style: TextStyle(fontSize: 15),
+                    style: EvrikaTextStyles.darkS14W500,
                   ),
                   const SizedBox(
                     height: 10,
@@ -90,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           );
                         },
-                        child: const Text('Открыть сканнер')),
+                        child: Text('Открыть сканнер', style: EvrikaTextStyles.whiteS17W600,)),
                   )
                 ],
               ),

@@ -45,7 +45,8 @@ class _BottomDatePickerWidgetState extends State<BottomDatePickerWidget> {
             Text(
               widget.text,
             //  '21.11.2022 - 23.11.2022',
-              style: EvrikaTextStyles.lightGrayS15W400,
+            //  style: EvrikaTextStyles.lightGrayS15W400,
+              style: EvrikaTextStyles.darkS15W400,
             ),
           ],
         ),
