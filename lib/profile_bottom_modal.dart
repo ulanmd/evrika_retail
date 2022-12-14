@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'config/evrika_colors.dart';
 
@@ -15,13 +14,13 @@ class ProfileBottomModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<Auth>();
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.35,
-      child: SingleChildScrollView(
+    return SafeArea(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.30,
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.30,
+            height: MediaQuery.of(context).size.height * 0.25,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,20 +52,20 @@ class ProfileBottomModal extends StatelessWidget {
                         Observer(
                           builder: (_) {
                             return Text(
-                              '${auth.name} - UI/UX designer',
+                              '${auth.name}',
                               style: TextStyle(fontSize: 18),
                             );
                           }
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 10,
                         ),
                         Text(
                           'Магазин - Шымкент, на Севере',
                           style: TextStyle(fontSize: 18),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 20,
                         ),
                         Center(
                           child: Text(
@@ -76,7 +75,7 @@ class ProfileBottomModal extends StatelessWidget {
                                 color: EvrikaColors.kPrimaryColor,
                                 fontWeight: FontWeight.bold),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
@@ -93,6 +92,8 @@ class ProfileBottomModal extends StatelessWidget {
                           auth.logout();
                           Toast.success(context, 'Вы вышли из аккаунта');
                           Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+                          print('f######ck');
+                          print(auth.isAuth);
                         },
                         child: Text('Выйти')))
               ],

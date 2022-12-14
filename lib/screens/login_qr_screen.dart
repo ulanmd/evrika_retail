@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:evrika_retail/utils/http_client.dart';
 import 'package:provider/provider.dart';
 
+import '../qr_loading_widget.dart';
 import '../state/auth.dart';
 import '../toast.dart';
-import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/consts.dart';
 import 'package:evrika_retail/state/loading.dart';
 import 'package:evrika_retail/utils.dart';
@@ -21,6 +21,7 @@ class LoginQrScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<Auth>();
+    loading.setLoading(false);
     return Scaffold(
       appBar: appBarWithBackBtn(context, 'Отсканируйте QR'),
       body: Stack(
@@ -36,11 +37,6 @@ class LoginQrScreen extends StatelessWidget {
                 } else {
                   final String qrCode = barcode.rawValue!;
                   debugPrint('Barcode found! $qrCode');
-                  // loading.setLoading(true);
-                  //
-                  // loading.setLoading(false);
-                  //  Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
-
                   loading.setLoading(true);
                   var response = await HttpClient.authRequest(qrCode);
                   if (response.statusCode == 200) {
@@ -50,18 +46,20 @@ class LoginQrScreen extends StatelessWidget {
                         await SharedPreferences.getInstance();
                     await sp.setString('accessToken', token);
                     var meResponse = await HttpClient.meRequest(token);
-                    print('*****************from me');
+                    var catsResponse = await HttpClient.getCategories();
+                    print('catsResponse' + catsResponse);
+                    await sp.setString('categories', catsResponse);
                     String employeeName = jsonDecode(meResponse.body)['data']['attributes']['name'];
                     await sp.setStringList('me', 
                         [employeeName]);
                     Toast.success(context, 'Авторизация прошла успешно');
                     await auth.login(token);
                     Navigator.pushNamedAndRemoveUntil(
-                        context, '/main', (route) => false);
+                        context, '/', (route) => false);
                     loading.setLoading(false);
                   }else{
                     print('houston we have a problem');
-                    Toast.error(context, 'houston, we have a problem');
+                    Toast.error(context, 'Что-то пошло не так');
                     loading.setLoading(false);
                   }
                 }
@@ -69,15 +67,7 @@ class LoginQrScreen extends StatelessWidget {
           Observer(builder: (_) {
             return Positioned(
               child: loading.isLoading
-                  ? Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
-                      padding: EdgeInsets.all(10),
-                      child: CircularProgressIndicator(
-                        color: EvrikaColors.kPrimaryColor,
-                      ),
-                    )
+                  ? QrLoading()
                   : SizedBox(
                       child: SvgPicture.asset(
                         '$kAssetIcons/qr_scanner.svg',
@@ -90,3 +80,4 @@ class LoginQrScreen extends StatelessWidget {
     );
   }
 }
+

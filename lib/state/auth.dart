@@ -40,7 +40,11 @@ abstract class _Auth with Store {
 
   void logout() async{
     SharedPreferences sp = await SharedPreferences.getInstance();
-    await sp.remove('accessToken');
-    runInAction(() => isAuth=false);
+    await sp.remove('userData');
+    runInAction((){
+      isAuth = false;
+      nameInit = '';
+      name = '';
+    });
   }
 }

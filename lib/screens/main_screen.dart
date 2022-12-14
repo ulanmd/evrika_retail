@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../config/evrika_colors.dart';
 import '../state/auth.dart';
@@ -42,11 +43,11 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   //TODO delete
-  // void checkPrefs()async{
-  //   SharedPreferences sp = await SharedPreferences.getInstance();
-  //   print('token goi: ' + sp.getString('accessToken').toString());
-  //   print('aty goi: ' + sp.getStringList('me')![0]);
-  // }
+  void checkPrefs() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    print('cats goi: ' + sp.getString('categories').toString());
+    //   print('aty goi: ' + sp.getStringList('me')![0]);
+  }
 
   @override
   void initState() {
@@ -76,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             TextButton(
               onPressed: () {
-                //   checkPrefs();
+                checkPrefs();
                 _showBottomProfile();
               },
               child: CircleAvatar(

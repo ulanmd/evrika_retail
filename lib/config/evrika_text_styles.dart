@@ -13,6 +13,11 @@ class EvrikaTextStyles {
         color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500),
   );
 
+  static final TextStyle whiteS12W500 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+  );
+
   static final TextStyle lightGrayS15W400 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: EvrikaColors.kLightGray, fontSize: 15, fontWeight: FontWeight.w400),
@@ -160,7 +165,7 @@ class EvrikaTextStyles {
 
   static final TextStyle primaryS12W500 = GoogleFonts.nunito(
     textStyle: TextStyle(
-        color: EvrikaColors.kPrimaryColor, fontSize: 12, fontWeight: FontWeight.w400),
+        color: EvrikaColors.kPrimaryColor, fontSize: 12, fontWeight: FontWeight.w400,),
   );
 
 }
