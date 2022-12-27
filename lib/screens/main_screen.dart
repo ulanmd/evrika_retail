@@ -1,16 +1,16 @@
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/profile_bottom_modal.dart';
 import 'package:evrika_retail/screens/link_screen.dart';
 import 'package:evrika_retail/screens/online_orders_screen.dart';
 import 'package:evrika_retail/screens/orders_screen.dart';
 import 'package:evrika_retail/screens/sales_screen.dart';
+import 'package:evrika_retail/state/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../config/evrika_colors.dart';
 import '../state/auth.dart';
@@ -42,12 +42,6 @@ class _MainScreenState extends State<MainScreen> {
         builder: (context) => const ProfileBottomModal());
   }
 
-  //TODO delete
-  void checkPrefs() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    print('cats goi: ' + sp.getString('categories').toString());
-    //   print('aty goi: ' + sp.getStringList('me')![0]);
-  }
 
   @override
   void initState() {
@@ -59,6 +53,8 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<Auth>();
+    final loading = context.watch<Loading>();
+    var width = MediaQuery.of(context).size.width;
     print('name init: ${auth.nameInit}');
     return Scaffold(
       appBar: AppBar(
@@ -71,13 +67,81 @@ class _MainScreenState extends State<MainScreen> {
           children: [
             SvgPicture.asset('$kAssetIcons/evrika.svg'),
             const Spacer(),
-            SvgPicture.asset('$kAssetIcons/search.svg'),
+            InkWell(
+              onTap: () {
+                print('object');
+                final controller = TextEditingController();
+                showDialog(
+                  context: context,
+                  barrierDismissible: true,
+                  builder: (context) => Container(
+                    margin: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+                    width: width * 0.95,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          color: Colors.white.withOpacity(0.9),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 20, left: 10, right: 10, bottom: 20),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  height: 47,
+                                  child: TextFormField(
+                                    autofocus: true,
+                                    textInputAction: TextInputAction.search,
+                                    controller: controller,
+                                    onFieldSubmitted: (_) async {
+                                      loading.setIsSearchOpened(true);
+                                      Navigator.pop(context);
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: 'Введите номер заявки...',
+                                      suffixIcon: IconButton(
+                                        onPressed: () {
+                                          loading.setIsSearchOpened(true);
+                                          Navigator.pop(context);
+                                        },
+                                        icon: SvgPicture.asset(
+                                          '$kAssetIcons/search.svg',
+                                          color: EvrikaColors.kPrimaryColor,
+                                        ),
+                                      ),
+                                      contentPadding: EdgeInsets.fromLTRB(
+                                          15.0, 10.0, 20.0, 10.0),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              // onDoubleTap: (){
+              //   print('double tapped');
+              //   loading.setIsSearchOpened(true);
+              // },
+              child: SvgPicture.asset(
+                '$kAssetIcons/search.svg',
+              ),
+            ),
             const SizedBox(
               width: 10,
             ),
             TextButton(
               onPressed: () {
-                checkPrefs();
                 _showBottomProfile();
               },
               child: CircleAvatar(

@@ -1,6 +1,6 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/widgets/item_title_label.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:evrika_retail/screens/discount_info_row.dart';

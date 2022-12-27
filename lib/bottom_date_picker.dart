@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'config/evrika_text_styles.dart';
-import 'consts.dart';
+import 'utils/consts.dart';
 import 'config/evrika_colors.dart';
 
 class BottomDatePickerWidget extends StatefulWidget {

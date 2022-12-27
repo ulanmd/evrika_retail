@@ -12,6 +12,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import './utils/http_client.dart';
 
 import 'config/evrika_theme.dart';
 import 'models/category.dart';
@@ -19,7 +20,10 @@ import 'models/category.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences sp = await SharedPreferences.getInstance();
-  var userData = await sp.getStringList('userData');
+  String token = sp.getString('accessToken') ?? '';
+  String employeeName = sp.getString('me') ?? '';
+  String lastRefresh = sp.getString('lastRefresh') ?? DateTime.now().toString();
+  String refreshToken = sp.getString('refreshToken') ?? '';
   var categories = await sp.getString('categories');
   runApp(
     MultiProvider(
@@ -34,7 +38,10 @@ void main() async {
         Provider<OrderX>(create: (_) => OrderX())
       ],
       child: MyApp(
-        userData: userData,
+        token: token,
+        refreshToken: refreshToken,
+        employeeName: employeeName,
+        lastRefresh: lastRefresh,
         categories: categories,
       ),
     ),
@@ -42,25 +49,39 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.userData, required this.categories})
+  const MyApp(
+      {Key? key,
+      required this.token,
+      required this.categories,
+      required this.lastRefresh,
+      required this.employeeName,
+      required this.refreshToken})
       : super(key: key);
 
-  final List<String>? userData;
+  final String token;
+  final String refreshToken;
+  final String lastRefresh;
+  final String employeeName;
   final String? categories;
 
   @override
   Widget build(BuildContext context) {
     final auth = Provider.of<Auth>(context, listen: false);
     final categoriesState = Provider.of<Categories>(context, listen: false);
-    //print(sp.getString('accessToken').toString());
-    print('from main ${userData}');
-    print('from main ${userData.runtimeType}');
-    print('isAuth: ' + auth.isAuth.toString());
 
-    int userDataLen = userData?[0].length ?? 0;
+    int tokenLen = token.length;
     int categoriesLen = categories?.length ?? 0;
-    if (userDataLen > 4) {
-      auth.initLogin(userData![2], userData![1]);
+    if (tokenLen > 4) {
+      int freshnessOfToken =
+          DateTime.now().difference(DateTime.parse(lastRefresh)).inHours;
+      print('freshness ${freshnessOfToken}');
+      if (freshnessOfToken >= 23) {
+        print('your refresh ');
+        auth.initLogin(employeeName);
+        refresh(auth, context);
+      } else {
+        auth.initLogin(employeeName);
+      }
     }
     if (categoriesLen > 4) {
       var cats = jsonDecode(categories!);
@@ -96,4 +117,23 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+}
+
+refresh(Auth auth, BuildContext context) async {
+  var response = await HttpClient.refreshTokenRequest();
+  SharedPreferences sp = await SharedPreferences.getInstance();
+  var json = jsonDecode(response.body);
+  if (response.statusCode == 200) {
+    print('if was called');
+    print(sp.getString('refreshToken'));
+    await sp.setString('accessToken', json['data']['access_token']);
+    await sp.setString('refreshToken', json['data']['refresh_token']);
+    await sp.setString('lastRefresh', DateTime.now().toString());
+  } else {
+    await sp.remove('accessToken');
+    await sp.remove('refreshToken');
+    auth.logout();
+    auth.setShowLoginAgain(true);
+  }
+  print('i was called');
 }

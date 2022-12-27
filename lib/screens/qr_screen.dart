@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io' show Platform;
 
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/qr_loading_widget.dart';
 import 'package:evrika_retail/state/loading.dart';
 import 'package:evrika_retail/state/orderx.dart';

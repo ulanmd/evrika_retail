@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 import '../models/item.dart';
 import '../state/orderx.dart';
 import '../utils/http_client.dart';
-import '../consts.dart';
+import '../utils/consts.dart';
 import '../state/categories.dart';
 
 class CategorySearchScreen extends StatelessWidget {
@@ -26,12 +26,7 @@ class CategorySearchScreen extends StatelessWidget {
     final loading = Provider.of<Loading>(context, listen: false);
     final order = Provider.of<OrderX>(context, listen: false);
     categories.deleteCategoryFromBreadCrumb(0);
-    //final auth = Provider.of<Auth>(context, listen: false);
-    print('cats type: ' + categories.breadcrumbs.runtimeType.toString());
-    Map<int, String> catsMap = categories.breadcrumbs.asMap();
-    print('cats map type: ' + catsMap.runtimeType.toString());
-    // print('length: ' + categories
-    //     .steps[categories.currentStep]!.length!.toString());
+
     ScrollController controller = ScrollController();
     return Scaffold(
       appBar: appBarWithBackBtn(context, 'Поиск по категориям'),
@@ -146,6 +141,7 @@ class CategorySearchScreen extends StatelessWidget {
               !categories.isLastStep
                   ? Expanded(
                       child: SingleChildScrollView(
+                        physics: BouncingScrollPhysics(),
                         child: GridView.builder(
                             //  childAspectRatio: 3/2,
                             shrinkWrap: true,
@@ -319,7 +315,7 @@ class CategorySearchScreen extends StatelessWidget {
                                                 right: 0),
                                             child: Text(
                                               categories
-                                                  .itemsFromCategory![index]
+                                                  .itemsFromCategory[index]
                                                   .attributes!
                                                   .fullName!,
                                               overflow: TextOverflow.ellipsis,
@@ -333,7 +329,7 @@ class CategorySearchScreen extends StatelessWidget {
                                             print('i was tapped');
                                             categories.deleteCategoryFromBreadCrumb(0);
                                             order.addItem(categories
-                                                .itemsFromCategory![index]);
+                                                .itemsFromCategory[index]);
                                             Navigator.pop(context);
                                           },
                                           child: SvgPicture.asset(

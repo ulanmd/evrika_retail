@@ -1,25 +1,29 @@
 
 import 'package:evrika_retail/config/evrika_text_styles.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 
 import '../config/evrika_colors.dart';
+import '../state/auth.dart';
 import 'login_qr_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
+class LoginScreen extends StatelessWidget {
 
-class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+    final auth = context.watch<Auth>();
     double height = MediaQuery.of(context).size.height;
+
+    Future.delayed(Duration(seconds: 1), (){
+      auth.setShowLoginAgain(false);
+    });
+
     return Scaffold(
       body: Column(
         children: [
@@ -79,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.all(15),
                             primary: EvrikaColors.kPrimaryColor),
-                        onPressed: () {
+                        onPressed: () async{
                           Navigator.push(
                             context,
                             PageTransition(
@@ -89,6 +93,32 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                         },
                         child: Text('Открыть сканнер', style: EvrikaTextStyles.whiteS17W600,)),
+                  ),
+                  Spacer(),
+                  Observer(
+                    builder: (_) {
+                      return auth.showLoginAgain
+                          ? Align(
+                        alignment: Alignment.centerLeft,
+                            child: Container(
+                              width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: EvrikaColors.kWarningColor,
+                          borderRadius: BorderRadius.all(Radius.circular(60)),
+                        ),
+                               padding: const EdgeInsets.all(15 / 1.5),
+                            child:  Row(
+                              children: [
+                                Icon(
+                                  Icons.warning_amber_outlined,
+                                  color: Colors.white,
+                                ),
+                                const SizedBox(width: 15 / 2),
+                                Expanded(child: Text('Заново авторизуйтесь!', style: EvrikaTextStyles.whiteS13W500,)),
+                              ],
+                            ),),
+                          ) : Container();
+                    }
                   )
                 ],
               ),

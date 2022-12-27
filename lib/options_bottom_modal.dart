@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'config/evrika_colors.dart';
-import 'consts.dart';
+import 'utils/consts.dart';
 
 class OptionsBottomModal extends StatelessWidget {
   const OptionsBottomModal({Key? key, required this.label, required this.options}) : super(key: key);

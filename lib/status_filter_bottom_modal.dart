@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'config/evrika_colors.dart';
-import 'consts.dart';
+import 'utils/consts.dart';
 
 class StatusFilterBottomModal extends StatefulWidget {
   const StatusFilterBottomModal({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/state/auth.dart';
 import 'package:evrika_retail/toast.dart';
 import 'package:flutter/material.dart';

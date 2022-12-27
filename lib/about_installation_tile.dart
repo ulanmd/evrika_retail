@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'bottom_date_picker.dart';
 import 'config/evrika_text_styles.dart';
-import 'consts.dart';
+import 'utils/consts.dart';
 import 'config/evrika_colors.dart';
 
 class AboutInstallationTile extends StatelessWidget {

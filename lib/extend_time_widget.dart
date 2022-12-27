@@ -1,5 +1,5 @@
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -109,12 +109,7 @@ class ExtendTimeWidget extends StatelessWidget {
 
 Future _showDevelopingDialog(context) {
   var width = MediaQuery.of(context).size.width;
-  TextEditingController days = TextEditingController();
-  TextEditingController hours = TextEditingController();
-  TextEditingController minutes = TextEditingController();
-  hours.value = TextEditingValue(text: '12');
-  days.value = TextEditingValue(text: '12');
-  minutes.value = TextEditingValue(text: '12');
+
   return showDialog(
     context: context,
     barrierDismissible: false,
@@ -155,134 +150,81 @@ Future _showDevelopingDialog(context) {
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        'Выберите время:',
+                        'Продление резерва',
                         style: EvrikaTextStyles.darkS15W500,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        SizedBox(
-                          width: 83,
-                          height: 47,
-                          child: TextFormField(
-                            controller: days,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              NumericalRangeFormatter(min: 0, max: 100),
-                              FilteringTextInputFormatter.digitsOnly
-                            ],
-                            decoration: const InputDecoration(
-                              suffix: Text(
-                                'дн',
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: EvrikaColors.kPrimaryColor,
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: EvrikaColors.kLightGray,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                            width: 83,
-                            height: 47,
-                            child: TextFormField(
-                                controller: hours,
-                                keyboardType: TextInputType.number,
-                                inputFormatters: <TextInputFormatter>[
-                                  NumericalRangeFormatter(min: 0, max: 23),
-                                  FilteringTextInputFormatter.digitsOnly
-                                ],
-                                decoration: const InputDecoration(
-                                  suffix: Text(
-                                    'ч',
-                                    style: TextStyle(fontSize: 12),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: EvrikaColors.kPrimaryColor,
-                                    ),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: EvrikaColors.kLightGray,
-                                    ),
-                                  ),
-                                ))),
-                        SizedBox(
-                          width: 83,
-                          height: 47,
-                          child: TextFormField(
-                            controller: minutes,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              NumericalRangeFormatter(min: 0, max: 59),
-                              FilteringTextInputFormatter.digitsOnly
-                            ],
-                            decoration: const InputDecoration(
-                              suffix: Text(
-                                'мин',
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: EvrikaColors.kPrimaryColor,
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: EvrikaColors.kLightGray,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                    SizedBox(
+                      height: 20,
                     ),
-                    SizedBox(height: 20),
-                    Divider(
-                      height: 2,
-                      color: EvrikaColors.boxShadowColor,
-                    ),
-                    SizedBox(height: 15),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: SizedBox(
-                        height: 40,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                            textStyle: MaterialStateProperty.all(
-                              TextStyle(fontSize: 18, fontFamily: 'Nunito'),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 11, horizontal: 8),
-                            child:  Text(
-                              "Продлить резерв",
-                              style: EvrikaTextStyles.whiteS15W500,
-                            ),
-                          ),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            side:
+                                BorderSide(color: EvrikaColors.kPrimaryColor)),
+                        onPressed: () {},
+                        child: Text(
+                          'Продлить резерв на час',
+                          style: EvrikaTextStyles.primaryS15W400,
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            side:
+                            BorderSide(color: EvrikaColors.kPrimaryColor)),
+                        onPressed: () {},
+                        child: Text(
+                          'Продлить резерв на 3 часа',
+                          style: EvrikaTextStyles.primaryS15W400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            side:
+                            BorderSide(color: EvrikaColors.kPrimaryColor)),
+                        onPressed: () {},
+                        child: Text(
+                          'Продлить резерв на день',
+                          style: EvrikaTextStyles.primaryS15W400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            side:
+                            BorderSide(color: EvrikaColors.kPrimaryColor)),
+                        onPressed: () {},
+                        child: Text(
+                          'Продлить резерв на 7 дней',
+                          style: EvrikaTextStyles.primaryS15W400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
                   ],
                 ),
               ),
@@ -293,6 +235,193 @@ Future _showDevelopingDialog(context) {
     ),
   );
 }
+
+// Future _showDevelopingDialog(context) {
+//   var width = MediaQuery.of(context).size.width;
+//   TextEditingController days = TextEditingController();
+//   TextEditingController hours = TextEditingController();
+//   TextEditingController minutes = TextEditingController();
+//   hours.value = TextEditingValue(text: '12');
+//   days.value = TextEditingValue(text: '12');
+//   minutes.value = TextEditingValue(text: '12');
+//   return showDialog(
+//     context: context,
+//     barrierDismissible: false,
+//     builder: (context) => Padding(
+//       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+//       child: Center(
+//         child: Container(
+//           width: width * 0.9,
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: [
+//               Card(
+//                 shape: RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.circular(10.0),
+//                 ),
+//                 margin: EdgeInsets.only(bottom: 20.0),
+//                 color: Colors.white,
+//                 child: Column(
+//                   mainAxisAlignment: MainAxisAlignment.start,
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: [
+//                     Padding(
+//                       padding: EdgeInsets.only(top: 15, right: 15),
+//                       child: Align(
+//                         alignment: Alignment.centerRight,
+//                         child: InkWell(
+//                           onTap: () {
+//                             Navigator.pop(context);
+//                           },
+//                           child: SvgPicture.asset(
+//                             '$kAssetIcons/close.svg',
+//                             color: EvrikaColors.kLightGray,
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                     Align(
+//                       alignment: Alignment.center,
+//                       child: Text(
+//                         'Выберите время:',
+//                         style: EvrikaTextStyles.darkS15W500,
+//                       ),
+//                     ),
+//                     SizedBox(height: 20),
+//                     Row(
+//                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                       children: [
+//                         SizedBox(
+//                           width: 83,
+//                           height: 47,
+//                           child: TextFormField(
+//                             controller: days,
+//                             keyboardType: TextInputType.number,
+//                             inputFormatters: <TextInputFormatter>[
+//                               NumericalRangeFormatter(min: 0, max: 100),
+//                               FilteringTextInputFormatter.digitsOnly
+//                             ],
+//                             decoration: const InputDecoration(
+//                               suffix: Text(
+//                                 'дн',
+//                                 style: TextStyle(fontSize: 12),
+//                               ),
+//                               focusedBorder: OutlineInputBorder(
+//                                 borderSide: BorderSide(
+//                                   color: EvrikaColors.kPrimaryColor,
+//                                 ),
+//                               ),
+//                               enabledBorder: OutlineInputBorder(
+//                                 borderSide: BorderSide(
+//                                   color: EvrikaColors.kLightGray,
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                         SizedBox(
+//                             width: 83,
+//                             height: 47,
+//                             child: TextFormField(
+//                                 controller: hours,
+//                                 keyboardType: TextInputType.number,
+//                                 inputFormatters: <TextInputFormatter>[
+//                                   NumericalRangeFormatter(min: 0, max: 23),
+//                                   FilteringTextInputFormatter.digitsOnly
+//                                 ],
+//                                 decoration: const InputDecoration(
+//                                   suffix: Text(
+//                                     'ч',
+//                                     style: TextStyle(fontSize: 12),
+//                                   ),
+//                                   focusedBorder: OutlineInputBorder(
+//                                     borderSide: BorderSide(
+//                                       color: EvrikaColors.kPrimaryColor,
+//                                     ),
+//                                   ),
+//                                   enabledBorder: OutlineInputBorder(
+//                                     borderSide: BorderSide(
+//                                       color: EvrikaColors.kLightGray,
+//                                     ),
+//                                   ),
+//                                 ))),
+//                         SizedBox(
+//                           width: 83,
+//                           height: 47,
+//                           child: TextFormField(
+//                             controller: minutes,
+//                             keyboardType: TextInputType.number,
+//                             inputFormatters: <TextInputFormatter>[
+//                               NumericalRangeFormatter(min: 0, max: 59),
+//                               FilteringTextInputFormatter.digitsOnly
+//                             ],
+//                             decoration: const InputDecoration(
+//                               suffix: Text(
+//                                 'мин',
+//                                 style: TextStyle(fontSize: 12),
+//                               ),
+//                               focusedBorder: OutlineInputBorder(
+//                                 borderSide: BorderSide(
+//                                   color: EvrikaColors.kPrimaryColor,
+//                                 ),
+//                               ),
+//                               enabledBorder: OutlineInputBorder(
+//                                 borderSide: BorderSide(
+//                                   color: EvrikaColors.kLightGray,
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                     SizedBox(height: 20),
+//                     Divider(
+//                       height: 2,
+//                       color: EvrikaColors.boxShadowColor,
+//                     ),
+//                     SizedBox(height: 15),
+//                     Padding(
+//                       padding: EdgeInsets.symmetric(horizontal: 20),
+//                       child: SizedBox(
+//                         height: 40,
+//                         child: ElevatedButton(
+//                           style: ButtonStyle(
+//                             shape: MaterialStateProperty.all(
+//                               RoundedRectangleBorder(
+//                                 borderRadius: BorderRadius.circular(5),
+//                               ),
+//                             ),
+//                             textStyle: MaterialStateProperty.all(
+//                               TextStyle(fontSize: 18, fontFamily: 'Nunito'),
+//                             ),
+//                           ),
+//                           onPressed: () {
+//                             Navigator.pop(context);
+//                           },
+//                           child: Padding(
+//                             padding: const EdgeInsets.symmetric(
+//                                 vertical: 11, horizontal: 8),
+//                             child:  Text(
+//                               "Продлить резерв",
+//                               style: EvrikaTextStyles.whiteS15W500,
+//                             ),
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                     SizedBox(height: 15),
+//                   ],
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
 
 class NumericalRangeFormatter extends TextInputFormatter {
   final double min;
@@ -393,14 +522,13 @@ Future _showDeReserveDialog(context) {
                               child: SizedBox(
                                   height: 40,
                                   child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(padding: EdgeInsets.zero),
+                                    style: ElevatedButton.styleFrom(
+                                        padding: EdgeInsets.zero),
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Text(
-                                      'Снять с резерва',
-                                      style: EvrikaTextStyles.whiteS15W500
-                                    ),
+                                    child: Text('Снять с резерва',
+                                        style: EvrikaTextStyles.whiteS15W500),
                                   ))),
                           SizedBox(
                             width: 15,

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'consts.dart';
+import 'utils/consts.dart';
 import 'date_picker_bottom_modal.dart';
 
 void showBottomDatePicker(context, isRange) {

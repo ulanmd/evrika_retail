@@ -1,4 +1,4 @@
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/screens/category_search_screen.dart';
 import 'package:evrika_retail/screens/input_search_screen.dart';
 import 'package:evrika_retail/screens/qr_screen.dart';

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'consts.dart';
+import 'utils/consts.dart';
 import 'config/evrika_colors.dart';
 
 class QuantityCounter extends StatefulWidget {

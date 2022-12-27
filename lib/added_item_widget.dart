@@ -6,7 +6,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
-import 'consts.dart';
+import 'utils/consts.dart';
 import 'config/evrika_colors.dart';
 import 'models/item.dart';
 

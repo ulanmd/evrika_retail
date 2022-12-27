@@ -1,5 +1,5 @@
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:evrika_retail/widgets/required_label.dart';

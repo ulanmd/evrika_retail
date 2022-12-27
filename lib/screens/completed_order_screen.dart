@@ -1,6 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:evrika_retail/about_order_row.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';

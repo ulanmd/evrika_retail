@@ -3,10 +3,12 @@ import 'dart:convert';
 import 'package:evrika_retail/utils/http_client.dart';
 import 'package:provider/provider.dart';
 
+import '../models/category.dart';
 import '../qr_loading_widget.dart';
 import '../state/auth.dart';
+import '../state/categories.dart';
 import '../toast.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/state/loading.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +23,7 @@ class LoginQrScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<Auth>();
+    final categoriesState = Provider.of<Categories>(context, listen: false);
     loading.setLoading(false);
     return Scaffold(
       appBar: appBarWithBackBtn(context, 'Отсканируйте QR'),
@@ -42,18 +45,24 @@ class LoginQrScreen extends StatelessWidget {
                   if (response.statusCode == 200) {
                     var json = jsonDecode(response.body);
                     var token = json['data']['access_token'];
+                    var refreshToken = json['data']['refresh_token'];
+                    print('refresh shit ' + refreshToken);
                     SharedPreferences sp =
                         await SharedPreferences.getInstance();
                     await sp.setString('accessToken', token);
+                    await sp.setString('refreshToken', refreshToken);
                     var meResponse = await HttpClient.meRequest(token);
                     var catsResponse = await HttpClient.getCategories();
                     print('catsResponse' + catsResponse);
                     await sp.setString('categories', catsResponse);
+                    var cats = jsonDecode(catsResponse);
+                    Category newCat = Category.fromJson(cats[0]);
+                    categoriesState.setNewCat(newCat);
+                    categoriesState.steps[1] = [newCat];
                     String employeeName = jsonDecode(meResponse.body)['data']['attributes']['name'];
-                    await sp.setStringList('me', 
-                        [employeeName]);
+                    await sp.setString('me', employeeName);
                     Toast.success(context, 'Авторизация прошла успешно');
-                    await auth.login(token);
+                    await auth.login();
                     Navigator.pushNamedAndRemoveUntil(
                         context, '/', (route) => false);
                     loading.setLoading(false);

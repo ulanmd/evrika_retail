@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/state/input_searchx.dart';
 import 'package:evrika_retail/utils.dart';
@@ -95,7 +95,7 @@ class InputSearchScreen extends StatelessWidget {
                                           Flexible(
                                             child: Text(
                                               inputSearchState
-                                                      .loadedItems?[index]
+                                                      .loadedItems[index]
                                                       .attributes
                                                       ?.fullName ??
                                                   '',
@@ -112,7 +112,7 @@ class InputSearchScreen extends StatelessWidget {
                                             onPressed: (){
                                               print('i was tapped');
                                               order.addItem(inputSearchState
-                                                  .loadedItems![index]);
+                                                  .loadedItems[index]);
                                               Navigator.pop(context);
                                             },
                                             child: SvgPicture.asset(

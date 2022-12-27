@@ -13,6 +13,11 @@ class EvrikaTextStyles {
         color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500),
   );
 
+  static final TextStyle whiteS13W500 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500),
+  );
+
   static final TextStyle whiteS12W500 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
@@ -121,6 +126,11 @@ class EvrikaTextStyles {
   static final TextStyle completedS14W500 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: EvrikaColors.completedTextColor, fontSize: 14, fontWeight: FontWeight.w500),
+  );
+
+  static final TextStyle cancelledS12W500 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: EvrikaColors.cancelledColor, fontSize: 12, fontWeight: FontWeight.w500),
   );
 
   static final TextStyle cancelledS10W500 = GoogleFonts.nunito(

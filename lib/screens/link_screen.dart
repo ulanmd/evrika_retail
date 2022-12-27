@@ -1,4 +1,4 @@
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -41,7 +41,11 @@ class LinkScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20,),
-           ElevatedButton(onPressed: (){}, child: Text('Отправить ссылку'))
+           Container(height: 47, child: TextField(decoration: InputDecoration(hintText: ''),)),
+           SizedBox(height: 15,),
+           Container(
+               height: 47,
+               child: ElevatedButton(onPressed: (){}, child: Text('Отправить ссылку')))
           ],
         ),
       ),

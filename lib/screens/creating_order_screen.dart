@@ -1,6 +1,6 @@
 import 'package:evrika_retail/about_order_options.dart';
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/delivery_option_bottom_modal.dart';
 import 'package:evrika_retail/screens/payment_widget.dart';
 import 'package:evrika_retail/utils.dart';

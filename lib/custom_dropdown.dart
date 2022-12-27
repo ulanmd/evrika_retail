@@ -3,7 +3,7 @@ import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'consts.dart';
+import 'utils/consts.dart';
 import 'config/evrika_colors.dart';
 
 class CustomDropdown extends StatefulWidget {

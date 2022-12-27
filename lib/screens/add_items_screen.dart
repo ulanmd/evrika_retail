@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 import '../added_item_widget.dart';
 import '../config/evrika_colors.dart';
-import '../consts.dart';
+import '../utils/consts.dart';
 import '../utils.dart';
 import 'creating_order_screen.dart';
 

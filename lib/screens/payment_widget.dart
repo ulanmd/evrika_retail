@@ -105,7 +105,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                         Border.all(width: 1, color: EvrikaColors.kLightGray),
                   ),
                   child: RadioListTile(
-                    title: Text("Банк"),
+                    title: Text("Банк", style: EvrikaTextStyles.darkS15W400,),
                     value: "male",
                     groupValue: gender,
                     onChanged: (value) {
@@ -129,7 +129,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                     Border.all(width: 1, color: EvrikaColors.kLightGray),
                   ),
                   child: RadioListTile(
-                    title: Text("Касса"),
+                    title: Text("Касса", style: EvrikaTextStyles.darkS15W400,),
                     value: "female",
                     groupValue: gender,
                     onChanged: (value) {

@@ -1,5 +1,5 @@
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/screens/in_process_order_screen.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';

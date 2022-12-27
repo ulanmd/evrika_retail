@@ -13,7 +13,14 @@ abstract class _Loading with Store {
   bool isLoading = false;
 
   @action
-  void setLoading(bool val) {
+  setLoading(bool val) {
     isLoading = val;
   }
+
+  @observable
+  bool isSearchOpened = false;
+
+  @action
+  setIsSearchOpened(bool val) => isSearchOpened = val;
+
 }

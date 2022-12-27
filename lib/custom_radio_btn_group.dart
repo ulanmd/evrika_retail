@@ -1,6 +1,6 @@
 import 'package:evrika_retail/config/evrika_colors.dart';
 import 'package:evrika_retail/config/evrika_text_styles.dart';
-import 'package:evrika_retail/consts.dart';
+import 'package:evrika_retail/utils/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
