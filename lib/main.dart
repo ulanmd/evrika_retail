@@ -74,9 +74,7 @@ class MyApp extends StatelessWidget {
     if (tokenLen > 4) {
       int freshnessOfToken =
           DateTime.now().difference(DateTime.parse(lastRefresh)).inHours;
-      print('freshness ${freshnessOfToken}');
       if (freshnessOfToken >= 23) {
-        print('your refresh ');
         auth.initLogin(employeeName);
         refresh(auth, context);
       } else {

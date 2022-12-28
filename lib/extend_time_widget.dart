@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
 
 import 'config/evrika_colors.dart';
+import 'modal_divider_widget.dart';
 
 class ExtendTimeWidget extends StatelessWidget {
   const ExtendTimeWidget({Key? key}) : super(key: key);
@@ -180,7 +181,7 @@ Future _showDevelopingDialog(context) {
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             side:
-                            BorderSide(color: EvrikaColors.kPrimaryColor)),
+                                BorderSide(color: EvrikaColors.kPrimaryColor)),
                         onPressed: () {},
                         child: Text(
                           'Продлить резерв на 3 часа',
@@ -197,7 +198,7 @@ Future _showDevelopingDialog(context) {
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             side:
-                            BorderSide(color: EvrikaColors.kPrimaryColor)),
+                                BorderSide(color: EvrikaColors.kPrimaryColor)),
                         onPressed: () {},
                         child: Text(
                           'Продлить резерв на день',
@@ -214,7 +215,7 @@ Future _showDevelopingDialog(context) {
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                             side:
-                            BorderSide(color: EvrikaColors.kPrimaryColor)),
+                                BorderSide(color: EvrikaColors.kPrimaryColor)),
                         onPressed: () {},
                         child: Text(
                           'Продлить резерв на 7 дней',
@@ -507,10 +508,7 @@ Future _showDeReserveDialog(context) {
                       ),
                     ),
                     SizedBox(height: 20),
-                    Divider(
-                      height: 2,
-                      color: EvrikaColors.boxShadowColor,
-                    ),
+                    ModalDivider(),
                     SizedBox(
                       height: 15,
                     ),
@@ -534,18 +532,21 @@ Future _showDeReserveDialog(context) {
                             width: 15,
                           ),
                           Expanded(
-                              child: SizedBox(
-                                  height: 40,
-                                  child: OutlinedButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        'Отменить',
-                                        style: TextStyle(
-                                            color: EvrikaColors.mainOrange,
-                                            fontSize: 14),
-                                      ))))
+                            child: SizedBox(
+                              height: 40,
+                              child: OutlinedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  'Отменить',
+                                  style: TextStyle(
+                                      color: EvrikaColors.mainOrange,
+                                      fontSize: 14),
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),

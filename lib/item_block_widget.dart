@@ -67,7 +67,6 @@ class ItemBlockWidget extends StatelessWidget {
                           controller: tooltipController,
                           child: InkWell(
                             onTap: (){
-                              print('object');
                               tooltipController.showTooltip();
                             },
                             child: Container(

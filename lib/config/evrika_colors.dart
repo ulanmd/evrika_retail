@@ -21,6 +21,7 @@ class EvrikaColors {
   static const Color salesBgGreyColor = Color.fromRGBO(0, 21, 41, 0.1);
   static const Color salesTextGrayColor = Color(0xff898C8F);
   static const Color filterSelectedColor = Color(0xffC2E3EA);
+  static const Color modalControlLineColor = Color(0xffEDEDED);
 
   static const Color kLightGreenLabel = Color(0xffE5F4DB);
   static const Color kLightRedLabel = Color(0xffFFCACA);

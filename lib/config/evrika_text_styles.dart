@@ -8,6 +8,11 @@ class EvrikaTextStyles {
         color: Colors.white, fontSize: 17, fontWeight: FontWeight.w600),
   );
 
+  static final TextStyle whiteS16W500 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+  );
+
   static final TextStyle whiteS15W500 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500),
@@ -38,14 +43,29 @@ class EvrikaTextStyles {
         color: EvrikaColors.kLightGray, fontSize: 12, fontWeight: FontWeight.w400),
   );
 
+  static final TextStyle darkS20W600 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: EvrikaColors.darkColor, fontSize: 20, fontWeight: FontWeight.w600),
+  );
+
   static final TextStyle darkS20W500 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: EvrikaColors.darkColor, fontSize: 20, fontWeight: FontWeight.w500),
   );
 
+  static final TextStyle darkS17W500 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: EvrikaColors.darkColor, fontSize: 17, fontWeight: FontWeight.w500),
+  );
+
   static final TextStyle darkS17W400 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: EvrikaColors.darkColor, fontSize: 17, fontWeight: FontWeight.w400),
+  );
+
+  static final TextStyle darkS16W500 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: EvrikaColors.darkColor, fontSize: 16, fontWeight: FontWeight.w500),
   );
 
   static final TextStyle darkS15W600 = GoogleFonts.nunito(
@@ -163,6 +183,11 @@ class EvrikaTextStyles {
         color: EvrikaColors.mainOrange, fontSize: 12, fontWeight: FontWeight.w500),
   );
 
+  static final TextStyle primaryS15W700 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: EvrikaColors.kPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700),
+  );
+
   static final TextStyle primaryS15W400 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: EvrikaColors.kPrimaryColor, fontSize: 15, fontWeight: FontWeight.w400),
@@ -177,5 +202,4 @@ class EvrikaTextStyles {
     textStyle: TextStyle(
         color: EvrikaColors.kPrimaryColor, fontSize: 12, fontWeight: FontWeight.w400,),
   );
-
 }
