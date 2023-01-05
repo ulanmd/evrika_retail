@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:evrika_retail/utils/http_client.dart';
+import 'package:evrika_retail/utils/http_requests.dart';
 import 'package:provider/provider.dart';
 
 import '../models/category.dart';
@@ -41,7 +41,7 @@ class LoginQrScreen extends StatelessWidget {
                   final String qrCode = barcode.rawValue!;
                   debugPrint('Barcode found! $qrCode');
                   loading.setLoading(true);
-                  var response = await HttpClient.authRequest(qrCode);
+                  var response = await HttpRequests.authRequest(qrCode);
                   if (response.statusCode == 200) {
                     var json = jsonDecode(response.body);
                     var token = json['data']['access_token'];
@@ -50,8 +50,8 @@ class LoginQrScreen extends StatelessWidget {
                         await SharedPreferences.getInstance();
                     await sp.setString('accessToken', token);
                     await sp.setString('refreshToken', refreshToken);
-                    var meResponse = await HttpClient.meRequest(token);
-                    var catsResponse = await HttpClient.getCategories();
+                    var meResponse = await HttpRequests.meRequest(token);
+                    var catsResponse = await HttpRequests.getCategories();
                     await sp.setString('categories', catsResponse);
                     var cats = jsonDecode(catsResponse);
                     Category newCat = Category.fromJson(cats[0]);

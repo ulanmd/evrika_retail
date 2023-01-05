@@ -9,13 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class EditOrderBottomModal extends StatelessWidget {
-  const EditOrderBottomModal({Key? key}) : super(key: key);
+  EditOrderBottomModal({Key? key, this.height}) : super(key: key);
+
+  final height;
 
   @override
   Widget build(BuildContext context) {
+    print( 'height ' + MediaQuery.of(context).size.height.toString());
+    print( 'height view ' + MediaQuery.of(context).padding.top.toString());
+    print(height);
     return Container(
       constraints:
-      BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.85),
+      BoxConstraints(maxHeight: MediaQuery.of(context).size.height - height),
       padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
       child: ListView(
         physics: BouncingScrollPhysics(),

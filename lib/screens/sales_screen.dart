@@ -28,10 +28,11 @@ class SalesScreen extends StatelessWidget {
             height: 30,
           ),
           Container(
+            height: 31,
             decoration: const BoxDecoration(
                 color: EvrikaColors.kInfoBlue,
                 borderRadius: BorderRadius.all(Radius.circular(5))),
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Row(
               children: [
                 SvgPicture.asset(

@@ -28,7 +28,8 @@ final kRangeCalendarController =  CleanCalendarController(
   onAfterMaxDateTapped: (date) {},
   weekdayStart: DateTime.monday,
   initialFocusDate: DateTime.now(),
-  // initialDateSelected: DateTime(2022, 3, 15),
+  //initialDateSelected: DateTime.now()
+   initialDateSelected: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day),
   // endDateSelected: DateTime(2022, 3, 20),
 );
 

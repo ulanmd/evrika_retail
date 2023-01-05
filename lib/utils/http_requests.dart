@@ -6,7 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const URL = 'http://10.10.1.75:71';
 
-class HttpClient {
+class HttpRequests {
+
   static Future<String?> getToken() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     String? token = await sp.getString('accessToken');

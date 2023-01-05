@@ -67,9 +67,9 @@ class _MainScreenState extends State<MainScreen> {
           children: [
             SvgPicture.asset('$kAssetIcons/evrika.svg'),
             const Spacer(),
-            InkWell(
+            _currentIndex == 0
+              ? InkWell(
               onTap: () {
-                print('object');
                 final controller = TextEditingController();
                 showDialog(
                   context: context,
@@ -136,7 +136,7 @@ class _MainScreenState extends State<MainScreen> {
               child: SvgPicture.asset(
                 '$kAssetIcons/search.svg',
               ),
-            ),
+            ): Container(),
             const SizedBox(
               width: 10,
             ),
@@ -158,9 +158,14 @@ class _MainScreenState extends State<MainScreen> {
           ],
         ),
       ),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _pages,
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: ()=>FocusScope.of(context).requestFocus(new FocusNode()),
+          child: IndexedStack(
+            index: _currentIndex,
+            children: _pages,
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
@@ -171,7 +176,7 @@ class _MainScreenState extends State<MainScreen> {
           });
         },
         unselectedLabelStyle: EvrikaTextStyles.lightGrayS12W400,
-        selectedLabelStyle: EvrikaTextStyles.darkS12W500,
+        selectedLabelStyle: EvrikaTextStyles.darkS12W600,
         selectedItemColor: EvrikaColors.darkColor,
         type: BottomNavigationBarType.fixed,
         items: [

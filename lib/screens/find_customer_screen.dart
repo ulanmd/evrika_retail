@@ -13,7 +13,7 @@ import 'package:http/http.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../utils/http_client.dart';
+import '../utils/http_requests.dart';
 
 import '../config/evrika_colors.dart';
 import '../utils/consts.dart';
@@ -183,7 +183,7 @@ class FindCustomerScreen extends StatelessWidget {
                                     .requestFocus(FocusNode());
                                 print(findCustomState.clientNumber);
                                 Response response =
-                                    await HttpClient.getCustomerByPhoneNumber(
+                                    await HttpRequests.getCustomerByPhoneNumber(
                                         findCustomState.clientNumber
                                             .substring(1));
                                 print(response.statusCode);

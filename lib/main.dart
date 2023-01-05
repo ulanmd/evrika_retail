@@ -7,12 +7,13 @@ import 'package:evrika_retail/state/auth.dart';
 import 'package:evrika_retail/state/categories.dart';
 import 'package:evrika_retail/state/loading.dart';
 import 'package:evrika_retail/state/orderx.dart';
+import 'package:evrika_retail/utils/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import './utils/http_client.dart';
+import './utils/http_requests.dart';
 
 import 'config/evrika_theme.dart';
 import 'models/category.dart';
@@ -117,21 +118,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-refresh(Auth auth, BuildContext context) async {
-  var response = await HttpClient.refreshTokenRequest();
-  SharedPreferences sp = await SharedPreferences.getInstance();
-  var json = jsonDecode(response.body);
-  if (response.statusCode == 200) {
-    print('if was called');
-    print(sp.getString('refreshToken'));
-    await sp.setString('accessToken', json['data']['access_token']);
-    await sp.setString('refreshToken', json['data']['refresh_token']);
-    await sp.setString('lastRefresh', DateTime.now().toString());
-  } else {
-    await sp.remove('accessToken');
-    await sp.remove('refreshToken');
-    auth.logout();
-    auth.setShowLoginAgain(true);
-  }
-  print('i was called');
-}
+

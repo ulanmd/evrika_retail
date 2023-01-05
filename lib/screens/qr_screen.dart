@@ -6,7 +6,7 @@ import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/qr_loading_widget.dart';
 import 'package:evrika_retail/state/loading.dart';
 import 'package:evrika_retail/state/orderx.dart';
-import 'package:evrika_retail/state/search_qrx.dart';
+import 'package:evrika_retail/state/screens/search_qrx.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/price_label.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
 import '../config/evrika_colors.dart';
 import '../models/item.dart';
-import '../utils/http_client.dart';
+import '../utils/http_requests.dart';
 
 class QrScreen extends StatelessWidget {
   const QrScreen({Key? key}) : super(key: key);
@@ -51,7 +51,7 @@ class QrScreen extends StatelessWidget {
                                 searchQrX.setIncorrectCode(false);
                                 loading.setLoading(true);
                                 var itemFromQr =
-                                    await HttpClient.getCategoryByQr(code);
+                                    await HttpRequests.getCategoryByQr(code);
                                 if (itemFromQr.statusCode == 200) {
                                   Item item = Item.fromJson(
                                       jsonDecode(itemFromQr.body)['data']);

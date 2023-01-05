@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/config/evrika_colors.dart';
-import 'package:evrika_retail/state/input_searchx.dart';
+import 'package:evrika_retail/state/screens/input_searchx.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import '../models/item.dart';
 import '../state/loading.dart';
 import '../state/orderx.dart';
-import '../utils/http_client.dart';
+import '../utils/http_requests.dart';
 
 class InputSearchScreen extends StatelessWidget {
   const InputSearchScreen({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class InputSearchScreen extends StatelessWidget {
                     loading.setLoading(true);
                     print('you clicked me');
                     var byId =
-                    await HttpClient.getCategoryByText(controller.text);
+                    await HttpRequests.getCategoryByText(controller.text);
                     List<dynamic> fromJson = jsonDecode(byId.body);
                     for (var i in fromJson) {
                       inputSearchState.addItem(
@@ -57,7 +57,7 @@ class InputSearchScreen extends StatelessWidget {
                         loading.setLoading(true);
                         print('you clicked me');
                         var byId =
-                            await HttpClient.getCategoryByText(controller.text);
+                            await HttpRequests.getCategoryByText(controller.text);
                         List<dynamic> fromJson = jsonDecode(byId.body);
                         for (var i in fromJson) {
                           inputSearchState.addItem(

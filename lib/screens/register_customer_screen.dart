@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../utils/http_client.dart';
+import '../utils/http_requests.dart';
 import 'package:evrika_retail/toast.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/required_label.dart';
@@ -79,7 +79,7 @@ class _RegisterCustomerScreenState extends State<RegisterCustomerScreen> {
         "city_id": "6190484"
       };
       print(obj);
-      Response response = await HttpClient.registerCustomer(obj);
+      Response response = await HttpRequests.registerCustomer(obj);
       print(response.statusCode);
     }
   }

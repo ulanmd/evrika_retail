@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
 
-import '../models/item.dart';
+import '../../models/item.dart';
 
 // Include generated file
 part 'search_qrx.g.dart';

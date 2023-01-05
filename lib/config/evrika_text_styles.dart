@@ -183,6 +183,11 @@ class EvrikaTextStyles {
         color: EvrikaColors.mainOrange, fontSize: 12, fontWeight: FontWeight.w500),
   );
 
+  static final TextStyle primaryS16W600 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: EvrikaColors.kPrimaryColor, fontSize: 16, fontWeight: FontWeight.w600),
+  );
+
   static final TextStyle primaryS15W700 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: EvrikaColors.kPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700),

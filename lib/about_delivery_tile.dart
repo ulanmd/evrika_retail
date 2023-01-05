@@ -1,4 +1,5 @@
 import 'package:evrika_retail/config/evrika_text_styles.dart';
+import 'package:evrika_retail/modal_divider_widget.dart';
 import 'package:evrika_retail/utils/consts.dart';
 import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
@@ -23,10 +24,8 @@ class AboutDeliveryTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: ExpansionTile(
-        title: Text(
-          'Информация о доставке',
-          style: EvrikaTextStyles.darkS17W400
-        ),
+        title:
+            Text('Информация о доставке', style: EvrikaTextStyles.darkS17W400),
         trailing: InkWell(
           child: Text(
             'Показать',
@@ -69,25 +68,35 @@ class AboutDeliveryTile extends StatelessWidget {
                           Container(
                             width: double.infinity,
                             child: RadioListTile(
-                              contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                              dense: true,
+                              contentPadding:
+                                  EdgeInsets.zero,
                               title: Row(
                                 children: [
-                                  Expanded(child: Text("ЖК «Шахристан», 55, подъезд 1, этаж 1",
-                                    style: EvrikaTextStyles.darkS15W400,)),
-                                  SizedBox(width: 10,),
+                                  Expanded(
+                                    child: Text(
+                                      "улица Орынбаева, 21а",
+                                      style: EvrikaTextStyles.darkS15W400,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
                                   Row(
                                     children: [
                                       InkWell(
-                                          onTap: (){
-
-                                          },
-                                          child: SvgPicture.asset('$kAssetIcons/delete.svg')),
-                                      SizedBox(width: 20,),
+                                          onTap: () {},
+                                          child: SvgPicture.asset(
+                                              '$kAssetIcons/delete.svg')),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
                                       InkWell(
-                                          onTap: (){
+                                          onTap: () {
                                             showEditAddress(context);
                                           },
-                                          child: SvgPicture.asset('$kAssetIcons/edit.svg')),
+                                          child: SvgPicture.asset(
+                                              '$kAssetIcons/edit.svg')),
                                     ],
                                   )
                                 ],
@@ -167,7 +176,10 @@ class AboutDeliveryTile extends StatelessWidget {
                           SizedBox(
                             height: 5,
                           ),
-                          BottomDatePickerWidget(isRange: false, text: 'Выберите дату доставки',),
+                          BottomDatePickerWidget(
+                            isRange: false,
+                            text: 'Выберите дату доставки',
+                          ),
                           SizedBox(
                             height: 20,
                           ),
@@ -178,71 +190,54 @@ class AboutDeliveryTile extends StatelessWidget {
                           Column(
                             children: [
                               Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: EvrikaColors.kPrimaryColor,
-                                        width: 1),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5))),
+                                padding: EdgeInsets.zero,
+                                //  color: Colors.amber,
                                 child: RadioListTile(
-                                  title: Text("11:00-17:00", style: EvrikaTextStyles.darkS15W400,),
+                                  dense: true,
+                                  contentPadding: EdgeInsets.zero,
+                                  title: Text(
+                                    "11:00-17:00",
+                                    style: EvrikaTextStyles.darkS15W400,
+                                  ),
                                   value: "male",
                                   groupValue: gender,
                                   onChanged: (value) {},
                                 ),
                               ),
-                              SizedBox(
-                                height: 10,
-                              ),
+                              ModalDivider(),
                               Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: EvrikaColors.kLightGray,
-                                        width: 1),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5))),
+                                padding: EdgeInsets.zero,
+                                //   color: Colors.amber,
                                 child: RadioListTile(
-                                  title: Text("17:00-21:00", style: EvrikaTextStyles.darkS15W400),
-                                  value: "female",
-                                  groupValue: gender,
-                                  onChanged: (value) {},
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: EvrikaColors.kLightGray,
-                                        width: 1),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5))),
-                                child: RadioListTile(
-                                  title: Text("21:00-23:00", style: EvrikaTextStyles.darkS15W400),
+                                  dense: true,
+                                  contentPadding: EdgeInsets.zero,
+                                  title: Text(
+                                    "11:00-17:00",
+                                    style: EvrikaTextStyles.darkS15W400,
+                                  ),
                                   value: "other",
                                   groupValue: gender,
                                   onChanged: (value) {},
                                 ),
-                              )
+                              ),
+                              ModalDivider(),
+                              Container(
+                                padding: EdgeInsets.zero,
+                                //   color: Colors.amber,
+                                child: RadioListTile(
+                                  dense: true,
+                                  contentPadding: EdgeInsets.zero,
+                                  title: Text(
+                                    "17:00 - 21:00",
+                                    style: EvrikaTextStyles.darkS15W400,
+                                  ),
+                                  value: "other",
+                                  groupValue: gender,
+                                  onChanged: (value) {},
+                                ),
+                              ),
                             ],
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          GreyLabel(text: 'Дополнительно', fontSize: 12,),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextField(
-                            decoration: InputDecoration(),
-                            keyboardType: TextInputType.multiline,
-                            minLines: 2,
-                            maxLines: 2,
-                          ),
-                          SizedBox(
-                            height: 15,
-                          )
                         ],
                       )
                     : Container()

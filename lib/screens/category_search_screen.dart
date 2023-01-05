@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 
 import '../models/item.dart';
 import '../state/orderx.dart';
-import '../utils/http_client.dart';
+import '../utils/http_requests.dart';
 import '../utils/consts.dart';
 import '../state/categories.dart';
 
@@ -168,7 +168,7 @@ class CategorySearchScreen extends StatelessWidget {
                                     categories.emptyItemList();
                                     categories.itIsLastStep();
 
-                                    var byId = await HttpClient.getCategoryById(
+                                    var byId = await HttpRequests.getCategoryById(
                                         categories
                                             .steps[categories.currentStep]![
                                                 index]
