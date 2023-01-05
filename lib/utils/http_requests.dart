@@ -27,7 +27,7 @@ class HttpRequests {
         "Accept": "application/json",
       },
       body: {},
-    ).timeout(Duration(seconds: 60), onTimeout: () {
+    ).timeout(Duration(seconds: 30), onTimeout: () {
       print('shili uzaq bolyp ketti');
       return http.Response('Сервер не отвечает', 408);
     }).onError(
@@ -66,6 +66,7 @@ class HttpRequests {
 
   static Future<String> getCategories() async {
     var token = await getToken();
+    print('get cats http started');
     var response = await http.get(
       Uri.parse('$URL/api/v1/service/cores/category/tree'),
       headers: {"Accept": "application/json", "authorization": "Bearer $token"},

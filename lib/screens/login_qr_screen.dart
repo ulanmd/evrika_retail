@@ -44,8 +44,8 @@ class LoginQrScreen extends StatelessWidget {
                   var response = await HttpRequests.authRequest(qrCode);
                   if (response.statusCode == 200) {
                     var json = jsonDecode(response.body);
-                    var token = json['data']['access_token'];
-                    var refreshToken = json['data']['refresh_token'];
+                    var token = json['access_token'];
+                    var refreshToken = json['refresh_token'];
                     SharedPreferences sp =
                         await SharedPreferences.getInstance();
                     await sp.setString('accessToken', token);

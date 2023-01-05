@@ -11,7 +11,7 @@ refresh(Auth auth, BuildContext context) async {
   SharedPreferences sp = await SharedPreferences.getInstance();
   var json = jsonDecode(response.body);
   if (response.statusCode == 200) {
-    print('if was called');
+    print('refresh token was called');
     print(sp.getString('refreshToken'));
     await sp.setString('accessToken', json['data']['access_token']);
     await sp.setString('refreshToken', json['data']['refresh_token']);

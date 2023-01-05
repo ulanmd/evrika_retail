@@ -42,14 +42,6 @@ class _MainScreenState extends State<MainScreen> {
         builder: (context) => const ProfileBottomModal());
   }
 
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    // Obtain shared preferences.
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<Auth>();
