@@ -38,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
         context: context,
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
         builder: (context) => const ProfileBottomModal());
   }
 
@@ -60,75 +60,80 @@ class _MainScreenState extends State<MainScreen> {
             SvgPicture.asset('$kAssetIcons/evrika.svg'),
             const Spacer(),
             _currentIndex == 0
-              ? InkWell(
-              onTap: () {
-                final controller = TextEditingController();
-                showDialog(
-                  context: context,
-                  barrierDismissible: true,
-                  builder: (context) => Container(
-                    margin: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
-                    width: width * 0.95,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          color: Colors.white.withOpacity(0.9),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 20, left: 10, right: 10, bottom: 20),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Container(
-                                  height: 47,
-                                  child: TextFormField(
-                                    autofocus: true,
-                                    textInputAction: TextInputAction.search,
-                                    controller: controller,
-                                    onFieldSubmitted: (_) async {
-                                      loading.setIsSearchOpened(true);
-                                      Navigator.pop(context);
-                                    },
-                                    decoration: InputDecoration(
-                                      hintText: 'Введите номер заявки...',
-                                      suffixIcon: IconButton(
-                                        onPressed: () {
-                                          loading.setIsSearchOpened(true);
-                                          Navigator.pop(context);
-                                        },
-                                        icon: SvgPicture.asset(
-                                          '$kAssetIcons/search.svg',
-                                          color: EvrikaColors.kPrimaryColor,
+                ? InkWell(
+                    onTap: () {
+                      final controller = TextEditingController();
+                      showDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        builder: (context) => Container(
+                          margin: EdgeInsets.symmetric(
+                              vertical: 30, horizontal: 10),
+                          width: width * 0.95,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                color: Colors.white.withOpacity(0.9),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 20, left: 10, right: 10, bottom: 20),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Container(
+                                        height: 47,
+                                        child: TextFormField(
+                                          autofocus: true,
+                                          textInputAction:
+                                              TextInputAction.search,
+                                          controller: controller,
+                                          onFieldSubmitted: (_) async {
+                                            loading.setIsSearchOpened(true);
+                                            Navigator.pop(context);
+                                          },
+                                          decoration: InputDecoration(
+                                            hintText: 'Введите номер заявки...',
+                                            suffixIcon: IconButton(
+                                              onPressed: () {
+                                                loading.setIsSearchOpened(true);
+                                                Navigator.pop(context);
+                                              },
+                                              icon: SvgPicture.asset(
+                                                '$kAssetIcons/search.svg',
+                                                color:
+                                                    EvrikaColors.kPrimaryColor,
+                                              ),
+                                            ),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                15.0, 10.0, 20.0, 10.0),
+                                          ),
                                         ),
                                       ),
-                                      contentPadding: EdgeInsets.fromLTRB(
-                                          15.0, 10.0, 20.0, 10.0),
-                                    ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
+                      );
+                    },
+                    // onDoubleTap: (){
+                    //   print('double tapped');
+                    //   loading.setIsSearchOpened(true);
+                    // },
+                    child: SvgPicture.asset(
+                      '$kAssetIcons/search.svg',
                     ),
-                  ),
-                );
-              },
-              // onDoubleTap: (){
-              //   print('double tapped');
-              //   loading.setIsSearchOpened(true);
-              // },
-              child: SvgPicture.asset(
-                '$kAssetIcons/search.svg',
-              ),
-            ): Container(),
+                  )
+                : Container(),
             const SizedBox(
               width: 10,
             ),
@@ -152,7 +157,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: SafeArea(
         child: GestureDetector(
-          onTap: ()=>FocusScope.of(context).requestFocus(new FocusNode()),
+          onTap: () => FocusScope.of(context).requestFocus(new FocusNode()),
           child: IndexedStack(
             index: _currentIndex,
             children: _pages,

@@ -26,6 +26,7 @@ class ProposalItemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: InkWell(
+        overlayColor: MaterialStateProperty.all(Colors.transparent),
         onTap: () {
           Navigator.push(
               context,
@@ -138,10 +139,8 @@ class ProposalItemWidget extends StatelessWidget {
                         const SizedBox(
                           width: 10,
                         ),
-                         Text(
-                          '2дня : 13час : 51мин : 32сек',
-                          style: EvrikaTextStyles.darkS13W500
-                        )
+                        Text('2дня : 13час : 51мин : 32сек',
+                            style: EvrikaTextStyles.darkS13W500)
                       ],
                     ),
                   )

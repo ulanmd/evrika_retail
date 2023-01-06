@@ -45,3 +45,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+lib/state/auth.g.dart
+lib/state/categories.g.dart
+lib/state/loading.g.dart
+lib/state/orderx.g.dart
+lib/state/screens/find_customerx.g.dart
+lib/state/screens/input_searchx.g.dart
+lib/state/screens/search_qrx.g.dart

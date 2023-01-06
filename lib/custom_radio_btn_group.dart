@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class StatusRadioButtonGroup extends StatefulWidget {
-  const StatusRadioButtonGroup({Key? key, required this.options}) : super(key: key);
+  const StatusRadioButtonGroup({Key? key, required this.options})
+      : super(key: key);
 
   final List<String> options;
 
@@ -20,7 +21,15 @@ class _StatusRadioButtonGroupState extends State<StatusRadioButtonGroup> {
   Widget build(BuildContext context) {
     return SizedBox(
         width: double.infinity,
-        child: ListView.builder(
+        child: ListView.separated(
+            separatorBuilder: (context, index) {
+              return Divider(
+                height: 0,
+                thickness: 0.5,
+                indent: 20,
+                endIndent: 20,
+              );
+            },
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemCount: widget.options.length,
@@ -58,7 +67,6 @@ class _StatusRadioButtonGroupState extends State<StatusRadioButtonGroup> {
                   ),
                 ),
               );
-            })
-        );
+            }));
   }
 }

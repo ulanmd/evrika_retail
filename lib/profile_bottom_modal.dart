@@ -19,44 +19,59 @@ class ProfileBottomModal extends StatelessWidget {
     final auth = context.watch<Auth>();
     return SafeArea(
       child: IntrinsicHeight(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ModalControlLine(),
-                  SizedBox(height: 15,),
-                  Center(
-                    child: Text(
-                      'Профиль сотрудника',
-                      style: EvrikaTextStyles.darkS20W600,
-                    ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 10,
+                ),
+                ModalControlLine(),
+                SizedBox(
+                  height: 15,
+                ),
+                Center(
+                  child: Text(
+                    'Профиль сотрудника',
+                    style: EvrikaTextStyles.darkS20W600,
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Column(
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ModalDivider(),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('ФИО сотрудника:', style: EvrikaTextStyles.labelGrayS12W400,),
-                      SizedBox(height: 5,),
-                      Observer(
-                        builder: (_) {
-                          return Text(
-                            '${auth.name}',
-                            style: EvrikaTextStyles.darkS16W500,
-                          );
-                        }
+                      Text(
+                        'ФИО сотрудника:',
+                        style: EvrikaTextStyles.labelGrayS12W400,
                       ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Observer(builder: (_) {
+                        return Text(
+                          '${auth.name}',
+                          style: EvrikaTextStyles.darkS16W500,
+                        );
+                      }),
                       SizedBox(
                         height: 15,
                       ),
-                      Text('Магазин:', style: EvrikaTextStyles.labelGrayS12W400,),
-                      SizedBox(height: 5,),
+                      Text(
+                        'Магазин:',
+                        style: EvrikaTextStyles.labelGrayS12W400,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
                       Text(
                         'Шымкент, на Севере',
                         style: EvrikaTextStyles.darkS16W500,
@@ -64,8 +79,6 @@ class ProfileBottomModal extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      ModalDivider(),
-                      SizedBox(height: 15,),
                       Center(
                         child: Text(
                           'Желаем успешных продаж и побольше бонусов!',
@@ -73,37 +86,41 @@ class ProfileBottomModal extends StatelessWidget {
                           style: EvrikaTextStyles.primaryS15W700,
                         ),
                       ),
-                      SizedBox(height: 15,),
-                      ModalDivider(),
-                      SizedBox(height: 15,),
-                      Container(
-                          height: 47,
-                          width: double.infinity,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: EvrikaColors.kErrorColor,
-                                onSurface: EvrikaColors.kErrorColor,
-                              ),
-                              onPressed: () async{
-                                auth.logout();
-                                Toast.success(context, 'Вы вышли из аккаунта');
-                                Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-                                print('f######ck');
-                                print(auth.isAuth);
-                              },
-                              child: Text('Выйти'))),
-                      SizedBox(height: 15,)
                     ],
                   ),
-                ],
-              ),
-
-            ],
-          ),
+                ),
+                ModalDivider(),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    height: 47,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: EvrikaColors.kErrorColor,
+                          onSurface: EvrikaColors.kErrorColor,
+                        ),
+                        onPressed: () async {
+                          auth.logout();
+                          Toast.success(context, 'Вы вышли из аккаунта');
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, '/', (route) => false);
+                          print(auth.isAuth);
+                        },
+                        child: Text(
+                          'Выйти',
+                          style: EvrikaTextStyles.whiteS16W500,
+                        ))),
+                SizedBox(
+                  height: 15,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 }
-
-

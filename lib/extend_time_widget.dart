@@ -56,6 +56,7 @@ class ExtendTimeWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
+                    splashColor: Colors.transparent,
                     onTap: () {
                       tooltipController.hideTooltip();
                       _showDevelopingDialog(context);

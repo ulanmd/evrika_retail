@@ -12,7 +12,7 @@ import 'package:status_bar_control/status_bar_control.dart';
 import 'utils/consts.dart';
 import 'date_picker_bottom_modal.dart';
 
-void showBottomDatePicker(context, isRange) async{
+void showBottomDatePicker(context, isRange) async {
   double height = await StatusBarControl.getHeight;
   showModalBottomSheet(
       context: context,
@@ -20,8 +20,9 @@ void showBottomDatePicker(context, isRange) async{
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
       builder: (context) => DatePickerBottomModal(
-          isRange: isRange, height: height,
-      ));
+            isRange: isRange,
+            height: height,
+          ));
   // showMaterialModalBottomSheet(
   //   context: context,
   //   expand: true,
@@ -67,8 +68,10 @@ void showEditOrder(context) async {
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
-      builder: (context) => EditOrderBottomModal(height: height,));
+          borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
+      builder: (context) => EditOrderBottomModal(
+            height: height,
+          ));
 }
 
 void showEditAddress(context) {
@@ -76,7 +79,7 @@ void showEditAddress(context) {
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
       builder: (context) => Padding(
             padding: MediaQuery.of(context).viewInsets,
             child: const EditAddressWidget(),

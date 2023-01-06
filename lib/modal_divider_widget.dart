@@ -10,8 +10,8 @@ class ModalDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Divider(
-      height: 2,
-      color: EvrikaColors.kLabelGrey,
+      height: 0,
+      thickness: 0.5,
     );
   }
 }

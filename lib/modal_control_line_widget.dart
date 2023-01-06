@@ -9,7 +9,14 @@ class ModalControlLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Container(
-      width: 40, height: 4, color: EvrikaColors.modalControlLineColor,));
+    return Center(
+        child: Container(
+      width: 40,
+      height: 4,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: EvrikaColors.modalControlLineColor,
+      ),
+    ));
   }
 }
