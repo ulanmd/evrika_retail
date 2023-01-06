@@ -68,6 +68,11 @@ class EvrikaTextStyles {
         color: EvrikaColors.darkColor, fontSize: 16, fontWeight: FontWeight.w500),
   );
 
+  static final TextStyle darkS16W400 = GoogleFonts.nunito(
+    textStyle: TextStyle(
+        color: EvrikaColors.darkColor, fontSize: 16, fontWeight: FontWeight.w400),
+  );
+
   static final TextStyle darkS15W600 = GoogleFonts.nunito(
     textStyle: TextStyle(
         color: EvrikaColors.darkColor, fontSize: 15, fontWeight: FontWeight.w600),

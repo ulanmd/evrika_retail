@@ -43,7 +43,7 @@ class _StatusRadioButtonGroupState extends State<StatusRadioButtonGroup> {
                       children: [
                         Text(
                           widget.options[index],
-                          style: EvrikaTextStyles.darkS13W400,
+                          style: EvrikaTextStyles.darkS16W400,
                         ),
                         Spacer(),
                         index == selectedBtn
