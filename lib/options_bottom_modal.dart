@@ -1,4 +1,6 @@
 import 'package:evrika_retail/custom_radio_btn_group.dart';
+import 'package:evrika_retail/modal_control_line_widget.dart';
+import 'package:evrika_retail/modal_divider_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -6,7 +8,9 @@ import 'config/evrika_colors.dart';
 import 'utils/consts.dart';
 
 class OptionsBottomModal extends StatelessWidget {
-  const OptionsBottomModal({Key? key, required this.label, required this.options}) : super(key: key);
+  const OptionsBottomModal(
+      {Key? key, required this.label, required this.options})
+      : super(key: key);
 
   final String label;
   final List<String> options;
@@ -15,35 +19,28 @@ class OptionsBottomModal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30)
-      ),
+          color: Colors.white, borderRadius: BorderRadius.circular(30)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-            child: Row(
-              children: [
-                Text(
-                  label,
-                  style: TextStyle(color: EvrikaColors.darkColor, fontSize: 20),
-                ),
-                Spacer(),
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  //style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                  child: SvgPicture.asset(
-                    '$kAssetIcons/close.svg',
-                    color: EvrikaColors.kLabelGrey,
-                  ),
-                )
-              ],
-            ),
+          SizedBox(
+            height: 10,
           ),
-          StatusRadioButtonGroup(options: options,),
+          ModalControlLine(),
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            label,
+            style: TextStyle(color: EvrikaColors.darkColor, fontSize: 20),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ModalDivider(),
+          StatusRadioButtonGroup(
+            options: options,
+          ),
           SizedBox(
             height: 10,
           ),

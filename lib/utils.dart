@@ -3,6 +3,7 @@ import 'package:evrika_retail/edit_address_widget.dart';
 import 'package:evrika_retail/edit_order_bottom_modal.dart';
 import 'package:evrika_retail/options_bottom_modal.dart';
 import 'package:evrika_retail/status_filter_bottom_modal.dart';
+import 'package:evrika_retail/widgets/bottom_modal_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,11 +15,9 @@ import 'date_picker_bottom_modal.dart';
 
 void showBottomDatePicker(context, isRange) async {
   double height = await StatusBarControl.getHeight;
-  showModalBottomSheet(
+  bottomModalWidgetMethod(
+      scrollControlled: true,
       context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
       builder: (context) => DatePickerBottomModal(
             isRange: isRange,
             height: height,
@@ -45,41 +44,31 @@ void showBottomDatePicker(context, isRange) async {
 }
 
 void showBottomStatusFilter(context) {
-  showModalBottomSheet(
-    context: context,
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
-    builder: (context) => StatusFilterBottomModal(),
-  );
+  bottomModalWidgetMethod(
+      context: context,
+      builder: (context) => StatusFilterBottomModal());
 }
 
 void showBottomOptions(context, String label, List<String> options) {
-  showModalBottomSheet(
-    context: context,
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
-    builder: (context) => OptionsBottomModal(label: label, options: options),
-  );
+  bottomModalWidgetMethod(
+      context: context,
+      builder: (context) => OptionsBottomModal(label: label, options: options));
 }
 
 void showEditOrder(context) async {
   double height = await StatusBarControl.getHeight;
-  showModalBottomSheet(
+  bottomModalWidgetMethod(
+      scrollControlled: true,
       context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
       builder: (context) => EditOrderBottomModal(
             height: height,
           ));
 }
 
 void showEditAddress(context) {
-  showModalBottomSheet(
+  bottomModalWidgetMethod(
+      scrollControlled: true,
       context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
       builder: (context) => Padding(
             padding: MediaQuery.of(context).viewInsets,
             child: const EditAddressWidget(),

@@ -100,7 +100,7 @@ class EditAddressWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             GreyLabel(
-                              text: 'Дом:',
+                              text: 'Улица:',
                               fontSize: 12,
                             ),
                             SizedBox(
@@ -121,13 +121,16 @@ class EditAddressWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             GreyLabel(
-                              text: 'Квартира:',
+                              text: 'Дом:',
                               fontSize: 12,
                             ),
                             SizedBox(
                               height: 5,
                             ),
-                            Container(height: 47, child: TextField()),
+                            Container(
+                              height: 47,
+                              child: TextField(),
+                            ),
                           ],
                         ),
                       ),
@@ -138,6 +141,24 @@ class EditAddressWidget extends StatelessWidget {
                   ),
                   Row(
                     children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            GreyLabel(
+                              text: 'Квартира:',
+                              fontSize: 12,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Container(height: 47, child: TextField()),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -154,7 +175,7 @@ class EditAddressWidget extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 30,
+                        width: 20,
                       ),
                       Expanded(
                         child: Column(

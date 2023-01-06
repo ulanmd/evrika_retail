@@ -10,9 +10,16 @@ import 'config/evrika_text_styles.dart';
 import 'utils/consts.dart';
 import 'config/evrika_colors.dart';
 
-class AboutInstallationTile extends StatelessWidget {
+class AboutInstallationTile extends StatefulWidget {
   const AboutInstallationTile({Key? key}) : super(key: key);
 
+  @override
+  State<AboutInstallationTile> createState() => _AboutInstallationTileState();
+}
+
+class _AboutInstallationTileState extends State<AboutInstallationTile> {
+  bool _customTileExpanded = false;
+  String _showHideText = 'Показать';
   @override
   Widget build(BuildContext context) {
     bool toDelivery = true;
@@ -24,18 +31,24 @@ class AboutInstallationTile extends StatelessWidget {
       ),
       child: ExpansionTile(
         title: Text(
-          'Информация о доставке',
+          'Информация об установке',
           style: TextStyle(fontSize: 17),
         ),
         trailing: InkWell(
           child: Text(
-            'Показать',
+            _showHideText,
             style: TextStyle(color: EvrikaColors.kPrimaryColor),
           ),
         ),
+        onExpansionChanged: (bool expanded) {
+          setState(() {
+            _customTileExpanded = expanded;
+            _showHideText = _customTileExpanded ? 'Скрыть' : 'Показать';
+          });
+        },
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             child: Column(
               children: [
                 Row(

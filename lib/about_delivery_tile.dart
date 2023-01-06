@@ -11,9 +11,16 @@ import 'package:flutter_svg/svg.dart';
 import 'bottom_date_picker.dart';
 import 'config/evrika_colors.dart';
 
-class AboutDeliveryTile extends StatelessWidget {
+class AboutDeliveryTile extends StatefulWidget {
   const AboutDeliveryTile({Key? key}) : super(key: key);
 
+  @override
+  State<AboutDeliveryTile> createState() => _AboutDeliveryTileState();
+}
+
+class _AboutDeliveryTileState extends State<AboutDeliveryTile> {
+  bool _customTileExpanded = false;
+  String _showHideText = 'Показать';
   @override
   Widget build(BuildContext context) {
     bool toDelivery = true;
@@ -28,10 +35,16 @@ class AboutDeliveryTile extends StatelessWidget {
             Text('Информация о доставке', style: EvrikaTextStyles.darkS17W400),
         trailing: InkWell(
           child: Text(
-            'Показать',
+            _showHideText,
             style: EvrikaTextStyles.primaryS15W400,
           ),
         ),
+        onExpansionChanged: (bool expanded) {
+          setState(() {
+            _customTileExpanded = expanded;
+            _showHideText = _customTileExpanded ? 'Скрыть' : 'Показать';
+          });
+        },
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0),
@@ -69,8 +82,7 @@ class AboutDeliveryTile extends StatelessWidget {
                             width: double.infinity,
                             child: RadioListTile(
                               dense: true,
-                              contentPadding:
-                                  EdgeInsets.zero,
+                              contentPadding: EdgeInsets.zero,
                               title: Row(
                                 children: [
                                   Expanded(

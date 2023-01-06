@@ -33,7 +33,7 @@ class _StatusFilterBottomModalState extends State<StatusFilterBottomModal> {
             children: [
               Center(
                   child: Text(
-                    'Выберите дату',
+                    'Выберите статус',
                     style: EvrikaTextStyles.darkS20W600,
                   )),
               Positioned(

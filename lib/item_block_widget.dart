@@ -64,46 +64,53 @@ class ItemBlockWidget extends StatelessWidget {
                         Spacer(),
                         isOnProcess
                             ? JustTheTooltip(
-                          controller: tooltipController,
-                          child: InkWell(
-                            onTap: (){
-                              tooltipController.showTooltip();
-                            },
-                            child: Container(
-                              width: 102,
-                              padding: EdgeInsets.symmetric(vertical: 3),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
-                                color: EvrikaColors.salesBgGreyColor,
-                              ),
-                              child: Center(child: Text('Скидки ⓘ', style: TextStyle(
-                                  fontSize: 12,
-                                  color: EvrikaColors.salesTextGrayColor),)),
-                            ),
-                          ),
-                          content: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                              child: Container(
-                                width: 253,
-                                height: 70,
-                                child: Column(
-                                  children: [
-                                    DiscountInfoRow(
-                                      name: 'Каскад:',
-                                      price: '400 ₸',
+                                controller: tooltipController,
+                                child: InkWell(
+                                  onTap: () {
+                                    tooltipController.showTooltip();
+                                  },
+                                  child: Container(
+                                    width: 102,
+                                    padding: EdgeInsets.symmetric(vertical: 3),
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5)),
+                                      color: EvrikaColors.salesBgGreyColor,
                                     ),
-                                    DiscountInfoRow(
-                                      name: 'Скидка:',
-                                      price: '400 ₸',
-                                    ),DiscountInfoRow(
-                                      name: 'Скидка:',
-                                      price: '400 ₸',
-                                    ),
-                                  ],
+                                    child: Center(
+                                        child: Text(
+                                      'Скидки ⓘ',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color:
+                                              EvrikaColors.salesTextGrayColor),
+                                    )),
+                                  ),
                                 ),
+                                content: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 10, horizontal: 15),
+                                    child: Container(
+                                      width: 253,
+                                      height: 70,
+                                      child: Column(
+                                        children: [
+                                          DiscountInfoRow(
+                                            name: 'Каскад:',
+                                            price: '400 ₸',
+                                          ),
+                                          DiscountInfoRow(
+                                            name: 'Скидка:',
+                                            price: '400 ₸',
+                                          ),
+                                          DiscountInfoRow(
+                                            name: 'Скидка:',
+                                            price: '400 ₸',
+                                          ),
+                                        ],
+                                      ),
+                                    )),
                               )
-                          ),
-                        )
                             : Container()
                       ],
                     ),
@@ -115,8 +122,14 @@ class ItemBlockWidget extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            GreyLabel(text: 'Склад:', fontSize: 10,),
-                            Text('На Севере', style: EvrikaTextStyles.darkS12W400,)
+                            GreyLabel(
+                              text: 'Склад:',
+                              fontSize: 10,
+                            ),
+                            Text(
+                              'На Севере',
+                              style: EvrikaTextStyles.darkS12W400,
+                            )
                           ],
                         ),
                         SizedBox(
@@ -125,7 +138,10 @@ class ItemBlockWidget extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            GreyLabel(text: 'Качество:', fontSize: 10,),
+                            GreyLabel(
+                              text: 'Качество:',
+                              fontSize: 10,
+                            ),
                             Text('Новое', style: EvrikaTextStyles.darkS12W400)
                           ],
                         ),
@@ -147,29 +163,43 @@ class ItemBlockWidget extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(10, 10, 16, 0),
             child: Row(
               children: [
-               isOnProcess ? Row(
-                  children: [
-                    InkWell(
-                        onTap: (){},
-                        child: SvgPicture.asset('$kAssetIcons/delete.svg')),
-                      SizedBox(width: 20,),
-                      InkWell(
-                          onTap: (){
-                            showEditOrder(context);
-                          },
-                          child: SvgPicture.asset('$kAssetIcons/edit.svg')),
-                  ],
-                ) : Container(),
+                isOnProcess
+                    ? Row(
+                        children: [
+                          InkWell(
+                              onTap: () {},
+                              child:
+                                  SvgPicture.asset('$kAssetIcons/delete.svg')),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          InkWell(
+                              onTap: () {
+                                showEditOrder(context);
+                              },
+                              child: SvgPicture.asset('$kAssetIcons/edit.svg')),
+                        ],
+                      )
+                    : Container(),
                 Spacer(),
-                Text('2 шт', style: EvrikaTextStyles.darkS13W500,),
+                Text(
+                  '2 шт х',
+                  style: EvrikaTextStyles.labelGrayS13W500,
+                ),
                 SizedBox(
                   width: 5,
                 ),
-                Text('x'),
-                SizedBox(
-                  width: 5,
+                Text(
+                  '50 000 ₸',
+                  style: EvrikaTextStyles.darkS14W500,
                 ),
-                PriceLabel(price: '100 000', fontSize: 14,)
+                SizedBox(
+                  width: 15,
+                ),
+                PriceLabel(
+                  price: '100 000',
+                  fontSize: 14,
+                )
               ],
             ),
           )

@@ -2,9 +2,12 @@ import 'package:evrika_retail/config/evrika_text_styles.dart';
 import 'package:evrika_retail/quantity_counter.dart';
 import 'package:evrika_retail/widgets/grey_label.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'custom_dropdown.dart';
 import 'config/evrika_colors.dart';
+import 'utils.dart';
+import 'utils/consts.dart';
 
 class AboutItemTile extends StatefulWidget {
   AboutItemTile({Key? key}) : super(key: key);
@@ -53,7 +56,36 @@ class _AboutItemTileState extends State<AboutItemTile> {
                 SizedBox(
                   height: 10,
                 ),
-                CustomDropdown(),
+                InkWell(
+                  onTap: () {
+                    showBottomOptions(context, 'Выберите склад',
+                        ['Север', 'Жанегельдина', 'Аэропорт']);
+                  },
+                  child: Container(
+                    height: 47,
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border:
+                          Border.all(width: 1, color: EvrikaColors.kLightColor),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Выберите склад',
+                          style: EvrikaTextStyles.darkS15W400,
+                        ),
+                        Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 5),
+                          child: SvgPicture.asset('$kAssetIcons/extend.svg'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -73,9 +105,37 @@ class _AboutItemTileState extends State<AboutItemTile> {
                           SizedBox(
                             height: 10,
                           ),
-                          CustomDropdown(
-                            isHalfScreen: true,
-                          ),
+                          InkWell(
+                            onTap: () {
+                              showBottomOptions(context, 'Выберите качество',
+                                  ['Новое', 'Витрина', 'Б/У']);
+                            },
+                            child: Container(
+                              height: 47,
+                              padding: EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                    width: 1, color: EvrikaColors.kLightColor),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Новое',
+                                    style: EvrikaTextStyles.darkS15W400,
+                                  ),
+                                  Spacer(),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 5),
+                                    child: SvgPicture.asset(
+                                        '$kAssetIcons/extend.svg'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),
