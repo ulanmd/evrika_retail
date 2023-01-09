@@ -195,23 +195,23 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             label: 'Онлайн',
             activeIcon: SvgPicture.asset(
-              '$kAssetIcons/ic_shop.svg',
+              '$kAssetIcons/shop-card_active.svg',
               color: EvrikaColors.darkColor,
             ),
             icon: SvgPicture.asset(
-              '$kAssetIcons/ic_shop.svg',
+              '$kAssetIcons/shop-card_inactive.svg',
               color: EvrikaColors.kLightGray,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Ccылка',
             activeIcon: SvgPicture.asset(
-              '$kAssetIcons/link.svg',
-              width: 16,
+              '$kAssetIcons/link_active.svg',
+              width: 20,
             ),
             icon: SvgPicture.asset(
-              '$kAssetIcons/link.svg',
-              width: 16,
+              '$kAssetIcons/link_inactive.svg',
+              width: 20,
               color: EvrikaColors.kLightGray,
             ),
           ),

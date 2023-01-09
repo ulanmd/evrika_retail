@@ -1,4 +1,5 @@
 import 'package:evrika_retail/config/evrika_text_styles.dart';
+import 'package:evrika_retail/utils.dart';
 import 'package:evrika_retail/utils/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -59,7 +60,14 @@ class ExtendTimeWidget extends StatelessWidget {
                     splashColor: Colors.transparent,
                     onTap: () {
                       tooltipController.hideTooltip();
-                      _showDevelopingDialog(context);
+                      showBottomOptions(context, 'Продление резерва', [
+                        'На час',
+                        'На 3 часа',
+                        'На день',
+                        'На 3 дня',
+                        'На 7 дней'
+                      ]);
+                      ;
                     },
                     child: Row(
                       // mainAxisAlignment: MainAxisAlignment.start,
