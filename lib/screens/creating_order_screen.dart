@@ -24,7 +24,6 @@ class _CreatingOrderScreenState extends State<CreatingOrderScreen> {
   bool check2 = false;
   int index = 0;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,342 +84,387 @@ class _CreatingOrderScreenState extends State<CreatingOrderScreen> {
                                 width: 1, color: EvrikaColors.kLightColor),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: ExpansionTile(
-                            title: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 20, horizontal: 5),
-                              child: Row(
-                                children: [
-                                  Placeholder(
-                                    fallbackHeight: 50,
-                                    fallbackWidth: 50,
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Column(
+                          child: Theme(
+                            data: Theme.of(context)
+                                .copyWith(dividerColor: Colors.transparent),
+                            child: ExpansionTile(
+                              title: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 5),
+                                child: Row(
+                                  children: [
+                                    Placeholder(
+                                      fallbackHeight: 50,
+                                      fallbackWidth: 50,
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text(
+                                          'iPhone 14 Pro Max 1Tb',
+                                          style: EvrikaTextStyles.darkS15W500,
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        PriceLabel(
+                                          price: '900 000',
+                                          fontSize: 15,
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              trailing: InkWell(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 20, horizontal: 5),
+                                  child: SvgPicture.asset(
+                                      '$kAssetIcons/extend.svg'),
+                                ),
+                              ),
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0, vertical: 5),
+                                  child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
                                     children: [
-                                      Text(
-                                        'iPhone 14 Pro Max 1Tb',
-                                        style: EvrikaTextStyles.darkS15W500,
+                                      GreyLabel(
+                                        text: 'Cклад:',
+                                        fontSize: 12,
                                       ),
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      PriceLabel(
-                                        price: '900 000',
-                                        fontSize: 15,
+                                      InkWell(
+                                        onTap: () {
+                                          showBottomOptions(
+                                              context, 'Выберите склад', [
+                                            'Север',
+                                            'Жанегельдина',
+                                            'Аэропорт'
+                                          ]);
+                                        },
+                                        child: Container(
+                                          height: 47,
+                                          padding: EdgeInsets.all(15),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            border: Border.all(
+                                                width: 1,
+                                                color:
+                                                    EvrikaColors.kLightColor),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Выберите склад',
+                                                style: EvrikaTextStyles
+                                                    .darkS15W400,
+                                              ),
+                                              Spacer(),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 5),
+                                                child: SvgPicture.asset(
+                                                    '$kAssetIcons/extend.svg'),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            flex: 9,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                GreyLabel(
+                                                  text: 'Качество:',
+                                                  fontSize: 12,
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                InkWell(
+                                                  onTap: () {
+                                                    showBottomOptions(context,
+                                                        'Выберите качество', [
+                                                      'Новое',
+                                                      'Витрина',
+                                                      'Б/У'
+                                                    ]);
+                                                  },
+                                                  child: Container(
+                                                    height: 47,
+                                                    padding: EdgeInsets.all(15),
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      border: Border.all(
+                                                          width: 1,
+                                                          color: EvrikaColors
+                                                              .kLightColor),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          'Новое',
+                                                          style:
+                                                              EvrikaTextStyles
+                                                                  .darkS15W400,
+                                                        ),
+                                                        Spacer(),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(top: 5),
+                                                          child: SvgPicture.asset(
+                                                              '$kAssetIcons/extend.svg'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                )
+                                                // CustomDropdown(
+                                                //   isHalfScreen: true,
+                                                // ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+                                          Expanded(
+                                            flex: 10,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                GreyLabel(
+                                                  text: 'Количество:',
+                                                  fontSize: 12,
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                QuantityCounter()
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color:
+                                                        EvrikaColors.kLightGray,
+                                                    width: 1),
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                              ),
+                                              child: Row(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 15,
+                                                            bottom: 15,
+                                                            left: 17,
+                                                            right: 10),
+                                                    child: SizedBox(
+                                                      width: 20,
+                                                      height: 20,
+                                                      child: Checkbox(
+                                                          fillColor: MaterialStateProperty
+                                                              .all(Colors
+                                                                  .transparent),
+                                                          side:
+                                                              MaterialStateBorderSide
+                                                                  .resolveWith(
+                                                                      (states) {
+                                                            if (states.contains(
+                                                                MaterialState
+                                                                    .pressed)) {
+                                                              return BorderSide(
+                                                                  color: EvrikaColors
+                                                                      .kPrimaryColor);
+                                                            } else {
+                                                              return BorderSide(
+                                                                  color: EvrikaColors
+                                                                      .kPrimaryColor);
+                                                            }
+                                                          }),
+                                                          checkColor:
+                                                              EvrikaColors
+                                                                  .kPrimaryColor,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5)),
+                                                          activeColor:
+                                                              EvrikaColors
+                                                                  .white,
+                                                          focusColor:
+                                                              EvrikaColors
+                                                                  .white,
+                                                          value: check1,
+                                                          onChanged:
+                                                              (bool? value) {
+                                                            setState(() {
+                                                              check1 = value!;
+                                                              if (check1)
+                                                                showDeliveryOptions(
+                                                                    context);
+                                                            });
+                                                          }),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    'С доставкой',
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: EvrikaColors
+                                                            .darkColor),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 15,
+                                          ),
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color:
+                                                        EvrikaColors.kLightGray,
+                                                    width: 1),
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                              ),
+                                              child: Row(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 15,
+                                                            bottom: 15,
+                                                            left: 17,
+                                                            right: 10),
+                                                    child: SizedBox(
+                                                      width: 17,
+                                                      height: 17,
+                                                      child: Checkbox(
+                                                          fillColor: MaterialStateProperty
+                                                              .all(Colors
+                                                                  .transparent),
+                                                          side:
+                                                              MaterialStateBorderSide
+                                                                  .resolveWith(
+                                                                      (states) {
+                                                            if (states.contains(
+                                                                MaterialState
+                                                                    .pressed)) {
+                                                              return BorderSide(
+                                                                  color: EvrikaColors
+                                                                      .kPrimaryColor);
+                                                            } else {
+                                                              return BorderSide(
+                                                                  color: EvrikaColors
+                                                                      .kPrimaryColor);
+                                                            }
+                                                          }),
+                                                          checkColor:
+                                                              EvrikaColors
+                                                                  .kPrimaryColor,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5)),
+                                                          activeColor:
+                                                              EvrikaColors
+                                                                  .white,
+                                                          focusColor:
+                                                              EvrikaColors
+                                                                  .white,
+                                                          value: check2,
+                                                          onChanged:
+                                                              (bool? value) {
+                                                            setState(() {
+                                                              check2 = value!;
+                                                              //  if (check1) _showBottomAddressFrom();
+                                                            });
+                                                          }),
+                                                    ),
+                                                  ),
+                                                  const Text(
+                                                    'С установкой',
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: EvrikaColors
+                                                            .darkColor),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      AboutOrderOptions(),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      AboutOrderOptions(),
+                                      SizedBox(
+                                        height: 20,
                                       )
                                     ],
                                   ),
-                                ],
-                              ),
+                                )
+                              ],
                             ),
-                            trailing: InkWell(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 5),
-                                child:
-                                    SvgPicture.asset('$kAssetIcons/extend.svg'),
-                              ),
-                            ),
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0, vertical: 5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    GreyLabel(
-                                      text: 'Cклад:',
-                                      fontSize: 12,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    InkWell(
-                                      onTap: (){
-                                        showBottomOptions(context, 'Выберите склад',
-                                            ['Север', 'Жанегельдина', 'Аэропорт']
-                                        );
-                                      },
-                                      child: Container(
-                                        height: 47,
-                                        padding: EdgeInsets.all(15),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          border: Border.all(width: 1, color: EvrikaColors.kLightColor),
-                                          borderRadius: BorderRadius.circular(5),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Text('Выберите склад', style: EvrikaTextStyles.darkS15W400,),
-                                            Spacer(),
-                                            Padding(
-                                              padding: const EdgeInsets.only(top:5),
-                                              child: SvgPicture.asset('$kAssetIcons/extend.svg'),
-                                            ),
-                                          ],),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Expanded(
-                                          flex: 9,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              GreyLabel(
-                                                text: 'Качество:',
-                                                fontSize: 12,
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              InkWell(
-                                                onTap: (){
-                                                  showBottomOptions(context, 'Выберите качество',
-                                                  ['Новое', 'Витрина', 'Б/У']
-                                                  );
-                                                },
-                                                child: Container(
-                                                  height: 47,
-                                                  padding: EdgeInsets.all(15),
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    border: Border.all(width: 1, color: EvrikaColors.kLightColor),
-                                                    borderRadius: BorderRadius.circular(5),
-                                                  ),
-                                                 child: Row(
-                                                   mainAxisAlignment: MainAxisAlignment.start,
-                                                   children: [
-                                                   Text('Новое', style: EvrikaTextStyles.darkS15W400,),
-                                                   Spacer(),
-                                                   Padding(
-                                                     padding: const EdgeInsets.only(top:5),
-                                                     child: SvgPicture.asset('$kAssetIcons/extend.svg'),
-                                                   ),
-                                                 ],),
-                                                ),
-                                              )
-                                              // CustomDropdown(
-                                              //   isHalfScreen: true,
-                                              // ),
-                                            ],
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 15,
-                                        ),
-                                        Expanded(
-                                          flex: 10,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              GreyLabel(
-                                                text: 'Количество:',
-                                                fontSize: 12,
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              QuantityCounter()
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          flex: 1,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color:
-                                                      EvrikaColors.kLightGray,
-                                                  width: 1),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            child: Row(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 15,
-                                                          bottom: 15,
-                                                          left: 17,
-                                                          right: 10),
-                                                  child: SizedBox(
-                                                    width: 20,
-                                                    height: 20,
-                                                    child: Checkbox(
-                                                        fillColor:
-                                                            MaterialStateProperty
-                                                                .all(Colors
-                                                                    .transparent),
-                                                        side: MaterialStateBorderSide
-                                                            .resolveWith(
-                                                                (states) {
-                                                          if (states.contains(
-                                                              MaterialState
-                                                                  .pressed)) {
-                                                            return BorderSide(
-                                                                color: EvrikaColors
-                                                                    .kPrimaryColor);
-                                                          } else {
-                                                            return BorderSide(
-                                                                color: EvrikaColors
-                                                                    .kPrimaryColor);
-                                                          }
-                                                        }),
-                                                        checkColor: EvrikaColors
-                                                            .kPrimaryColor,
-                                                        shape: RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5)),
-                                                        activeColor:
-                                                            EvrikaColors.white,
-                                                        focusColor:
-                                                            EvrikaColors.white,
-                                                        value: check1,
-                                                        onChanged:
-                                                            (bool? value) {
-                                                          setState(() {
-                                                            check1 = value!;
-                                                            if (check1)
-                                                              showDeliveryOptions(
-                                                                  context);
-                                                          });
-                                                        }),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  'С доставкой',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: EvrikaColors
-                                                          .darkColor),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 15,
-                                        ),
-                                        Expanded(
-                                          flex: 1,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color:
-                                                      EvrikaColors.kLightGray,
-                                                  width: 1),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            child: Row(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 15,
-                                                          bottom: 15,
-                                                          left: 17,
-                                                          right: 10),
-                                                  child: SizedBox(
-                                                    width: 17,
-                                                    height: 17,
-                                                    child: Checkbox(
-                                                        fillColor:
-                                                            MaterialStateProperty
-                                                                .all(Colors
-                                                                    .transparent),
-                                                        side: MaterialStateBorderSide
-                                                            .resolveWith(
-                                                                (states) {
-                                                          if (states.contains(
-                                                              MaterialState
-                                                                  .pressed)) {
-                                                            return BorderSide(
-                                                                color: EvrikaColors
-                                                                    .kPrimaryColor);
-                                                          } else {
-                                                            return BorderSide(
-                                                                color: EvrikaColors
-                                                                    .kPrimaryColor);
-                                                          }
-                                                        }),
-                                                        checkColor: EvrikaColors
-                                                            .kPrimaryColor,
-                                                        shape: RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5)),
-                                                        activeColor:
-                                                            EvrikaColors.white,
-                                                        focusColor:
-                                                            EvrikaColors.white,
-                                                        value: check2,
-                                                        onChanged:
-                                                            (bool? value) {
-                                                          setState(() {
-                                                            check2 = value!;
-                                                            //  if (check1) _showBottomAddressFrom();
-                                                          });
-                                                        }),
-                                                  ),
-                                                ),
-                                                const Text(
-                                                  'С установкой',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: EvrikaColors
-                                                          .darkColor),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    AboutOrderOptions(),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    AboutOrderOptions(),
-                                    SizedBox(
-                                      height: 20,
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
                           ),
                         ),
                         SizedBox(

@@ -64,3 +64,4 @@ final ThemeData evrikaTheme = ThemeData(
   elevatedButtonTheme: _elevatedButtonThemeData,
   outlinedButtonTheme: _outlinedButtonThemeData,
 );
+

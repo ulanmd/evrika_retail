@@ -12,7 +12,9 @@ class AboutOrderOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: EvrikaColors.boxShadowColor),
+      decoration: BoxDecoration(
+          color: EvrikaColors.boxShadowColor,
+          borderRadius: BorderRadius.circular(5)),
       padding: EdgeInsets.all(10),
       child: Column(
         children: [
@@ -20,8 +22,7 @@ class AboutOrderOptions extends StatelessWidget {
             children: [
               Text(
                 'Информация о доставке',
-                style:
-                    EvrikaTextStyles.primaryS13W500,
+                style: EvrikaTextStyles.primaryS13W500,
               ),
               Spacer(),
               InkWell(
@@ -70,7 +71,10 @@ class AboutOrderOptions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text('+7 777 202 45 54', style: EvrikaTextStyles.darkS12W400,)
+                    Text(
+                      '+7 777 202 45 54',
+                      style: EvrikaTextStyles.darkS12W400,
+                    )
                   ],
                 ),
               ),
@@ -85,7 +89,10 @@ class AboutOrderOptions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text('+7 777 202 45 54', style: EvrikaTextStyles.darkS12W400,)
+                    Text(
+                      '+7 777 202 45 54',
+                      style: EvrikaTextStyles.darkS12W400,
+                    )
                   ],
                 ),
               )
@@ -104,7 +111,11 @@ class AboutOrderOptions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Expanded(child: Text('from scrum business center', style: EvrikaTextStyles.darkS12W400,))
+                    Expanded(
+                        child: Text(
+                      'from scrum business center',
+                      style: EvrikaTextStyles.darkS12W400,
+                    ))
                   ],
                 ),
               ),
@@ -115,7 +126,10 @@ class AboutOrderOptions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text('17:00 - 21:00', style: EvrikaTextStyles.darkS12W400,)
+                    Text(
+                      '17:00 - 21:00',
+                      style: EvrikaTextStyles.darkS12W400,
+                    )
                   ],
                 ),
               )

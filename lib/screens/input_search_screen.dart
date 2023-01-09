@@ -42,7 +42,7 @@ class InputSearchScreen extends StatelessWidget {
                     loading.setLoading(true);
                     print('you clicked me');
                     var byId =
-                    await HttpRequests.getCategoryByText(controller.text);
+                        await HttpRequests.getCategoryByText(controller.text);
                     List<dynamic> fromJson = jsonDecode(byId.body);
                     for (var i in fromJson) {
                       inputSearchState.addItem(
@@ -53,19 +53,26 @@ class InputSearchScreen extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: 'Введите название товара...',
                     suffixIcon: IconButton(
-                      onPressed: !loading.isLoading ? () async {
-                        loading.setLoading(true);
-                        print('you clicked me');
-                        var byId =
-                            await HttpRequests.getCategoryByText(controller.text);
-                        List<dynamic> fromJson = jsonDecode(byId.body);
-                        for (var i in fromJson) {
-                          inputSearchState.addItem(
-                              Item.fromJson(fromJson[fromJson.indexOf(i)]));
-                        }
-                        loading.setLoading(false);
-                      }: null,
-                      icon: SvgPicture.asset('$kAssetIcons/search.svg', color: loading.isLoading ? EvrikaColors.lightBlue : EvrikaColors.kPrimaryColor,),
+                      onPressed: !loading.isLoading
+                          ? () async {
+                              loading.setLoading(true);
+                              print('you clicked me');
+                              var byId = await HttpRequests.getCategoryByText(
+                                  controller.text);
+                              List<dynamic> fromJson = jsonDecode(byId.body);
+                              for (var i in fromJson) {
+                                inputSearchState.addItem(Item.fromJson(
+                                    fromJson[fromJson.indexOf(i)]));
+                              }
+                              loading.setLoading(false);
+                            }
+                          : null,
+                      icon: SvgPicture.asset(
+                        '$kAssetIcons/search.svg',
+                        color: loading.isLoading
+                            ? EvrikaColors.lightBlue
+                            : EvrikaColors.kPrimaryColor,
+                      ),
                     ),
                     contentPadding: EdgeInsets.fromLTRB(15.0, 10.0, 20.0, 10.0),
                   ),
@@ -109,7 +116,7 @@ class InputSearchScreen extends StatelessWidget {
                                             width: 15,
                                           ),
                                           TextButton(
-                                            onPressed: (){
+                                            onPressed: () {
                                               print('i was tapped');
                                               order.addItem(inputSearchState
                                                   .loadedItems[index]);
